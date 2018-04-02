@@ -1,0 +1,26 @@
+.edit_logo{
+    margin-left: 150px;
+}
+.edit_judul_form{
+    float: right;
+}
+.bar_atas{
+    float: right;
+    margin-right: 230px;
+}
+.jarak{
+    margin-right: 45px;
+    font-size: 9.5pt;
+}
+.card_edit{
+    padding-left: 15px;
+    padding-right: 115px;
+    margin-top: -10px;
+    width: 1000px;
+}
+.edit_btn{
+    width: 320px;
+    margin-left: 55px;
+    margin-top: 60px;
+    margin-bottom: -110px;
+}
