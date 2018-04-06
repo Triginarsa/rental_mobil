@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                     <input type="text" class="form-control" id="val-username" name="val-nama" placeholder="Nama Lengkap">
-                                                </div> 
+                                            </div> 
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -148,7 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     </label>
                                                         <select class="form-control" id="val-provinsi" name="val-provinsi">
                                                         <option value="">Pilih provinsi Anda</option>
-                                                        <?php foreach($data1 as $a){ ?>
+                                                        <?php foreach($provinsi as $a){ ?>
                                                             <option value="<?php echo $a['id_provinsi']; ?>"><?php echo $a['provinsi']; ?></option>
                                                         <?php } ?>
                                                     </select>

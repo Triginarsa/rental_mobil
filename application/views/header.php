@@ -3,7 +3,7 @@
                     <a href="<?php echo base_url()."index.php/welcome/hlm_login_join";?>" class="jarak">JOIN RENTCAR</a>
                     <a href="#" class="jarak">PESANAN</a>
                     <a href="<?php echo base_url()."index.php/welcome/hlm_login";?>"" class="jarak">LOGIN </a>
-                    <a href="<?php echo base_url()."index.php/welcome/hlm_daftar";?>" class="jarak">DAFTAR</a>
+                    <a href="<?php echo base_url()."index.php/controller_register/hlm_daftar";?>" class="jarak">DAFTAR</a>
                 </span>
             </div>
             <div class="header">

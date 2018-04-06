@@ -47,7 +47,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- End Bread crumb -->
                 <!-- Container fluid  -->
             <!--content-->
-            <h3>ini halaman welcome </h3>
+            <h3>ini halaman welcome User </h3>
+            <?php echo $login->nama; ?>
             <!--end content-->
             <!-- End Container fluid  -->
             <!-- footer -->

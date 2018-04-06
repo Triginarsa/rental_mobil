@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-7"><!--mengganti ukuran form-->
                 <div class="card card-outline-primary">
                     <div class="card-body">
-                        <form class="form-valide" action="#">
+                        <form class="form-valide" action="<?php echo base_url()."index.php/controller_register/insert_data_join";?>" method="post">
                             <div class="form-body">
                                 <div class="row p-t-20">
                                     <div class="col-md-6">
@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <label class="control-label">Nama lengkap
                                                     <span class="text-danger">*</span>
                                                 </label>
-                                                    <input type="text" class="form-control" id="val-username" name="val-nama" placeholder="Nama Lengkap">
+                                                    <input type="text" class="form-control" id="val-nama" name="val-nama" placeholder="Nama Lengkap">
                                                 </div> 
                                             </div>
                                         </div>
@@ -177,8 +177,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     </label>
                                                         <select class="form-control" id="val-provinsi" name="val-provinsi">
                                                         <option value="">Pilih provinsi Anda</option>
-                                                        <?php foreach($data1 as $a){ ?>
-                                                            <option value="<?php echo $a['id_provinsi']; ?>"><?php echo $a['provinsi']; ?></option>
+                                                        <?php foreach($provinsi as $ab){ ?>
+                                                            <option value="<?php echo $ab['id_provinsi']; ?>"><?php echo $ab['provinsi']; ?></option>
                                                         <?php } ?>
                                                     </select>
                                                     </div>
@@ -195,11 +195,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <label class="control-label">Kota
                                                         <span class="text-danger">*</span>
                                                     </label>
-                                                        <select class="form-control" id="val-kota" name="val-kota">
+                                                        <select class="form-control" id="val-kota" name="val-kota" disabled="">
                                                         <option value="">Pilih provinsi Anda</option>
-                                                        <?php foreach($data1 as $a){ ?>
-                                                            <option value="<?php echo $a['id_provinsi']; ?>"><?php echo $a['provinsi']; ?></option>
-                                                        <?php } ?>
                                                     </select>
                                                     </div>
                                                 </div>
@@ -234,6 +231,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="<?php echo base_url('assets/js/sidebarmenu.js')?>"></script>
         <!--stickey kit -->
         <script src="<?php echo base_url('assets/js/lib/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $('#val-provinsi').on('change', function(){
+                var id_provinsi = $(this).val();
+                if(id_provinsi==''){
+                    $('#val-kota').prop('disabled', true);
+                }else{
+                    $('#val-kota').prop('disabled', false);
+                    $.ajax({
+                        url:"<?php echo base_url()?>controller_register/get_kota",
+                        type: "POST",
+                        data: {'id_provinsi' : id_provinsi},
+                        dataType: 'json',
+                        success: function(data){
+                            $('#val-kota').html(data);
+                        },
+                        error: function(){
+                            alert('data kota tidak ada...');
+                        }
+                    });
+                }
+            });
+        });
+        </script>
         
 
         <!-- Form validation -->

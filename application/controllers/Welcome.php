@@ -9,17 +9,8 @@ class Welcome extends CI_Controller {
 		// $this->load->view('tabel', array('data1' => $data1));
 	}
 
-	public function hlm_daftar(){
-		$data1= $this->mymodel->get_provinsi_query();
-		$this->load->view('halaman_daftar', array('data1' => $data1));
-	}
-
 	public function hlm_login(){
 		$this->load->view('halaman_login');
-	}
-
-	public function hlm_daftar_join(){
-		$this->load->view('halaman_daftar_join');
 	}
 
 	public function hlm_login_join(){

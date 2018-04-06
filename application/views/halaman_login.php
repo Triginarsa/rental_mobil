@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="card-body"> 
                         <h2><b>Selamat datang di RentCar Silahkan login</b></h2>
                             <span>sudah menjadi member?
-                                <a href="<?php echo base_url()."index.php/welcome/hlm_daftar";?>"> Daftar </a>disini</span>
+                                <a href="<?php echo base_url()."index.php/controller_register/hlm_daftar";?>"> Daftar </a>disini</span>
                     </div>
                 </div>
             </div>
