@@ -23,6 +23,16 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
+            <style type="text/css">
+                .small-box{
+                    background-color: white;
+                    text-align: center;
+                    margin-right: 100px;
+                }
+                #hehe{
+                    margin-right: 100px;
+                }
+            </style>
         </head>
         <body class="fix-header">
         <!-- Preloader - style you can find in spinners.css -->
@@ -46,143 +56,116 @@
                     <!-- Container fluid  -->
                 <div class="container-fluid edit_form">
                     <!-- Start Page Content -->
-                    
-                    <!-- page content -->
-                    <div class="card_edit2 col-lg-9"><!--mengganti ukuran form-->
-                        <div class="card card-outline-primary">
+                    <div class="card_edit2 col-lg-9">
+                        <div class="card">
                             <div class="card-body">
-                                <form class="form-valide" action="<?php echo base_url()."index.php/controller_register/insert_data";?>" method="post">
-                                    <div class="form-body">
-                                        <div class="row p-t-20">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <label class="control-label">Nama lengkap
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                            <input type="text" class="form-control" id="val-username" name="val-nama" placeholder="Nama Lengkap">
-                                                    </div> 
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <label class="control-label">Alamat Email
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <input type="text" class="form-control" id="val-email" name="val-email" placeholder="Mohon isi alamat email Anda">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                        </div>
-                                        <!--/row-->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <label class="control-label">Kata Sandi
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <input type="password" class="form-control" id="val-password" name="val-password" placeholder="Minimal 6 karakter">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <label class="control-label">Tulis ulang kata sandi
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password" placeholder="Mohon tulis ulang kata sandi Anda">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                        </div>
-                                        <!--/row-->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <label class="control-label">Alamat
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <input type="text" class="form-control" id="val-alamat" name="val-alamat" placeholder="Mohon isi alamat Anda">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <label class="control-label">Nomor Handphone
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <input type="text" class="form-control" id="val-phone" name="val-phone" placeholder="Mohon isi nomor handphone Anda">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                        </div>
-                                        <!--/row-->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <label class="control-label">Provinsi
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <select class="form-control" id="val-provinsi" name="val-provinsi">
-                                                            <option value="">Pilih provinsi Anda</option>
-                                                                <?php foreach($provinsi as $a){ ?>
-                                                                    <option value="<?php echo $a['id_provinsi']; ?>"><?php echo $a['provinsi']; ?></option>
-                                                                <?php } ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div class="">
-                                                        <label class="css-control css-control-primary css-checkbox" for="val-terms">
-                                                            <input type="checkbox" class="css-control-input" id="val-terms" name="val-terms" value="1">
-                                                            <span class="css-control-indicator">Saya menyetujui</span> 
-                                                            <a href="#">Kebijakan Privasi RentCar
-                                                                <span class="text-danger">*</span>
-                                                            </a>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <button type="submit" class="btn col-lg-12 btn-success">DAFTAR</button>
-                                            </div>
-                                            <!--/span-->
-                                        </div>
-                                        <!--row-->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div>
-                                                        <label class="control-label">Kota
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <select class="form-control" id="val-kota" name="val-kota" disabled="">
-                                                            <option value="">Pilih kota Anda</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <!--/span-->
-                                        </div>
-                                    </div>
-                                </form>
+                                <table border="0" class="col-lg-12" id="hehe">
+                                    <thead>
+                                        <tr>
+                                            <th width="220"></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th width="190"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="3" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
+                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
+                                            <td>Price: $80.00/day</td>
+                                        </tr>
+                                         <tr>
+                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
+                                            <td bgcolor="orange">Available to book now</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transmisi : Automatic</td>
+                                            <td>Bahan Bakar : Bensin</td>
+                                            <td>Jumlah Penumpang : 4</td>
+                                            <td>Nomor Polisi : BK 1777 WE</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><hr></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
+                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
+                                            <td>Price: $80.00/day</td>
+                                        </tr>
+                                         <tr>
+                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
+                                            <td bgcolor="orange">Available to book now</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transmisi : Automatic</td>
+                                            <td>Bahan Bakar : Bensin</td>
+                                            <td>Jumlah Penumpang : 4</td>
+                                            <td>Nomor Polisi : BK 1777 WE</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><hr></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3" height="100">Gambar</td>
+                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
+                                            <td>Price: $80.00/day</td>
+                                        </tr>
+                                         <tr>
+                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
+                                            <td bgcolor="orange">Available to book now</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transmisi : Automatic</td>
+                                            <td>Bahan Bakar : Bensin</td>
+                                            <td>Jumlah Penumpang : 4</td>
+                                            <td>Nomor Polisi : BK 1777 WE</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><hr></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3" height="100">Gambar</td>
+                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
+                                            <td>Price: $80.00/day</td>
+                                        </tr>
+                                         <tr>
+                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
+                                            <td bgcolor="orange">Available to book now</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transmisi : Automatic</td>
+                                            <td>Bahan Bakar : Bensin</td>
+                                            <td>Jumlah Penumpang : 4</td>
+                                            <td>Nomor Polisi : BK 1777 WE</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><hr></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3" height="100">Gambar</td>
+                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
+                                            <td>Price: $80.00/day</td>
+                                        </tr>
+                                         <tr>
+                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
+                                            <td bgcolor="orange">Available to book now</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transmisi : Automatic</td>
+                                            <td>Bahan Bakar : Bensin</td>
+                                            <td>Jumlah Penumpang : 4</td>
+                                            <td>Nomor Polisi : BK 1777 WE</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><hr></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
+                    <!-- page content -->
+                    
                     <!-- /page content -->
 
                     <!-- End Page Content -->
