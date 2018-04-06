@@ -11,9 +11,9 @@ class Controller_login extends CI_Controller {
 			if($hasil >0){
 				$login = $this->model_login->get_status($user_email,$user_pass);
 				if($login->status == 'user'){
-					$this->load->view('welcome_message', array('login' => $login));
+					$this->load->view('after_login/pengguna/beranda_pengguna', array('login' => $login));
 				}elseif($login->status == 'admin'){
-					redirect('welcome/beranda');
+					$this->load->view('welcome_message');
 				}else{
 					redirect('welcome/hlm_login');
 				}
