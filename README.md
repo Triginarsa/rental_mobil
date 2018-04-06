@@ -1,4 +1,4 @@
-# rental_mobil
+
 <p align="center"><b>Projek Kelompok 11 Rental Mobil</b></p>
 
 ## Penjelasan Projek
