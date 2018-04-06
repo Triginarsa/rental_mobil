@@ -10,4 +10,5 @@
 <p align="center">2018</p>
 
 ## Keterangan
-<p>file database ada di dalam folder, bernama "rental_mobil.sql"
+<p>file database ada di dalam folder, bernama "rental_mobil.sql"</p>
+<p>menggunakan framework CodeIgniter</p>
