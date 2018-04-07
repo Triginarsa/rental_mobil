@@ -88,7 +88,52 @@ var form_validation = function() {
                     },
                     "val-terms": {
                         required: !0
-                    }
+                    },
+
+
+
+                    "val-nomorpolisi": {
+                        required: !0
+                    },
+                    "val-merkmobil": {
+                        required: !0
+                    },
+                    "val-tipemobil": {
+                        required: !0
+                    },
+                    "val-tahunrakit": {
+                        required: !0
+                    },
+                    "val-nomorrangka": {
+                        required: !0
+                    },
+                    "val-nomormesin": {
+                        required: !0
+                    },
+                    "val-bahanbakar": {
+                        required: !0
+                    },
+                    "val-jumlahcc": {
+                        required: !0
+                    },
+                    "val-transmisi": {
+                        required: !0
+                    },
+                    "val-fasilitas": {
+                        required: !0
+                    },
+                    "val-jumlahpenumpang": {
+                        required: !0
+                    },
+                    "val-biayasewa": {
+                        required: !0
+                    },
+                    "gambar-mobil": {
+                        required: !0,
+                        url: !0
+                    },
+
+
                 },
                 messages: {
                     "val-nama": {
@@ -136,6 +181,48 @@ var form_validation = function() {
                     "val-number": "Please enter a number!",
                     "val-range": "Please enter a number between 1 and 5!",
                     "val-terms": "Anda harus menyetujui ketentuan layanan"
+                    },
+
+
+                    "val-nomorpolisi": {
+                        required: "Anda harus mengisi kolom ini"
+                    },
+                    "val-merkmobil": {
+                        required: "Anda harus mengisi kolom ini"
+                    },
+                    "val-tipemobil": {
+                        required: "Anda harus mengisi kolom ini"
+                    },
+                    "val-tahunrakit": {
+                        required: "Mesin dirakit Tahun 1900-2000an",
+                        minlength: "4"
+                    },
+                    "val-nomorrangka": {
+                        required: "Anda harus mengisi kolom ini"
+                    },
+                    "val-nomormesin": {
+                        required: "Anda harus mengisi kolom ini"
+                    },
+                    "val-bahanbakar": {
+                        required: "Anda harus mengisi kolom ini"
+                    },
+                    "val-jumlahcc": {
+                        required: "Anda harus mengisi kolom ini"
+                    },
+                    "val-transmisi": {
+                        required: "Anda harus mengisi kolom ini"
+                    },
+                    "val-fasilitas": {
+                        required: "Anda harus mengisi kolom ini"
+                    },
+                    "val-jumlahpenumpang": {
+                        required: "Anda harus mengisi kolom ini"
+                    "val-biayasewa": {
+                        required: "Anda harus mengisi kolom ini"
+                    },
+                    "gambar-mobil": {
+                        required: "Anda harus mengisi kolom ini"
+                    }
                 }
             })
         }

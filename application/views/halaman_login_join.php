@@ -51,7 +51,7 @@
                             <div class="card-body"> 
                                 <h2><b>Terima Kasih telah bergabung di RentCar Silahkan login</b></h2>
                                     <span>mari bergabung bersama kami
-                                        <a href="<?php echo base_url()."index.php/controller_register/hlm_daftar_join";?>"> Daftar </a>disini
+                                        <a href="<?php echo base_url()."controller_register/hlm_daftar_join";?>"> Daftar </a>disini
                                     </span>
                             </div>
                         </div>
