@@ -10,7 +10,7 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Halaman Daftar</title>
+            <title>RentCar | Daftar Mitra RentCar</title>
             <!-- Bootstrap Core CSS -->
             <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
@@ -33,7 +33,7 @@
             <!-- Main wrapper  -->
             <div id="main-wrapper">
                 <!-- header header  -->
-                <?php include 'header.php'; ?>
+                <?php include 'header_mitra.php'; ?>
                 
                 <!-- End header header -->
                 <!-- Left Sidebar  -->
@@ -49,9 +49,9 @@
                     <div class="col-lg-7">
                         <div class="card">
                             <div class="card-body"> 
-                                <h2><b>Buat Akun Join RentCar Anda</b></h2>
+                                <h2><b>Buat Akun Mitra RentCar Anda</b></h2>
                                     <span>sudah bergabung?
-                                        <a href="<?php echo base_url()."index.php/welcome/hlm_login_join";?>"> Login </a>disini
+                                        <a href="<?php echo base_url()."index.php/auth_mitra";?>"> Login </a>disini
                                     </span>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                     <div class="col-lg-7"><!--mengganti ukuran form-->
                         <div class="card card-outline-primary">
                             <div class="card-body">
-                                <form class="form-valide" action="<?php echo base_url()."index.php/controller_register/insert_data_join";?>" method="post">
+                                <form class="form-valide" action="<?php echo base_url()."index.php/c_register_mitra/insert_data";?>" method="post">
                                     <div class="form-body">
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
@@ -239,7 +239,7 @@
                     }else{
                         $('#val-kota').prop('disabled', false);
                         $.ajax({
-                            url:"<?php echo base_url()?>controller_register/get_kota",
+                            url:"<?php echo base_url()?>c_get_kota",
                             type: "POST",
                             data: {'id_provinsi' : id_provinsi},
                             dataType: 'json',

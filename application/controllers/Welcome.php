@@ -3,14 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 	public function index(){
-		$this->load->view('beranda');
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$this->load->view('/before_login/halaman_beranda', array('provinsi' => $provinsi)); //'provinsi' -->sesuai field tb_provinsi
+		
+		//redirect('controller_beranda/hlm_beranda');
 		//echo base_url();
 		// $data1= $this->mymodel->get_provinsi_query();
 		// $this->load->view('tabel', array('data1' => $data1));
 	}
 
 	public function hlm_login(){
-		$this->load->view('halaman_login');
+		redirect('auth');
 	}
 
 	public function hlm_login_join(){

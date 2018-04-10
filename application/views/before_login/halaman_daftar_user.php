@@ -10,7 +10,7 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Halaman Daftar</title>
+            <title>RentCar | Daftar Akun</title>
             <!-- Bootstrap Core CSS -->
             <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
@@ -33,7 +33,7 @@
             <!-- Main wrapper  -->
             <div id="main-wrapper">
                 <!-- header header  -->
-                <?php include 'header.php'; ?>
+                <?php include 'header_user.php'; ?>
                 
                 <!-- End header header -->
                 <!-- Left Sidebar  -->
@@ -51,7 +51,7 @@
                             <div class="card-body"> 
                                 <h2><b>Buat Akun RentCar Anda</b></h2>
                                     <span>sudah menjadi member?
-                                        <a href="<?php echo base_url()."index.php/welcome/hlm_login";?>"> Login </a>disini</span>
+                                        <a href="<?php echo base_url()."index.php/auth_user";?>"> Login </a>disini</span>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                     <div class="col-lg-7"><!--mengganti ukuran form-->
                         <div class="card card-outline-primary">
                             <div class="card-body">
-                                <form class="form-valide" action="<?php echo base_url()."index.php/controller_register/insert_data";?>" method="post">
+                                <form class="form-valide" action="<?php echo base_url()."index.php/c_register_user/insert_data";?>" method="post">
                                     <div class="form-body">
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
@@ -184,6 +184,13 @@
                                                 </div>
                                             </div>
                                             <!--/span-->
+                                            <div class="edit_ntf">
+                                            <?php 
+                                                        $info = $this->session->flashdata('info');
+                                                        if(!empty($info)){
+                                                            echo $info;
+                                                        }
+                                                    ?></div>
                                             <!--/span-->
                                         </div>
                                     </div>
@@ -223,7 +230,7 @@
                         }else{
                             $('#val-kota').prop('disabled', false);
                             $.ajax({
-                                url:"<?php echo base_url()?>controller_register/get_kota",
+                                url:"<?php echo base_url()?>c_get_kota",
                                 type: "POST",
                                 data: {'id_provinsi' : id_provinsi},
                                 dataType: 'json',
@@ -238,11 +245,60 @@
                     });
                 });
             </script>
-
+            <!--Header Data Kota -->
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#provinsi').on('change', function(){
+                        var id_provinsi = $(this).val();
+                        if(id_provinsi==''){
+                            $('#kota').prop('disabled', true);
+                        }else{
+                            $('#kota').prop('disabled', false);
+                            $.ajax({
+                                url:"<?php echo base_url()?>c_get_kota",
+                                type: "POST",
+                                data: {'id_provinsi' : id_provinsi},
+                                dataType: 'json',
+                                success: function(data){
+                                    $('#kota').html(data);
+                                },
+                                error: function(){
+                                    alert('data kota tidak ada...');
+                                }
+                            });
+                        }
+                    });
+                });
+            </script>
+            <!--End Header Data Kota -->
+            
             <!-- Form validation -->
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate.min.js')?>"></script>
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate-init.js')?>"></script>
             <!--Custom JavaScript -->
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
+            <!--Date Picker-->
+            <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
+            <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
+            <script>
+                $(document).ready(function(){
+                    $('#tanggal').Zebra_DatePicker({
+                        direction: true,
+                        pair: $('#tanggal1'),
+                        format: 'd-F-Y',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                    $('#tanggal1').Zebra_DatePicker({
+                        direction: [1,10],
+                        format: 'd-F-Y',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                });
+            </script>
+            <!--End Date Picker-->
         </body>
 </html>

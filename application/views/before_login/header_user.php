@@ -1,9 +1,8 @@
 <div class="header2">
     <div class="bar_atas">
-        <a href="<?php echo base_url()."index.php/welcome/hlm_login_join";?>" class="jarak">JOIN RENTCAR</a>
-            <a href="#" class="jarak">PESANAN</a>
-            <a href="<?php echo base_url()."index.php/welcome/hlm_login";?>"" class="jarak">LOGIN </a>
-            <a href="<?php echo base_url()."index.php/controller_register/hlm_daftar";?>" class="jarak">DAFTAR</a>
+        <a href="<?php echo base_url()."index.php/auth_mitra";?>" class="jarak">MITRA RENTCAR</a>
+            <a href="<?php echo base_url()."index.php/auth_user";?>"" class="jarak">LOGIN </a>
+            <a href="<?php echo base_url()."index.php/c_register_user";?>" class="jarak">DAFTAR</a>
     </div>
 </div>
 <div class="header">
@@ -21,16 +20,23 @@
             <table>
                 <tr>
                     <td>
-                        <select class="form-control provinsiku">
-                            <option>Default select</option>
-                            <option>Default select</option>
+                        <select class="form-control provinsiku" id="provinsi" name="provinsi">
+                            <option value="">Lokasi Provinsi Anda</option>
+                                <?php foreach($provinsi as $a){ ?>
+                                    <option value="<?php echo $a['id_provinsi']; ?>"><?php echo $a['provinsi']; ?></option>
+                                <?php } ?>
                         </select>
                     </td>
                     <td>
-                        <select class="form-control kotaku">
-                            <option>Default select</option>
-                            <option>Default select</option>
+                        <select class="form-control kotaku" id="kota" name="kota" disabled="">
+                            <option>Lokasi Kota Anda</option>
                         </select>
+                    </td>
+                    <td>
+                        <input type="text" class="tgl_mulai" id="tanggal" placeholder="Tanggal Mulai">
+                    </td>
+                    <td>
+                        <input type="text" class="tgl_mulai" id="tanggal1" placeholder="Tanggal Selesai">
                     </td>
                     <td>
                         <button type="submit" class="btn col-lg-12 btn-success tombolku">CARI</button>

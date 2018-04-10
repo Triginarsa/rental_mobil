@@ -10,7 +10,7 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Halaman Login</title>
+            <title>RentCar | Login</title>
             <!-- Bootstrap Core CSS -->
             <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
@@ -29,6 +29,14 @@
                 white-space: nowrap; 
                 text-overflow: ellipsis; 
                 }
+
+                .edit_ntf{
+                    width: 320px;
+                    margin-left: 85px;
+                    margin-top: 40px;
+                    margin-bottom: -110px;
+                    color: red;
+                }
             </style>
         </head>
         <body class="fix-header">
@@ -40,7 +48,7 @@
             <!-- Main wrapper  -->
             <div id="main-wrapper">
                 <!-- header header  -->
-                <?php include 'header.php'; ?>
+                <?php include 'header_user.php'; ?>
                 
                 <!-- End header header -->
                 <!-- Left Sidebar  -->
@@ -58,7 +66,7 @@
                             <div class="card-body"> 
                                 <h2><b>Selamat datang di RentCar Silahkan login</b></h2>
                                     <span>sudah menjadi member?
-                                        <a href="<?php echo base_url()."index.php/controller_register/hlm_daftar";?>"> Daftar </a>disini</span>
+                                        <a href="<?php echo base_url()."index.php/c_register_user";?>"> Daftar </a>disini</span>
                             </div>
                         </div>
                     </div>
@@ -66,7 +74,7 @@
                     <div class="card_edit"><!--mengganti ukuran form-->
                         <div class="card card-outline-primary">
                             <div class="card-body ">
-                                <form class="form-valide" method="post" action="<?php echo base_url()."index.php/controller_login/ceklogin";?>">
+                                <form class="form-valide" method="post" action="<?php echo base_url()."index.php/auth_user/cek_login";?>">
                                     <div class="form-body">
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
@@ -84,6 +92,7 @@
                                                 <label class="control-label"></label>
                                                 <input type="submit" class="btn btn-success edit_btn" name="login" value="LOGIN"/>
                                             </div>
+
                                             <!--/span-->
                                         </div>
                                         <!--/row-->
@@ -99,6 +108,14 @@
                                                 </div>
                                             </div>
                                             <!--/span-->
+                                            <div class="edit_ntf">
+                                            <?php 
+                                                        $info = $this->session->flashdata('info');
+                                                        if(!empty($info)){
+                                                            echo $info;
+                                                        }
+                                                    ?> 
+                                            </div>
                                             <!--/span-->
                                         </div>
                                         <!--/row-->
@@ -136,12 +153,60 @@
             <!--stickey kit -->
             <script src="<?php echo base_url('assets/js/lib/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
             
+            <!--Header Data Kota -->
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#provinsi').on('change', function(){
+                        var id_provinsi = $(this).val();
+                        if(id_provinsi==''){
+                            $('#kota').prop('disabled', true);
+                        }else{
+                            $('#kota').prop('disabled', false);
+                            $.ajax({
+                                url:"<?php echo base_url()?>c_get_kota",
+                                type: "POST",
+                                data: {'id_provinsi' : id_provinsi},
+                                dataType: 'json',
+                                success: function(data){
+                                    $('#kota').html(data);
+                                },
+                                error: function(){
+                                    alert('data kota tidak ada...');
+                                }
+                            });
+                        }
+                    });
+                });
+            </script>
+            <!--End Header Data Kota -->
 
             <!-- Form validation -->
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate.min.js')?>"></script>
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate-init.js')?>?"></script>
             <!--Custom JavaScript -->
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
+            <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
+            <script>
+                $(document).ready(function(){
+                    $('#tanggal').Zebra_DatePicker({
+                        direction: true,
+                        pair: $('#tanggal1'),
+                        format: 'd-F-Y',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                    $('#tanggal1').Zebra_DatePicker({
+                        direction: [1,10],
+                        format: 'd-F-Y',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                });
+            </script>
+            <!--End Date Picker-->
         </body>
 
 </html>

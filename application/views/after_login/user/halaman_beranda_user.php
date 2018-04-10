@@ -24,13 +24,11 @@
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
             <style type="text/css">
-                .small-box{
-                    background-color: white;
-                    text-align: center;
-                    margin-right: 100px;
+                #warna_teks{
+                    color: black; 
                 }
-                #hehe{
-                    margin-right: 100px;
+                #warna_teks2{
+                    color: white; 
                 }
             </style>
         </head>
@@ -43,7 +41,7 @@
             <!-- Main wrapper  -->
             <div id="main-wrapper">
                 <!-- header header  -->
-                <?php include 'header.php'; ?>
+                <?php include 'header_user.php'; ?>
                 
                 <!-- End header header -->
                 <!-- Left Sidebar  -->
@@ -66,98 +64,65 @@
                                             <th></th>
                                             <th></th>
                                             <th width="190"></th>
+                                            <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td rowspan="3" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
-                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td>Price: $80.00/day</td>
+                                            <td rowspan="4" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
+                                            <td id="warna_teks" align="left" colspan="2">MERK MOBIL</td>
+                                            <td id="warna_teks"><b>Tipe Mobil</b></td>
+                                            <td id="warna_teks">Harga (/hari)</td>
+                                            <td id="warna_teks" width="120"><b>Rp 150.000</b></td>
                                         </tr>
                                          <tr>
-                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td bgcolor="orange">Available to book now</td>
+                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
+                                            <td id="warna_teks2" bgcolor="orange" colspan="2">Available to book now</td>
                                         </tr>
                                         <tr>
-                                            <td>Transmisi : Automatic</td>
-                                            <td>Bahan Bakar : Bensin</td>
-                                            <td>Jumlah Penumpang : 4</td>
-                                            <td>Nomor Polisi : BK 1777 WE</td>
+                                            <td id="warna_teks">Transmisi</td>
+                                            <td id="warna_teks" align="left"><b>Automatic</b></td>
+                                            <td id="warna_teks">Penumpang (Orang)</td>
+                                            <td id="warna_teks" align="left"><b>4</b></td>
+                                            <td rowspan="2"><center><button type="submit" class="btn col-lg-12 btn-success">Book Now</button></center></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="5"><hr></td>
+                                            <td id="warna_teks">Bahan Bakar</td>
+                                            <td id="warna_teks"><b>Bensin</b></td>
+                                            <td id="warna_teks">Nomor Polisi</td>
+                                            <td id="warna_teks"><b>BK 1777 WE</b></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td rowspan="3" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
-                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td>Price: $80.00/day</td>
+                                            <td colspan="6"><hr></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="4" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
+                                            <td id="warna_teks" align="left" colspan="3">SMALL : ECONOMY</td>
+                                            <td id="warna_teks">Harga (/hari)</td>
+                                            <td id="warna_teks" width="120"><b>Rp 150.000</b></td>
                                         </tr>
                                          <tr>
-                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td bgcolor="orange">Available to book now</td>
+                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
+                                            <td id="warna_teks2" bgcolor="orange" colspan="2">Available to book now</td>
                                         </tr>
                                         <tr>
-                                            <td>Transmisi : Automatic</td>
-                                            <td>Bahan Bakar : Bensin</td>
-                                            <td>Jumlah Penumpang : 4</td>
-                                            <td>Nomor Polisi : BK 1777 WE</td>
+                                            <td id="warna_teks">Transmisi</td>
+                                            <td id="warna_teks" align="left"><b>Automatic</b></td>
+                                            <td id="warna_teks">Jumlah Penumpang</td>
+                                            <td id="warna_teks" align="left"><b>4</b></td>
+                                            <td rowspan="2"><center><button class="btn col-lg-12 btn-success">Pesan</button></center></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="5"><hr></td>
+                                            <td id="warna_teks">Bahan Bakar</td>
+                                            <td id="warna_teks"><b>Bensin</b></td>
+                                            <td id="warna_teks">Nomor Polisi</td>
+                                            <td id="warna_teks"><b>BK 1777 WE</b></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td rowspan="3" height="100">Gambar</td>
-                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td>Price: $80.00/day</td>
-                                        </tr>
-                                         <tr>
-                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td bgcolor="orange">Available to book now</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Transmisi : Automatic</td>
-                                            <td>Bahan Bakar : Bensin</td>
-                                            <td>Jumlah Penumpang : 4</td>
-                                            <td>Nomor Polisi : BK 1777 WE</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"><hr></td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="3" height="100">Gambar</td>
-                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td>Price: $80.00/day</td>
-                                        </tr>
-                                         <tr>
-                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td bgcolor="orange">Available to book now</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Transmisi : Automatic</td>
-                                            <td>Bahan Bakar : Bensin</td>
-                                            <td>Jumlah Penumpang : 4</td>
-                                            <td>Nomor Polisi : BK 1777 WE</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"><hr></td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="3" height="100">Gambar</td>
-                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td>Price: $80.00/day</td>
-                                        </tr>
-                                         <tr>
-                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td bgcolor="orange">Available to book now</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Transmisi : Automatic</td>
-                                            <td>Bahan Bakar : Bensin</td>
-                                            <td>Jumlah Penumpang : 4</td>
-                                            <td>Nomor Polisi : BK 1777 WE</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"><hr></td>
+                                            <td colspan="6"><hr></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -172,7 +137,7 @@
                 </div>
                 <!-- End Container fluid  -->
                 <!-- footer -->
-                <?php include 'footer.php'; ?>
+                <?php include 'footer_user.php'; ?>
                 <!-- End footer -->
                 
                 <!-- End Page wrapper  -->
@@ -189,21 +154,22 @@
             <script src="<?php echo base_url('assets/js/sidebarmenu.js')?>"></script>
             <!--stickey kit -->
             <script src="<?php echo base_url('assets/js/lib/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
+            <!--Header Data Kota -->
             <script type="text/javascript">
                 $(document).ready(function(){
-                    $('#val-provinsi').on('change', function(){
+                    $('#provinsi').on('change', function(){
                         var id_provinsi = $(this).val();
                         if(id_provinsi==''){
-                            $('#val-kota').prop('disabled', true);
+                            $('#kota').prop('disabled', true);
                         }else{
-                            $('#val-kota').prop('disabled', false);
+                            $('#kota').prop('disabled', false);
                             $.ajax({
-                                url:"<?php echo base_url()?>controller_register/get_kota",
+                                url:"<?php echo base_url()?>c_get_kota",
                                 type: "POST",
                                 data: {'id_provinsi' : id_provinsi},
                                 dataType: 'json',
                                 success: function(data){
-                                    $('#val-kota').html(data);
+                                    $('#kota').html(data);
                                 },
                                 error: function(){
                                     alert('data kota tidak ada...');
@@ -213,11 +179,35 @@
                     });
                 });
             </script>
+            <!--End Header Data Kota -->
 
             <!-- Form validation -->
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate.min.js')?>"></script>
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate-init.js')?>"></script>
             <!--Custom JavaScript -->
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
+            <!--Date Picker-->
+            <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
+            <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
+            <script>
+                $(document).ready(function(){
+                    $('#tanggal').Zebra_DatePicker({
+                        direction: true,
+                        pair: $('#tanggal1'),
+                        format: 'd-F-Y',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                    $('#tanggal1').Zebra_DatePicker({
+                        direction: [1,10],
+                        format: 'd-F-Y',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                });
+            </script>
+            <!--End Date Picker-->
         </body>
 </html>

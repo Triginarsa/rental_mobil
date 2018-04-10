@@ -25,19 +25,35 @@
     margin-bottom: -110px;
 }
 
+.edit_ntf{
+    width: 320px;
+    margin-left: 55px;
+    margin-top: 70px;
+    margin-bottom: -110px;
+}
+
 .provinsiku{
     margin-left: 140px;
+    width: 200px;
 }
 
 .kotaku{
-    margin-left: 170px;
+    margin-left: 10px;
+    width: 180px;
 }
 
 .tombolku{
-    margin-left: 190px;
+    margin-left: 10px;
     width: 100px;
+}
+
+.tgl_mulai{
+    margin-left: 10px;
+    width: 149px;
+    height: 38px;
 }
 
 .card_edit2{
     margin-left: -110px;
 }
+

@@ -10,7 +10,7 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Halaman Login</title>
+            <title>RentCar | Login Mitra RentCar</title>
             <!-- Bootstrap Core CSS -->
             <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
@@ -23,6 +23,21 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
+            <style type="text/css">
+                .nama{ 
+                overflow: hidden; 
+                white-space: nowrap; 
+                text-overflow: ellipsis; 
+                }
+
+                .edit_ntf{
+                    width: 320px;
+                    margin-left: 85px;
+                    margin-top: 40px;
+                    margin-bottom: -110px;
+                    color: red;
+                }
+            </style>
         </head>
         <body class="fix-header">
             <!-- Preloader - style you can find in spinners.css -->
@@ -33,7 +48,7 @@
             <!-- Main wrapper  -->
             <div id="main-wrapper">
                 <!-- header header  -->
-                <?php include 'header.php'; ?>
+                <?php include 'header_mitra.php'; ?>
                 
                 <!-- End header header -->
                 <!-- Left Sidebar  -->
@@ -51,7 +66,7 @@
                             <div class="card-body"> 
                                 <h2><b>Terima Kasih telah bergabung di RentCar Silahkan login</b></h2>
                                     <span>mari bergabung bersama kami
-                                        <a href="<?php echo base_url()."index.php/controller_register/hlm_daftar_join";?>"> Daftar </a>disini
+                                        <a href="<?php echo base_url()."index.php/c_register_mitra";?>"> Daftar </a>disini
                                     </span>
                             </div>
                         </div>
@@ -60,7 +75,7 @@
                     <div class="card_edit"><!--mengganti ukuran form-->
                         <div class="card card-outline-primary">
                             <div class="card-body ">
-                                <form class="form-valide" method="post" action="<?php echo base_url()."index.php/welcome/ceklogin_pemilik";?>">
+                                <form class="form-valide" method="post" action="<?php echo base_url()."index.php/auth_mitra/cek_login";?>">
                                     <div class="form-body">
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
@@ -93,6 +108,14 @@
                                                 </div>
                                             </div>
                                             <!--/span-->
+                                            <div class="edit_ntf">
+                                            <?php 
+                                                        $info = $this->session->flashdata('info');
+                                                        if(!empty($info)){
+                                                            echo $info;
+                                                        }
+                                                    ?> 
+                                            </div>
                                             <!--/span-->
                                         </div>
                                         <!--/row-->
