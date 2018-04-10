@@ -266,21 +266,14 @@ CREATE TABLE `tb_pengguna` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pengguna` */
 
 insert  into `tb_pengguna`(`id`,`nama`,`email`,`password`,`no_hp`,`alamat`,`id_kota`,`status`,`created_at`,`updated_at`) values 
-(1,NULL,'evan@gmail.com','qwerty',NULL,NULL,NULL,'user','2018-03-31 23:42:13','0000-00-00 00:00:00'),
-(5,'deni','deni@gmail.com','qwerty','082235678448','jalan merpati no.7',61,'user','2018-04-05 20:38:05','0000-00-00 00:00:00'),
-(7,'gani','geni@gmail.com','qwerty','082235678448','jalan merpati no.7',NULL,'user','2018-04-05 20:56:34','0000-00-00 00:00:00'),
-(8,'gani','gxni@gmail.com','qwerty','082235678448','jalan merpati no.7',NULL,'user','2018-04-05 20:59:57','0000-00-00 00:00:00'),
-(10,'gani','gxyni@gmail.com','qwerty','082235678448','jalan merpati no.7',NULL,'user','2018-04-05 21:02:28','0000-00-00 00:00:00'),
-(12,'asfa','asfa@gmail.com','qwerty','082235678448','jalan merpati no.7',70,'user','2018-04-05 22:30:25','0000-00-00 00:00:00'),
-(13,'','','','','',0,'user','2018-04-06 16:27:18','0000-00-00 00:00:00'),
-(14,'EVAN HIMAWAN SARAGIH','himawanevan24@gmail.com','qwerty','082237997747','Jalan Kompi No.8',104,'user','2018-04-08 17:59:50','0000-00-00 00:00:00'),
-(17,'IMELDA TARIGAN','imelda@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','jalan merpati no.7',102,'user','2018-04-09 17:25:29','0000-00-00 00:00:00'),
-(24,'RADITYA DIKA','radit@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',23,'user','2018-04-09 19:44:31','0000-00-00 00:00:00');
+(17,'IMELDA TARIGAN','imelda@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','jalan merpati no.7',102,'admin','2018-04-11 05:06:38','0000-00-00 00:00:00'),
+(24,'RADITYA DIKA','radit@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',23,'user','2018-04-09 19:44:31','0000-00-00 00:00:00'),
+(26,'EVAN HIMAWAN SARAGIH','himawanevan24@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082237997747','Jalan Kompi No.8',104,'user','2018-04-11 05:06:10','0000-00-00 00:00:00');
 
 /*Table structure for table `tb_provinsi` */
 

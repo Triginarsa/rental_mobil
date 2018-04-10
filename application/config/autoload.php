@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('model_register', 'model_login');
+$autoload['model'] = array('m_kota', 'm_login_mitra','m_login_user','m_provinsi','m_register');

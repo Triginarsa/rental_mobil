@@ -7,7 +7,8 @@ class C_register_user extends CI_Controller {
 	}
 
 	public function index(){ //halaman daftar user
-		$provinsi= $this->model_register->get_provinsi_query();
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
 		$this->load->view('/before_login/halaman_daftar_user', array('provinsi' => $provinsi));
 	}
 
