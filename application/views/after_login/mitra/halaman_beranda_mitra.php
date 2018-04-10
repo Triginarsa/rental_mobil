@@ -54,75 +54,42 @@
                     <!-- Container fluid  -->
                 <div class="container-fluid edit_form">
                     <!-- Start Page Content -->
-                    <div class="card_edit2 col-lg-9">
+                    <div class="card_edit3 col-lg-10">
                         <div class="card">
                             <div class="card-body">
-                                <table border="0" class="col-lg-12" id="hehe">
-                                    <thead>
+                                <table border="0">
+                                    <thed>
                                         <tr>
-                                            <th width="220"></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th width="190"></th>
-                                            <th></th>
-                                            <th></th>
+                                            <th width="400"></th>
+                                            <th width="400"></th>
+                                            <th width="400"></th>
                                         </tr>
-                                    </thead>
+                                    </thed>
                                     <tbody>
                                         <tr>
-                                            <td rowspan="4" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
-                                            <td id="warna_teks" align="left" colspan="2">MERK MOBIL</td>
-                                            <td id="warna_teks"><b>Tipe Mobil</b></td>
-                                            <td id="warna_teks">Harga (/hari)</td>
-                                            <td id="warna_teks" width="120"><b>Rp 150.000</b></td>
-                                        </tr>
-                                         <tr>
-                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td id="warna_teks2" bgcolor="orange" colspan="2">Available to book now</td>
-                                        </tr>
-                                        <tr>
-                                            <td id="warna_teks">Transmisi</td>
-                                            <td id="warna_teks" align="left"><b>Automatic</b></td>
-                                            <td id="warna_teks">Penumpang (Orang)</td>
-                                            <td id="warna_teks" align="left"><b>4</b></td>
-                                            <td rowspan="2"><center><button type="submit" class="btn col-lg-12 btn-success">Book Now</button></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td id="warna_teks">Bahan Bakar</td>
-                                            <td id="warna_teks"><b>Bensin</b></td>
-                                            <td id="warna_teks">Nomor Polisi</td>
-                                            <td id="warna_teks"><b>BK 1777 WE</b></td>
-                                            <td></td>
+                                            <td>
+                                                <button type="submit" class="tombol1 btn-primary1">
+                                                    <a href="#">
+                                                    <img src="<?php echo base_url('assets/images/icon_mitra1.png')?>" width="156" height="156"></a>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="tombol1 btn-primary1">
+                                                    <a href="#">
+                                                    <img src="<?php echo base_url('assets/images/icon_mitra2.png')?>" width="100" height="166"></a>
+                                                </button>
+                                            </td>
+                                            <td><center>
+                                                <button type="submit" class="tombol1 btn-primary1 edit_letak">
+                                                    <a href="#">
+                                                    <img src="<?php echo base_url('assets/images/icon_mitra3.png')?>" width="180" height="180"></a></center>
+                                                </button>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="6"><hr></td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="4" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
-                                            <td id="warna_teks" align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td id="warna_teks">Harga (/hari)</td>
-                                            <td id="warna_teks" width="120"><b>Rp 150.000</b></td>
-                                        </tr>
-                                         <tr>
-                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td id="warna_teks2" bgcolor="orange" colspan="2">Available to book now</td>
-                                        </tr>
-                                        <tr>
-                                            <td id="warna_teks">Transmisi</td>
-                                            <td id="warna_teks" align="left"><b>Automatic</b></td>
-                                            <td id="warna_teks">Jumlah Penumpang</td>
-                                            <td id="warna_teks" align="left"><b>4</b></td>
-                                            <td rowspan="2"><center><button class="btn col-lg-12 btn-success">Pesan</button></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td id="warna_teks">Bahan Bakar</td>
-                                            <td id="warna_teks"><b>Bensin</b></td>
-                                            <td id="warna_teks">Nomor Polisi</td>
-                                            <td id="warna_teks"><b>BK 1777 WE</b></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="6"><hr></td>
+                                            <td><center>Tambah Mobil</center></td>
+                                            <td><center>Data Order</center></td>
+                                            <td><center>Edit Profil</center></td>
                                         </tr>
                                     </tbody>
                                 </table>

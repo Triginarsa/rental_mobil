@@ -57,6 +57,10 @@
     margin-left: -110px;
 }
 
+.card_edit3{
+    margin-left: -180px;
+}
+
 .nama{ 
                 overflow: hidden; 
                 white-space: nowrap; 
@@ -70,4 +74,51 @@
                     margin-bottom: -110px;
                     color: red;
                 }
+
+.tombol1{
+  background : -moz-linear-gradient(0% 50% 0deg,rgba(224, 107, 38, 1) 0%,rgba(232, 71, 37, 1) 57.91%,rgba(238, 43, 36, 1) 99.26%);
+  background : -webkit-linear-gradient(0deg, rgba(224, 107, 38, 1) 0%, rgba(232, 71, 37, 1) 57.91%, rgba(238, 43, 36, 1) 99.26%);
+  background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(224, 107, 38, 1) ),color-stop(0.5791,rgba(232, 71, 37, 1) ),color-stop(0.9926,rgba(238, 43, 36, 1) ));
+  background : -o-linear-gradient(0deg, rgba(224, 107, 38, 1) 0%, rgba(232, 71, 37, 1) 57.91%, rgba(238, 43, 36, 1) 99.26%);
+  background : -ms-linear-gradient(0deg, rgba(224, 107, 38, 1) 0%, rgba(232, 71, 37, 1) 57.91%, rgba(238, 43, 36, 1) 99.26%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#E06B26', endColorstr='#EE2B24' ,GradientType=0)";
+  background : linear-gradient(90deg, rgba(224, 107, 38, 1) 0%, rgba(232, 71, 37, 1) 57.91%, rgba(238, 43, 36, 1) 99.26%);
+  width : 200px;
+  height : 200px;
+  border: 0px;
+  border-radius: 100px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E06B26',endColorstr='#EE2B24' , GradientType=1);
+  margin-left: 95px;
+}
+.btn-primary1:hover {
+  background: #E06B26;
+  -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
+  border: 1px;
+}
+.btn-primary1:active {
+  background: #E06B26;
+  -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
+}
+.btn-primary1:active:focus {
+  background-color: #E06B26;
+}
+.btn-primary1:active:hover {
+  background-color: #E06B26;
+}
+.btn-primary1:focus {
+  background: #E06B26;
+  -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
+  background-color: #E06B26;
+}
+.icon1{
+    width: 179px;
+    height: 179px;
+}
+
+.edit_letak{
+    margin-left: 0px;
+}
 

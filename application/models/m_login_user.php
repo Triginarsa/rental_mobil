@@ -18,7 +18,7 @@
 				}
 				$this->session->get_userdata($sess);
 				if($this->session->userdata('status')=='user'){
-					redirect('c_beranda_login'); //masuk ke halaman beranda user
+					redirect('c_beranda_user'); //masuk ke halaman beranda user
 				}elseif($this->session->userdata('status')=='admin'){
 					redirect('c_beranda_admin'); //masuk ke halaman beranda admin
 				}

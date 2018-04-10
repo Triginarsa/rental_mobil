@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.4.3 (64 bit)
-MySQL - 10.1.30-MariaDB : Database - rental_mobil
+MySQL - 10.1.31-MariaDB : Database - rental_mobil
 *********************************************************************
 */
 
@@ -128,9 +128,50 @@ insert  into `tb_kota`(`id_kota`,`kota`,`id_provinsi`) values
 (103,'Padang Sidempuan',1),
 (104,'Pematangsiantar',1),
 (105,'Sibolga',1),
-(106,'Tanjungbalai1',1),
+(106,'Tanjungbalai',1),
 (107,'Tebingtinggi',1),
 (108,'Yogyakarta',35);
+
+/*Table structure for table `tb_merk` */
+
+DROP TABLE IF EXISTS `tb_merk`;
+
+CREATE TABLE `tb_merk` (
+  `id_merk` int(10) NOT NULL AUTO_INCREMENT,
+  `merk` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id_merk`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+
+/*Data for the table `tb_merk` */
+
+insert  into `tb_merk`(`id_merk`,`merk`) values 
+(1,'Toyota All New Avanza'),
+(2,'Daihatsu Ayla'),
+(3,'Suzuki Ertiga'),
+(4,'Datsun Go'),
+(5,'Daihatsu Sigra'),
+(6,'Daihatsu All New Xenia'),
+(7,'Toyota Grand Innova'),
+(8,'Toyota Grand New Avanza'),
+(9,'Hyundai H1'),
+(10,'Nissan Serena'),
+(11,'Toyota New Innova Reborn'),
+(12,'Toyota Nav1'),
+(13,'Isuzu Elf Van 14'),
+(14,'Toyota All New Fortuner'),
+(15,'Toyota Elf Long 17'),
+(16,'Toyota Hiace Commuter'),
+(17,'Toyota Hiace'),
+(18,'Mitsubshi Pajero Sport'),
+(19,'Toyota Vellfire'),
+(20,'Toyota Camry New Hybrid'),
+(21,'Toyota New Fortuner'),
+(22,'Toyota New Alphard'),
+(23,'Toyota New Alphard Transformer'),
+(24,'Mercedes E200'),
+(25,'Mercedes E250'),
+(26,'Toyota Land Cruiser'),
+(27,'Mercedes S300');
 
 /*Table structure for table `tb_mobil` */
 
@@ -146,16 +187,16 @@ CREATE TABLE `tb_mobil` (
   `nomor_mesin` varchar(191) DEFAULT NULL,
   `nomor_rangka` varchar(191) DEFAULT NULL,
   `jlh_cc` varchar(191) DEFAULT NULL,
-  `fasilitas` text,
-  `gambar` mediumblob,
-  `no_hp` varchar(191) DEFAULT NULL,
-  `alamat` varchar(191) DEFAULT NULL,
+  `jlh_penumpang` varchar(191) DEFAULT NULL,
+  `gbr_mobil` mediumblob,
+  `gbr_bpkb` mediumblob,
+  `gbr_stnk` mediumblob,
   `transmisi` enum('manual','matic') DEFAULT NULL,
   `biaya` varchar(191) DEFAULT NULL,
   `id_kota` int(10) unsigned DEFAULT NULL,
   `id_pemilik` int(10) unsigned DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `status` enum('verifikasi','belum') DEFAULT NULL,
   PRIMARY KEY (`id_mobil`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -198,14 +239,15 @@ CREATE TABLE `tb_pemilik_mobil` (
   UNIQUE KEY `nama` (`nama`),
   UNIQUE KEY `nik` (`nik`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pemilik_mobil` */
 
 insert  into `tb_pemilik_mobil`(`id`,`nama`,`nik`,`email`,`password`,`no_hp`,`alamat`,`id_kota`,`created_at`,`updated_at`) values 
 (5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-04-05 22:25:01','0000-00-00 00:00:00'),
 (6,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-04-05 22:31:19','0000-00-00 00:00:00'),
-(7,'Imelda','1272072410980001','imelda@gmail.com','qwerty','082235678448','Jalan Megah No.9',60,'2018-04-05 22:47:15','0000-00-00 00:00:00');
+(7,'Imelda','1272072410980001','imelda@gmail.com','qwerty','082235678448','Jalan Megah No.9',60,'2018-04-05 22:47:15','0000-00-00 00:00:00'),
+(8,'Raditya Dika','1272072410982223','radit@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',24,'2018-04-09 18:17:37','0000-00-00 00:00:00');
 
 /*Table structure for table `tb_pengguna` */
 
@@ -224,7 +266,7 @@ CREATE TABLE `tb_pengguna` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pengguna` */
 
@@ -234,7 +276,11 @@ insert  into `tb_pengguna`(`id`,`nama`,`email`,`password`,`no_hp`,`alamat`,`id_k
 (7,'gani','geni@gmail.com','qwerty','082235678448','jalan merpati no.7',NULL,'user','2018-04-05 20:56:34','0000-00-00 00:00:00'),
 (8,'gani','gxni@gmail.com','qwerty','082235678448','jalan merpati no.7',NULL,'user','2018-04-05 20:59:57','0000-00-00 00:00:00'),
 (10,'gani','gxyni@gmail.com','qwerty','082235678448','jalan merpati no.7',NULL,'user','2018-04-05 21:02:28','0000-00-00 00:00:00'),
-(12,'asfa','asfa@gmail.com','qwerty','082235678448','jalan merpati no.7',70,'user','2018-04-05 22:30:25','0000-00-00 00:00:00');
+(12,'asfa','asfa@gmail.com','qwerty','082235678448','jalan merpati no.7',70,'user','2018-04-05 22:30:25','0000-00-00 00:00:00'),
+(13,'','','','','',0,'user','2018-04-06 16:27:18','0000-00-00 00:00:00'),
+(14,'EVAN HIMAWAN SARAGIH','himawanevan24@gmail.com','qwerty','082237997747','Jalan Kompi No.8',104,'user','2018-04-08 17:59:50','0000-00-00 00:00:00'),
+(17,'IMELDA TARIGAN','imelda@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','jalan merpati no.7',102,'user','2018-04-09 17:25:29','0000-00-00 00:00:00'),
+(24,'RADITYA DIKA','radit@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',23,'user','2018-04-09 19:44:31','0000-00-00 00:00:00');
 
 /*Table structure for table `tb_provinsi` */
 
