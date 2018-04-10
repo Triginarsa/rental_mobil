@@ -23,21 +23,6 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
-            <style type="text/css">
-                .nama{ 
-                overflow: hidden; 
-                white-space: nowrap; 
-                text-overflow: ellipsis; 
-                }
-
-                .edit_ntf{
-                    width: 320px;
-                    margin-left: 85px;
-                    margin-top: 40px;
-                    margin-bottom: -110px;
-                    color: red;
-                }
-            </style>
         </head>
         <body class="fix-header">
             <!-- Preloader - style you can find in spinners.css -->
