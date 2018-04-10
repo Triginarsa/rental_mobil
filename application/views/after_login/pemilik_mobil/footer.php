@@ -1,1 +1,0 @@
-<footer class="footer"> © 2018 <a href="https://colorlib.com">RentCar</a></footer>
