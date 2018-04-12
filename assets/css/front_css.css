@@ -25,13 +25,6 @@
     margin-bottom: -110px;
 }
 
-.edit_ntf{
-    width: 320px;
-    margin-left: 55px;
-    margin-top: 70px;
-    margin-bottom: -110px;
-}
-
 .provinsiku{
     margin-left: 140px;
     width: 200px;
@@ -62,18 +55,18 @@
 }
 
 .nama{ 
-                overflow: hidden; 
-                white-space: nowrap; 
-                text-overflow: ellipsis; 
-                }
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis; 
+}
 
-                .edit_ntf{
-                    width: 320px;
-                    margin-left: 85px;
-                    margin-top: 40px;
-                    margin-bottom: -110px;
-                    color: red;
-                }
+.edit_ntf{
+  width: 320px;
+  margin-left: 95px;
+  margin-top: 40px;
+  margin-bottom: -110px;
+  color: red;
+}
 
 .tombol1{
   background : -moz-linear-gradient(0% 50% 0deg,rgba(224, 107, 38, 1) 0%,rgba(232, 71, 37, 1) 57.91%,rgba(238, 43, 36, 1) 99.26%);
@@ -121,4 +114,17 @@
 .edit_letak{
     margin-left: 0px;
 }
+
+.edit_letak1{
+  margin-left: -100px;
+}
+
+.teks_footer{
+                    color: #ffffff;
+                    /*untuk membuat warna h4 footer menjadi berwarna putih*/
+                }
+                a:hover,
+                a:focus{
+                    color: #ffffff;
+                }
 

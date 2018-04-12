@@ -24,12 +24,7 @@
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
             <style type="text/css">
-                #warna_teks{
-                    color: black; 
-                }
-                #warna_teks2{
-                    color: white; 
-                }
+                
             </style>
         </head>
         <body class="fix-header">
@@ -54,6 +49,16 @@
                     <!-- Container fluid  -->
                 <div class="container-fluid edit_form">
                     <!-- Start Page Content -->
+                    <div class="card_edit3 col-lg-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <center> 
+                                <h2><b>Selamat datang ke fitur Mitra RentCar</b></h2>
+                                    <span>Kelola mobil Anda bersama kami. Dirancang khusus untuk memudahkan Anda mengatur pelanggan, mobil dalam satu langkah!</span>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card_edit3 col-lg-10">
                         <div class="card">
                             <div class="card-body">

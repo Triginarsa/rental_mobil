@@ -24,9 +24,13 @@
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
             <style type="text/css">
-                #warna_teks{
-                    color: black; 
+                .warna_teks{
+                    color: black;
+                    /*untuk membuat warna tabel menjadi hitam*/
                 }
+                .teks_footer{
+                    color: white;
+                    /*untuk membuat warna h4 footer menjadi berwarna putih*/
             </style>
         </head>
         <body class="fix-header">

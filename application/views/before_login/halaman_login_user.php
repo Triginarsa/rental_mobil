@@ -23,6 +23,12 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
+             <style type="text/css">
+                .teks_footer{
+                    color: white;
+                    /*untuk membuat warna h4 footer menjadi berwarna putih*/
+                }
+            </style>
         </head>
         <body class="fix-header">
             <!-- Preloader - style you can find in spinners.css -->
