@@ -17,4 +17,16 @@ class C_beranda_mitra extends CI_Controller {
 	public function index(){
 		$this->load->view('/after_login/mitra/halaman_beranda_mitra'); //halaman beranda mitra
 	}
+
+	public function dataMobil(){
+		$this->load->view('/after_login/mitra/halaman_dataMobil_mitra'); //halaman data mobil mitra
+	}
+
+	public function tambahMobil(){
+
+		$this->load->model('m_merk');
+		$merk= $this->m_merk->get_merk_query();
+		$this->load->view('/after_login/mitra/halaman_tambahMobil_mitra', array('merk' => $merk));
+		
+	}
 }

@@ -35,7 +35,8 @@ var form_validation = function() {
                         maxlength: 50
                     },
                     "val-nik": {
-                        required: ["0-9",!0],
+                        required: !0,
+                        number:["0-9",!0],
                         minlength: 16,
                         maxlength: 16
                     },
@@ -88,6 +89,51 @@ var form_validation = function() {
                     },
                     "val-terms": {
                         required: !0
+                    },
+                    "val-nomorPolisi": {
+                        required: !0
+                    },
+                    "val-merkMobil": {
+                        required: !0
+                    },
+                    "val-tipeMobil": {
+                        required: !0
+                    },
+                    "val-tahunRakit": {
+                        required: !0
+                    },
+                    "val-nomorRangka": {
+                        required: !0
+                    },
+                    "val-nomorMesin": {
+                        required: !0
+                    },
+                    "val-bahanBakar": {
+                        required: !0
+                    },
+                    "val-jumlahCC": {
+                        required: !0
+                    },
+                    "val-transmisi": {
+                        required: !0
+                    },
+                    "val-fasilitasMobil": {
+                        required: !0
+                    },
+                    "val-jumlahPenumpang": {
+                        required: !0
+                    },
+                    "val-biayaSewa": {
+                        required: !0
+                    },
+                    "val-gambarMobil": {
+                        required: !0
+                    },
+                    "val-gambarSTNK": {
+                        required: !0
+                    },
+                    "val-gambarBPKB": {
+                        required: !0
                     }
                 },
                 messages: {
@@ -132,6 +178,54 @@ var form_validation = function() {
                         minlength: "Nomor telepon terlalu pendek",
                         maxlength: "Nomor telepon terlalu panjang"
                     },
+                    "val-nomorPolisi": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-merkMobil": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-tipeMobil": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-tahunRakit": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-nomorRangka": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-nomorMesin": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-bahanBakar": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-jumlahCC": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-transmisi": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-fasilitasMobil": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-jumlahPenumpang": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-biayaSewa": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-gambarMobil": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-gambarSTNK": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+                    "val-gambarBPKB": {
+                        required: "Anda harus mengisi kolom ini",
+                    },
+
+
+
                     "val-digits": "Please enter only digits!",
                     "val-number": "Please enter a number!",
                     "val-range": "Please enter a number between 1 and 5!",

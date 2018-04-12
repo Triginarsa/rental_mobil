@@ -23,8 +23,14 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
-            <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
-            <!-- untuk css footer -->
+            <style type="text/css">
+                #warna_teks{
+                    color: black; 
+                }
+                #warna_teks2{
+                    color: white; 
+                }
+            </style>
         </head>
         <body class="fix-header">
         <!-- Preloader - style you can find in spinners.css -->
@@ -36,81 +42,81 @@
             <div id="main-wrapper">
                 <!-- header header  -->
                 <?php include 'header_mitra.php'; ?>
+
+
+
                 
-                <!-- End header header -->
-                <!-- Left Sidebar  -->
-                
-                <!-- End Left Sidebar  -->
-                <!-- Page wrapper  -->
-                    <!-- Bread crumb -->
-                    
-                    <!-- End Bread crumb -->
-                    <!-- Container fluid  -->
-                <div class="container-fluid edit_form">
-                    <!-- Start Page Content -->
-                    <div class="card_edit3 col-lg-10">
+            <div class="container-fluid edit_form">
+                <!-- Start Page Content -->
+                    <div class="card_edit2 col-lg-9">
                         <div class="card">
-                            <div class="card-body">
-                                <center> 
-                                <h2><b>Selamat datang <?php echo $this->session->userdata('nama'); ?> ke fitur Mitra RentCar</b></h2>
-                                    <span>Kelola mobil Anda bersama kami. Dirancang khusus untuk memudahkan Anda mengatur pelanggan, mobil dalam satu langkah!</span>
-                                </center>
-                            </div>
-                        </div>
+                            <div class="card-body"> 
+                                <h2><b>Data Mobil</b></h2>
+                             </div>
+                         </div>
                     </div>
-                    <div class="card_edit3 col-lg-10">
+                    <div class="card_edit2 col-lg-9">
+                        <form class="form-valide" action="<?php echo base_url()."c_beranda_mitra/tambahMobil";?>" method="post">
+                            <div class="col-lg-5">
+                                <button type="submit" class="btn col-lg-5 btn-success">TAMBAH MOBIL</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card_edit2 col-lg-9">
                         <div class="card">
                             <div class="card-body">
-                                <table border="0">
-                                    <thed>
+                                <table border="0" class="col-lg-12" id="hehe">
+                                    <thead>
                                         <tr>
-                                            <th width="400"></th>
-                                            <th width="400"></th>
-                                            <th width="400"></th>
+                                            <th width="220"></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th width="190"></th>
                                         </tr>
-                                    </thed>
+                                    </thead>
                                     <tbody>
                                         <tr>
-                                            <td>
-                                                <button type="submit" class="tombol1 btn-primary1">
-                                                    <a href="<?php echo base_url()."c_beranda_mitra/dataMobil";?>">
-                                                    <img src="<?php echo base_url('assets/images/icon_mitra1.png')?>" width="156" height="156"></a>
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button type="submit" class="tombol1 btn-primary1">
-                                                    <a href="#">
-                                                    <img src="<?php echo base_url('assets/images/icon_mitra2.png')?>" width="100" height="166"></a>
-                                                </button>
-                                            </td>
-                                            <td><center>
-                                                <button type="submit" class="tombol1 btn-primary1 edit_letak">
-                                                    <a href="#">
-                                                    <img src="<?php echo base_url('assets/images/icon_mitra3.png')?>" width="180" height="180"></a></center>
-                                                </button>
-                                            </td>
+                                            <td rowspan="3" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
+                                            <td id="warna_teks" align="left" colspan="3">SMALL : ECONOMY</td>
+                                            <td id="warna_teks">Price: <b>$80.00</b>/day</td>
+                                        </tr>
+                                         <tr>
+                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
+                                            <td id="warna_teks" bgcolor="orange">Available to book now</td>
                                         </tr>
                                         <tr>
-                                            <td><center>Data Mobil</center></td>
-                                            <td><center>Data Order</center></td>
-                                            <td><center>Edit Profil</center></td>
+                                            <td id="warna_teks"><b>Transmisi :</b> Automatic</td>
+                                            <td id="warna_teks"><b>Bahan Bakar :</b> Bensin</td>
+                                            <td id="warna_teks"><b>Jumlah Penumpang :</b> 4</td>
+                                            <td id="warna_teks"><b>Nomor Polisi :</b> BK 1777 WE</td>
                                         </tr>
-                                        <tr height='50'></tr>
                                         <tr>
+                                            <td height="20">
+                                            <button type="submit" class="btn col-lg-4 btn-success">Detail</button>
+                                            <button type="submit" class="btn col-lg-3 btn-warning">Edit</button>
+                                            <button type="submit" class="btn col-lg-4 btn-danger">Delete</button>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><hr></td>
+                                        </tr>
+                                        <!-- @if(count($data_insert ->all()) > 0)
+                                        @foreach($data_insert ->all() as $data_insert )
+                                        <tr>
+                                            <td>{{$data_insert ->nama_pembeli}}</td>
+                                            <td>{{$data_insert ->alamat_pembeli}}</td>
+                                            <td>{{$data_insert ->no_hp}}</td>
                                             <td>
-                                                <button type="submit" class="tombol1 btn-primary1">
-                                                    <a href="#">
-                                                    <img src="<?php echo base_url('assets/images/icon_mitra1.png')?>" width="156" height="156"></a>
-                                                </button>
+                                                <a href="/member/{{$member->id_pembeli}}/edit" class="btn btn-info"> EDIT </a>
+                                                <form action="/member/{{$member->id_pembeli}}" method="post" style="display:inline-block;">
+                                                {{method_field('DELETE')}}
+                                                {{csrf_field()}}
+                                                    <button type="submit" class="btn btn-danger"> DELETE </button>
+                                                </form>
                                             </td>
-                                            <td></td>
-                                            <td></td>
                                         </tr>
-                                        <tr>
-                                            <td><center>Validasi Data Order</center></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                        @endforeach
+                                    @endif -->
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -122,6 +128,7 @@
 
                     <!-- End Page Content -->
                 </div>
+
                 <!-- End Container fluid  -->
                 <!-- footer -->
                 <?php include 'footer_mitra.php'; ?>
