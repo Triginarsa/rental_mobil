@@ -1,0 +1,8 @@
+.teks_footer{
+                    color: #ffffff;
+                    /*untuk membuat warna h4 footer menjadi berwarna putih*/
+                }
+                a:hover,
+                a:focus{
+                    color: #ffffff;
+                }

@@ -23,6 +23,8 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
+            <!-- untuk css footer -->
              <style type="text/css">
                 .teks_footer{
                     color: white;
