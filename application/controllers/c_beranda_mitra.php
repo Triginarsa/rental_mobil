@@ -7,6 +7,10 @@ class C_beranda_mitra extends CI_Controller {
 		parent::__construct();
 		if(! $this->session->userdata('id')){
 			redirect('auth_mitra');
+		}elseif($this->session->userData('status') == 'user'){
+			echo "<script>;history.go(-1);</script>";
+		}elseif($this->session->userData('status') == 'admin'){
+			echo "<script>;history.go(-1);</script>";
 		}
 	}
 	

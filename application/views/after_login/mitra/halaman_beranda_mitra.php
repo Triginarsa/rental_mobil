@@ -52,7 +52,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <center> 
-                                <h2><b>Selamat datang ke fitur Mitra RentCar</b></h2>
+                                <h2><b>Selamat datang <?php echo $this->session->userdata('nama'); ?> ke fitur Mitra RentCar</b></h2>
                                     <span>Kelola mobil Anda bersama kami. Dirancang khusus untuk memudahkan Anda mengatur pelanggan, mobil dalam satu langkah!</span>
                                 </center>
                             </div>
@@ -91,9 +91,25 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><center>Tambah Mobil</center></td>
+                                            <td><center>Data Mobil</center></td>
                                             <td><center>Data Order</center></td>
                                             <td><center>Edit Profil</center></td>
+                                        </tr>
+                                        <tr height='50'></tr>
+                                        <tr>
+                                            <td>
+                                                <button type="submit" class="tombol1 btn-primary1">
+                                                    <a href="#">
+                                                    <img src="<?php echo base_url('assets/images/icon_mitra1.png')?>" width="156" height="156"></a>
+                                                </button>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><center>Validasi Data Order</center></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                 </table>

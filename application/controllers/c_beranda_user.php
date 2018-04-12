@@ -7,6 +7,8 @@ class C_beranda_user extends CI_Controller {
 		parent::__construct();
 		if(! $this->session->userdata('id')){
 			redirect('auth_user');
+		}elseif($this->session->userData('status')!== 'user'){
+			echo "<script>;history.go(-1);</script>";
 		}
 	}
 

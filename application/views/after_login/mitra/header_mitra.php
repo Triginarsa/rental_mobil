@@ -1,6 +1,5 @@
 <div class="header2">
     <div class="bar_atas">
-        <a href="#" class="jarak">DAFTAR MOBIL</a>
         <a href="#" class="jarak"><?php echo $this->session->userdata('nama'); ?></a>
         <a href="<?php echo site_url('c_logout')?>" class="jarak">LOGOUT</a>
     </div>
@@ -194,5 +193,18 @@
                 </ul>
             </div>
                 </nav>
-                <div class="header3"></div>
+                <div class="header3">
+                    <table>
+                        <tr>
+                            <td width="400"></td>
+                            <td><a href="#"><i class="fa-bus"></i> Data Mobil</a></td>
+                            <td width="50"></td>
+                            <td><a href="#"><i class="fa-facebook"></i> Data Order</a></td>
+                            <td width="50"></td>
+                            <td><a href="#"><i class="fa-list-ul"></i> Validasi Data Order</a></td>
+                            <td width="50"></td>
+                            <td><a href="#"><i class="ti-user"></i> Edit Profil</a></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
