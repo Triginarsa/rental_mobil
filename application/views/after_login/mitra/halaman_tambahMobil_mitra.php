@@ -337,7 +337,7 @@
 
             <!-- Form validation -->
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate-init.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/form-validation/car.validate-init.js')?>"></script>
             <!--Custom JavaScript -->
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
             <!--Date Picker-->
