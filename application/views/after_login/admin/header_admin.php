@@ -10,7 +10,7 @@
         <div class="navbar-header">
             <a class="navbar-brand edit_logo" href="index.html">
                 <!-- Logo icon -->
-                <b><img src="<?php echo base_url('assets/images/join_rentcar.png')?>" alt="homepage" class="dark-logo" /></b>
+                <b><img src="<?php echo base_url('assets/images/admin_rentcar.png')?>" alt="homepage" class="dark-logo" /></b>
                 <!--End Logo icon -->
                 <!-- Logo text -->
             </a>
@@ -193,5 +193,22 @@
                 </ul>
             </div>
                 </nav>
-                <div class="header3"></div>
+                <div class="header3">
+                    <table>
+                        <tr>
+                            <td width="400"></td>
+                            <td><a href="#"><i class="fa fa-car"></i> Data Mobil</a></td>
+                            <td width="50"></td>
+                            <td><a href="#"><i class="fa fa-users"></i> Data User</a></td>
+                            <td width="50"></td>
+                            <td><a href="#"><i class="fa fa-user-circle"></i> Data Mitra</a></td>
+                            <td width="50"></td>
+                            <td><a href="#"><i class="fa fa-list-alt"></i> Data Order</a></td>
+                            <td width="50"></td>
+                            <td><a href="#"><i class="fa fa-tasks"></i> Validasi Data Mobil</a></td>
+                            <td width="50"></td>
+                            <td><a href="#"><i class="fa fa-user"></i> Edit Profil</a></td>
+                        </tr>
+                    </table>
+                </div>
             </div>

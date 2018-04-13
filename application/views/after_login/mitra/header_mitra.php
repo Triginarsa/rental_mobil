@@ -197,13 +197,13 @@
                     <table>
                         <tr>
                             <td width="400"></td>
-                            <td><a href="#"><i class="fa-bus"></i> Data Mobil</a></td>
+                            <td><a href="#"><i class="fa fa-car"></i> Data Mobil</a></td>
                             <td width="50"></td>
-                            <td><a href="#"><i class="fa-facebook"></i> Data Order</a></td>
+                            <td><a href="#"><i class="fa fa-list-alt"></i> Data Order</a></td>
                             <td width="50"></td>
-                            <td><a href="#"><i class="fa-list-ul"></i> Validasi Data Order</a></td>
+                            <td><a href="#"><i class="fa fa-tasks"></i> Validasi Data Order</a></td>
                             <td width="50"></td>
-                            <td><a href="#"><i class="ti-user"></i> Edit Profil</a></td>
+                            <td><a href="#"><i class="fa fa-user"></i> Edit Profil</a></td>
                         </tr>
                     </table>
                 </div>

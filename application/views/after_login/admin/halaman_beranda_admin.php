@@ -63,10 +63,10 @@
                                 <div class="card p-30">
                                     <div class="media">
                                         <div class="media-left meida media-middle">
-                                            <span><i class="fa fa-usd f-s-40 color-primary"></i></span>
+                                            <span><i class="fa fa-car f-s-40 color-primary"></i></span>
                                         </div>
                                         <div class="media-body media-text-right">
-                                            <h2>568120</h2>
+                                            <h2><?php echo $tb_mobil->num_rows() ?></h2>
                                             <p class="m-b-0">Total Mobil</p>
                                         </div>
                                     </div>
@@ -76,10 +76,10 @@
                                 <div class="card p-30">
                                     <div class="media">
                                         <div class="media-left meida media-middle">
-                                            <span><i class="fa fa-shopping-cart f-s-40 color-success"></i></span>
+                                            <span><i class="fa fa-users f-s-40 color-success"></i></span>
                                         </div>
                                         <div class="media-body media-text-right">
-                                            <h2>1178</h2>
+                                            <h2><?php echo $tb_pengguna->num_rows() ?></h2>
                                             <p class="m-b-0">Total User</p>
                                         </div>
                                     </div>
@@ -89,10 +89,10 @@
                                 <div class="card p-30">
                                     <div class="media">
                                         <div class="media-left meida media-middle">
-                                            <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
+                                            <span><i class="fa fa-user-circle f-s-40 color-warning"></i></span>
                                         </div>
                                         <div class="media-body media-text-right">
-                                            <h2>25</h2>
+                                            <h2><?php echo $tb_pemilik_mobil->num_rows() ?></h2>
                                             <p class="m-b-0">Total Mitra</p>
                                         </div>
                                     </div>
@@ -102,10 +102,10 @@
                                 <div class="card p-30">
                                     <div class="media">
                                         <div class="media-left meida media-middle">
-                                            <span><i class="fa fa-user f-s-40 color-danger"></i></span>
+                                            <span><i class="fa fa-list-alt f-s-40 color-danger"></i></span>
                                         </div>
                                         <div class="media-body media-text-right">
-                                            <h2>847</h2>
+                                            <h2><?php echo $tb_pemesanan->num_rows() ?></h2>
                                             <p class="m-b-0">Order</p>
                                         </div>
                                     </div>
@@ -136,7 +136,7 @@
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
                                                     <a href="#">
-                                                    <img src="<?php echo base_url('assets/images/icon_mitra2.png')?>" width="100" height="166"></a>
+                                                    <img src="<?php echo base_url('assets/images/icon_user.png')?>" width="190" height="186"></a>
                                                 </button>
                                             </td>
                                             <td><center>
@@ -156,19 +156,19 @@
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
                                                     <a href="#">
-                                                    <img src="<?php echo base_url('assets/images/icon_mitra1.png')?>" width="156" height="156"></a>
+                                                    <img src="<?php echo base_url('assets/images/icon_data_order.png')?>" width="136" height="136"></a>
                                                 </button>
                                             </td>
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
                                                     <a href="#">
-                                                    <img src="<?php echo base_url('assets/images/icon_mitra2.png')?>" width="100" height="166"></a>
+                                                    <img src="<?php echo base_url('assets/images/icon_validasi_mobil.png')?>" width="156" height="126"></a>
                                                 </button>
                                             </td>
                                             <td><center>
                                                 <button type="submit" class="tombol1 btn-primary1 edit_letak">
                                                     <a href="#">
-                                                    <img src="<?php echo base_url('assets/images/icon_mitra3.png')?>" width="180" height="180"></a></center>
+                                                    <img src="<?php echo base_url('assets/images/icon_data_admin.png')?>" width="180" height="180"></a></center>
                                                 </button>
                                             </td>
                                         </tr>

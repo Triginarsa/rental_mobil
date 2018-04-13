@@ -100,7 +100,7 @@
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
                                                     <a href="#">
-                                                    <img src="<?php echo base_url('assets/images/icon_mitra1.png')?>" width="156" height="156"></a>
+                                                    <img src="<?php echo base_url('assets/images/icon_data_order.png')?>" width="136" height="136"></a>
                                                 </button>
                                             </td>
                                             <td></td>
