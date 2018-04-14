@@ -12,7 +12,8 @@
 									'nama' => $row->nama,
 									'status' => $row->status,
 									'email'	=> $row->email,
-									'password' => $row->password
+									'password' => $row->password,
+									'id_kota' => $row->id_kota
 					);
 					$this->session->set_userdata($sess);
 				}

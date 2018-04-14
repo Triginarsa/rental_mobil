@@ -21,5 +21,17 @@ class C_beranda_admin extends CI_Controller {
 		);
 		$this->load->view('/after_login/admin/halaman_beranda_admin', $data);// halaman beranda admin
 	}
+
+	public function dataUser(){
+		$this->load->model('m_dataUser_admin');
+		$user= $this->m_dataUser_admin->get_user_query();
+		$this->load->view('/after_login/admin/halaman_data_user', array('user' => $user)); //halaman data mobil mitra
+	}
+
+	public function dataMitra(){
+		$this->load->model('m_dataMitra_admin');
+		$mitra= $this->m_dataMitra_admin->get_mitra_query();
+		$this->load->view('/after_login/admin/halaman_data_mitra', array('mitra' => $mitra)); //halaman data mobil mitra
+	}
 }
 ?>

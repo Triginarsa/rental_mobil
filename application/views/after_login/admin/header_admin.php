@@ -197,11 +197,11 @@
                     <table>
                         <tr>
                             <td width="400"></td>
-                            <td><a href="#"><i class="fa fa-car"></i> Data Mobil</a></td>
+                            <td><a href="<?php echo base_url()."c_beranda_admin/dataUser";?>"><i class="fa fa-car"></i> Data Mobil</a></td>
                             <td width="50"></td>
-                            <td><a href="#"><i class="fa fa-users"></i> Data User</a></td>
+                            <td><a href="<?php echo base_url()."c_beranda_admin/dataUser";?>"><i class="fa fa-users"></i> Data User</a></td>
                             <td width="50"></td>
-                            <td><a href="#"><i class="fa fa-user-circle"></i> Data Mitra</a></td>
+                            <td><a href="<?php echo base_url()."c_beranda_admin/dataMitra";?>"><i class="fa fa-user-circle"></i> Data Mitra</a></td>
                             <td width="50"></td>
                             <td><a href="#"><i class="fa fa-list-alt"></i> Data Order</a></td>
                             <td width="50"></td>

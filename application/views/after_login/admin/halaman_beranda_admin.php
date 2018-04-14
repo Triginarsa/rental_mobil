@@ -135,13 +135,13 @@
                                             </td>
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
-                                                    <a href="#">
+                                                    <a href="<?php echo base_url()."c_beranda_admin/dataUser";?>">
                                                     <img src="<?php echo base_url('assets/images/icon_user.png')?>" width="190" height="186"></a>
                                                 </button>
                                             </td>
                                             <td><center>
                                                 <button type="submit" class="tombol1 btn-primary1 edit_letak">
-                                                    <a href="#">
+                                                    <a href="<?php echo base_url()."c_beranda_admin/dataMitra";?>">
                                                     <img src="<?php echo base_url('assets/images/icon_mitra3.png')?>" width="180" height="180"></a></center>
                                                 </button>
                                             </td>

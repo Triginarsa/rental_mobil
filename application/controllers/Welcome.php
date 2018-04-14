@@ -17,6 +17,10 @@ class Welcome extends CI_Controller {
 		redirect('auth');
 	}
 
+	public function hlm_data_user(){
+		$this->load-view('/after_login/admin/halaman_data_user');
+	}
+
 	public function hlm_login_join(){
 		$this->load->view('halaman_login_join');
 	}
