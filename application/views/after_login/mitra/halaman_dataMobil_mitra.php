@@ -34,34 +34,56 @@
         </head>
         <body class="fix-header">
         <!-- Preloader - style you can find in spinners.css -->
-            <div class="preloader">
+          <!--   <div class="preloader">
                 <svg class="circular" viewBox="25 25 50 50">
                     <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-            </div>
+            </div> -->
             <!-- Main wrapper  -->
             <div id="main-wrapper">
                 <!-- header header  -->
                 <?php include 'header_mitra.php'; ?>
 
+                <!-- ALERT BERHASIL TAMBAH DATA-->
+                <?php 
+                    if($this->session->flashdata('success_msg')){
+                ?>
+                    <div class="alert alert-info">
+                        <?php echo $this->session->flashdata('success_msg'); ?>
+                    </div>
+                <?php
+                    }
+                ?>
+                <!-- ALERT GAGAL TAMBAH DATA-->
+                <?php 
+                    if($this->session->flashdata('error_msg')){
+                ?>
+                    <div class="alert alert-info">
+                        <?php echo $this->session->flashdata('error_msg'); ?>
+                    </div>
+                <?php
+                    }
+                ?>
 
-
-                
             <div class="container-fluid edit_form">
                 <!-- Start Page Content -->
                     <div class="card_edit2 col-lg-9">
                         <div class="card">
                             <div class="card-body"> 
-                                <h2><b>Data Mobil</b></h2>
-                             </div>
+                                <center> 
+                                    <h2><b> Data Mobil </b></h2>
+                                    <span>Ayo Kelola Mobil Anda! Kelola mobil Anda bersama kami. </span>
+                                </center>
+                            </div>
                          </div>
                     </div>
                     <div class="card_edit2 col-lg-9">
-                        <form class="form-valide" action="<?php echo base_url()."c_beranda_mitra/tambahMobil";?>" method="post">
+                        <form class="form-valide" method="post">
                             <div class="col-lg-5">
-                                <button type="submit" class="btn col-lg-5 btn-success">TAMBAH MOBIL</button>
+                            <a href="<?php echo base_url()."c_beranda_mitra/tambahMobil";?>" class="btn btn-success"><i class="fa fa-plus">   TAMBAH MOBIL</i></a>
                             </div>
                         </form>
                     </div>
+                    <!--Start Data-->
                     <div class="card_edit2 col-lg-9">
                         <div class="card">
                             <div class="card-body">
@@ -72,57 +94,60 @@
                                             <th></th>
                                             <th></th>
                                             <th width="190"></th>
+                                            <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                    <?php 
+                                        if($mobils){
+                                        foreach ($mobils as $mobil) {
+                                    ?>
+
                                         <tr>
-                                            <td rowspan="3" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
-                                            <td id="warna_teks" align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td id="warna_teks">Price: <b>$80.00</b>/day</td>
+                                            <td rowspan="4" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
+                                            <td id="warna_teks" align="left" colspan="2"><b><?php echo $mobil['merk']; ?></b></td>
+                                            <td id="warna_teks"><b><?php echo $mobil['tipe_mobil']; ?></b></td>
+                                            <td id="warna_teks">Harga (/hari)</td>
+                                            <td id="warna_teks" width="120"><b><?php echo $mobil['biaya']; ?></b></td>
                                         </tr>
                                          <tr>
                                             <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td id="warna_teks" bgcolor="orange">Available to book now</td>
+                                            <td id="warna_teks2" bgcolor="orange" colspan="2">Available to book now</td>
                                         </tr>
                                         <tr>
-                                            <td id="warna_teks"><b>Transmisi :</b> Automatic</td>
-                                            <td id="warna_teks"><b>Bahan Bakar :</b> Bensin</td>
-                                            <td id="warna_teks"><b>Jumlah Penumpang :</b> 4</td>
-                                            <td id="warna_teks"><b>Nomor Polisi :</b> BK 1777 WE</td>
-                                        </tr>
-                                        <tr>
-                                            <td height="20">
-                                            <button type="submit" class="btn col-lg-4 btn-success">Detail</button>
-                                            <button type="submit" class="btn col-lg-3 btn-warning">Edit</button>
-                                            <button type="submit" class="btn col-lg-4 btn-danger">Delete</button>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"><hr></td>
-                                        </tr>
-                                        <!-- @if(count($data_insert ->all()) > 0)
-                                        @foreach($data_insert ->all() as $data_insert )
-                                        <tr>
-                                            <td>{{$data_insert ->nama_pembeli}}</td>
-                                            <td>{{$data_insert ->alamat_pembeli}}</td>
-                                            <td>{{$data_insert ->no_hp}}</td>
+                                            <td id="warna_teks">Transmisi</td>
+                                            <td id="warna_teks"><b><?php echo $mobil['transmisi']; ?></b></td>
+                                            <td id="warna_teks">Penumpang(orang)</td>
+                                            <td id="warna_teks"><b><?php echo $mobil['jlh_penumpang']; ?></b></td>
                                             <td>
-                                                <a href="/member/{{$member->id_pembeli}}/edit" class="btn btn-info"> EDIT </a>
-                                                <form action="/member/{{$member->id_pembeli}}" method="post" style="display:inline-block;">
-                                                {{method_field('DELETE')}}
-                                                {{csrf_field()}}
-                                                    <button type="submit" class="btn btn-danger"> DELETE </button>
-                                                </form>
+                                                <a href=" <?php echo base_url('c_beranda_mitra/editMobil/'.$mobil['id_mobil']); ?> " class="btn col-lg-4 btn-info"><i class="fa fa-edit"></i></a>
+                                                <a href="<?php echo base_url('c_beranda_mitra/deleteMobil/'.$mobil['id_mobil']); ?>" class="btn col-lg-4 btn-danger" onclick="return confirm('Apakah anda yakin menghapus mobil ini?');"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
-                                        @endforeach
-                                    @endif -->
-                                        
+                                        <tr>
+                                            <td id="warna_teks">Bahan Bakar</td>
+                                            <td id="warna_teks"><b><?php echo $mobil['bahan_bakar']; ?></b></td>
+                                            <td id="warna_teks">Nomor Polisi</td>
+                                            <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="10"><hr></td>
+                                        </tr>
+
+
+                                    <?php 
+                                            }
+                                        }
+                                    ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <!-- page content -->
                     
                     <!-- /page content -->
 
