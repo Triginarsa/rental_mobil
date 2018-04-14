@@ -18,15 +18,42 @@ class C_beranda_mitra extends CI_Controller {
 		$this->load->view('/after_login/mitra/halaman_beranda_mitra'); //halaman beranda mitra
 	}
 
-	public function dataMobil(){
-		$this->load->view('/after_login/mitra/halaman_dataMobil_mitra'); //halaman data mobil mitra
+	public function dataMobil($id){
+		$this->load->model('m_mobil');
+		$mobil = $this->m_mobil->get_dataMobil($id);
+		// $datamerk[mobils] = $this->m_mobil->get_merkMobil_query();
+		// $datatipe[mobils] = $this->m_mobil->get_tipeMobil_query();
+		// $databiaya[mobils] = $this->m_mobil->get_biayaSewa_query();
+		// $datatransmisi[mobils] = $this->m_mobil->get_transmisi_query();
+		// $databahanbakar[mobils] = $this->m_mobil->get_bahanBakar_query();
+		// $datajumlahpenumpang[mobils] = $this->m_mobil->get_jumlahPenumpang_query();
+		$this->load->view('/after_login/mitra/halaman_dataMobil_mitra', array('mobil' => $mobil));  //halaman data mobil mitra
 	}
 
 	public function tambahMobil(){
-
 		$this->load->model('m_merk');
 		$merk= $this->m_merk->get_merk_query();
 		$this->load->view('/after_login/mitra/halaman_tambahMobil_mitra', array('merk' => $merk));
-		
 	}
+
+	public function editMobil($id){
+		$this->load->model('m_mobil');
+		// $this->load->model('m_merk');
+		// $merk= $this->m_merk->get_merk_query();	
+		$data['mobils'] = $this->m_mobil->getMobilById($id);
+		$this->load->view('/after_login/mitra/halaman_editMobil_mitra', $data);
+	}
+
+	public function deleteMobil($id){
+		$this->load->model('m_mobil');
+		$res = $this->m_mobil->delete($id);
+		if($res){
+			$this->session->set_flashdata('success_msg', 'Data Berhasil Dihapus');
+		}else{
+			$this->session->set_flashdata('error_msg', 'Gagal Menghapus Data');
+		}
+		redirect(base_url('c_beranda_mitra/dataMobil'));
+	}
+
+
 }

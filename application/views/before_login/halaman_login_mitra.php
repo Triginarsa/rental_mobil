@@ -63,6 +63,27 @@
                                     </span>
                             </div>
                         </div>
+                        <!-- ALERT BERHASIL TAMBAH DATA-->
+                        <?php 
+                            if($this->session->flashdata('success_msg')){
+                        ?>
+                            <div class="alert alert-info">
+                                <?php echo $this->session->flashdata('success_msg'); ?>
+                            </div>
+                        <?php
+                            }
+                        ?>
+
+                        <!-- ALERT GAGAL LOGIN-->
+                        <?php 
+                            if($this->session->flashdata('info')){
+                        ?>
+                            <div class="alert alert-danger">
+                                <?php echo $this->session->flashdata('info'); ?>
+                            </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <!-- page content -->
                     <div class="card_edit"><!--mengganti ukuran form-->
@@ -101,14 +122,6 @@
                                                 </div>
                                             </div>
                                             <!--/span-->
-                                            <div class="edit_ntf">
-                                            <?php 
-                                                        $info = $this->session->flashdata('info');
-                                                        if(!empty($info)){
-                                                            echo $info;
-                                                        }
-                                                    ?> 
-                                            </div>
                                             <!--/span-->
                                         </div>
                                         <!--/row-->

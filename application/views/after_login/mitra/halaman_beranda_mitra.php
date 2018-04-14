@@ -73,7 +73,7 @@
                                         <tr>
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
-                                                    <a href="<?php echo base_url()."c_beranda_mitra/dataMobil";?>">
+                                                    <a value="<?php echo $this->session->userdata('id'); ?>" href="<?php echo site_url('c_beranda_mitra/dataMobil/'.$this->session->userdata('id'));?>">
                                                     <img src="<?php echo base_url('assets/images/icon_mitra1.png')?>" width="156" height="156"></a>
                                                 </button>
                                             </td>

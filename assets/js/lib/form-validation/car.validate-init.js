@@ -20,8 +20,8 @@ var form_validation = function() {
                     },
                     "val-nomorPolisi": {
                         required: !0,
-                        minlength: 2,
-                        maxlength: 9
+                        minlength: 3,
+                        maxlength: 12
                     },
                     "val-merkMobil": {
                         required: !0
@@ -32,7 +32,8 @@ var form_validation = function() {
                     "val-tahunRakit": {
                         required: !0,
                         minlength: 4,
-                        maxlength: 4
+                        maxlength: 4,
+                        number: ["[0-9]",!0]
                     },
                     "val-nomorRangka": {
                         required: !0,
@@ -50,7 +51,8 @@ var form_validation = function() {
                     "val-jumlahCC": {
                         required: !0,
                         minlength: 4,
-                        maxlength: 4
+                        maxlength: 4,
+                        number: ["[0-9]",!0]
                     },
                     "val-transmisi": {
                         required: !0
@@ -60,7 +62,7 @@ var form_validation = function() {
                     },
                     "val-biayaSewa": {
                         required: !0,
-                        number: ["0-9",!0]
+                        number: ["[0-9]",!0]
                     },
                     "val-gambarMobil": {
                         required: !0
@@ -76,7 +78,7 @@ var form_validation = function() {
                     "val-nomorPolisi": {
                         required: "Anda harus mengisi kolom ini",
                         minlength: "Panjang Nomor Polisi Mobil minimal 2 karakter",
-                        maxlength: "Panjang Nomor Polisi Mobil maksimal 9 karakter"
+                        maxlength: "Panjang Nomor Polisi Mobil maksimal 12 karakter"
                     },
                     "val-merkMobil": {
                         required: "Anda harus mengisi kolom ini",
@@ -87,7 +89,8 @@ var form_validation = function() {
                     "val-tahunRakit": {
                         required: "Anda harus mengisi kolom ini",
                         minlength: "Tahun rakit minimal 4 karakter",
-                        maxlength: "Tahun rakit maksimal 9 karakter"
+                        maxlength: "Tahun rakit maksimal 9 karakter",
+                        number: "Anda harus menginputkan tahun"
                     },
                     "val-nomorRangka": {
                         required: "Anda harus mengisi kolom ini",
@@ -105,7 +108,8 @@ var form_validation = function() {
                     "val-jumlahCC": {
                         required: "Anda harus mengisi kolom ini",
                         minlength: "Jumlah CC mobil minimal 4 karakter",
-                        maxlength: "Jumlah CC mobil maksimal 4 karakter"
+                        maxlength: "Jumlah CC mobil maksimal 4 karakter",
+                        number: "Anda harus menginputkan angka"
                     },
                     "val-transmisi": {
                         required: "Anda harus mengisi kolom ini",
@@ -115,6 +119,7 @@ var form_validation = function() {
                     },
                     "val-biayaSewa": {
                         required: "Anda harus mengisi kolom ini",
+                        number: "Anda harus menginputkan angka"
                     },
                     "val-gambarMobil": {
                         required: "Anda harus mengisi kolom ini",

@@ -58,6 +58,18 @@
                             </div>
                         </div>
                     </div>
+
+                <!-- ALERT GAGAL TAMBAH DATA-->
+                <?php 
+                    if($this->session->flashdata('error_msg')){
+                ?>
+                    <div class="card_edit2 col-lg-9 alert alert-info">
+                        <?php echo $this->session->flashdata('error_msg'); ?>
+                    </div>
+                <?php
+                    }
+                ?>
+
                     <!-- page content -->
                     <div class="col-lg-7"><!--mengganti ukuran form-->
                         <div class="card card-outline-primary">

@@ -71,61 +71,36 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach ($mobil as $mobil) { ?>
                                         <tr>
-                                            <td rowspan="4" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
-                                            <td id="warna_teks" align="left" colspan="2">MERK MOBIL</td>
-                                            <td id="warna_teks"><b>Tipe Mobil</b></td>
+                                            <td rowspan="4" height="100"><img src="<?php echo $mobil['gbr_mobil']; ?>" alt="homepage" class="dark-logo" /></td>
+                                            <td id="warna_teks" align="left" colspan="2"><b><?php echo $mobil['merk']; ?></b></td>
+                                            <td id="warna_teks"><b><?php echo $mobil['tipe_mobil']; ?></b></td>
                                             <td id="warna_teks">Harga (/hari)</td>
-                                            <td id="warna_teks" width="120"><b>Rp 150.000</b></td>
+                                            <td id="warna_teks" width="120"><b>Rp <?php echo $mobil['biaya']; ?></b></td>
                                         </tr>
                                          <tr>
-                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
+                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i><?php echo $mobil['nama']; ?></i></td>
                                             <td id="warna_teks2" bgcolor="orange" colspan="2">Available to book now</td>
                                         </tr>
                                         <tr>
                                             <td id="warna_teks">Transmisi</td>
-                                            <td id="warna_teks" align="left"><b>Automatic</b></td>
+                                            <td id="warna_teks" align="left"><b><?php echo $mobil['transmisi']; ?></b></td>
                                             <td id="warna_teks">Penumpang (Orang)</td>
-                                            <td id="warna_teks" align="left"><b>4</b></td>
+                                            <td id="warna_teks" align="left"><b><?php echo $mobil['jlh_penumpang']; ?></b></td>
                                             <td rowspan="2"><center><button type="submit" class="btn col-lg-12 btn-success">Book Now</button></center></td>
                                         </tr>
                                         <tr>
                                             <td id="warna_teks">Bahan Bakar</td>
-                                            <td id="warna_teks"><b>Bensin</b></td>
+                                            <td id="warna_teks"><b><?php echo $mobil['bahan_bakar']; ?></b></td>
                                             <td id="warna_teks">Nomor Polisi</td>
-                                            <td id="warna_teks"><b>BK 1777 WE</b></td>
+                                            <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
                                             <td></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="6"><hr></td>
+                                            <td colspan="10"><hr></td>
                                         </tr>
-                                        <tr>
-                                            <td rowspan="4" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
-                                            <td id="warna_teks" align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td id="warna_teks">Harga (/hari)</td>
-                                            <td id="warna_teks" width="120"><b>Rp 150.000</b></td>
-                                        </tr>
-                                         <tr>
-                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td id="warna_teks2" bgcolor="orange" colspan="2">Available to book now</td>
-                                        </tr>
-                                        <tr>
-                                            <td id="warna_teks">Transmisi</td>
-                                            <td id="warna_teks" align="left"><b>Automatic</b></td>
-                                            <td id="warna_teks">Jumlah Penumpang</td>
-                                            <td id="warna_teks" align="left"><b>4</b></td>
-                                            <td rowspan="2"><center><button class="btn col-lg-12 btn-success">Pesan</button></center></td>
-                                        </tr>
-                                        <tr>
-                                            <td id="warna_teks">Bahan Bakar</td>
-                                            <td id="warna_teks"><b>Bensin</b></td>
-                                            <td id="warna_teks">Nomor Polisi</td>
-                                            <td id="warna_teks"><b>BK 1777 WE</b></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="6"><hr></td>
-                                        </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

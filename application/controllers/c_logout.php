@@ -5,7 +5,7 @@ class C_logout extends CI_Controller {
 	
 	public function index(){
 		$this->session->sess_destroy();
-		redirect('welcome'); //maunya dibuatin controller terpisah
+		redirect('c_beranda'); //maunya dibuatin controller terpisah
 	}
 }
 ?>

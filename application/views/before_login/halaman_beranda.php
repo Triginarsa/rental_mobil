@@ -24,11 +24,12 @@
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
-            <!-- untuk css footer -->
             <style type="text/css">
-                .warna_teks{
-                    color: black;
-                    /*untuk membuat warna tabel menjadi hitam*/
+                #warna_teks{
+                    color: black; 
+                }
+                #warna_teks2{
+                    color: white; 
                 }
             </style>
         </head>
@@ -67,96 +68,36 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                       <?php foreach ($mobil as $mobil) { ?>
                                         <tr>
-                                            <td rowspan="3" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
-                                            <td id="warna_teks" align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td id="warna_teks">Price: <b>$80.00</b>/day</td>
+                                            <td rowspan="4" height="100"><img src="<?php echo base_url('assets/images/download.jpg')?>" alt="homepage" class="dark-logo" width="200" /></td>
+                                            <td id="warna_teks" align="left" colspan="2"><b><?php echo $mobil['merk']; ?></b></td>
+                                            <td id="warna_teks"><b><?php echo $mobil['tipe_mobil']; ?></b></td>
+                                            <td id="warna_teks">Harga (/hari)</td>
+                                            <td id="warna_teks" width="120"><b>Rp <?php echo $mobil['biaya']; ?></b></td>
                                         </tr>
                                          <tr>
-                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td id="warna_teks" bgcolor="orange">Available to book now</td>
+                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i><?php echo $mobil['nama']; ?></i></td>
+                                            <td id="warna_teks2" bgcolor="orange" colspan="2">Available to book now</td>
                                         </tr>
                                         <tr>
-                                            <td id="warna_teks"><b>Transmisi :</b> Automatic</td>
-                                            <td id="warna_teks"><b>Bahan Bakar :</b> Bensin</td>
-                                            <td id="warna_teks"><b>Jumlah Penumpang :</b> 4</td>
-                                            <td id="warna_teks"><b>Nomor Polisi :</b> BK 1777 WE</td>
+                                            <td id="warna_teks">Transmisi</td>
+                                            <td id="warna_teks"><b><?php echo $mobil['transmisi']; ?></b></td>
+                                            <td id="warna_teks">Penumpang(orang)</td>
+                                            <td id="warna_teks"><b><?php echo $mobil['jlh_penumpang']; ?></b></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="5"><hr></td>
+                                            <td id="warna_teks">Bahan Bakar</td>
+                                            <td id="warna_teks"><b><?php echo $mobil['bahan_bakar']; ?></b></td>
+                                            <td id="warna_teks">Nomor Polisi</td>
+                                            <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td rowspan="3" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
-                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td>Price: $80.00/day</td>
+                                            <td colspan="10"><hr></td>
                                         </tr>
-                                         <tr>
-                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td bgcolor="orange">Available to book now</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Transmisi : Automatic</td>
-                                            <td>Bahan Bakar : Bensin</td>
-                                            <td>Jumlah Penumpang : 4</td>
-                                            <td>Nomor Polisi : BK 1777 WE</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"><hr></td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="3" height="100"></td>
-                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td>Price: $80.00/day</td>
-                                        </tr>
-                                         <tr>
-                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td bgcolor="orange">Available to book now</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Transmisi : Automatic</td>
-                                            <td>Bahan Bakar : Bensin</td>
-                                            <td>Jumlah Penumpang : 4</td>
-                                            <td>Nomor Polisi : BK 1777 WE</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"><hr></td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="3" height="100">Gambar</td>
-                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td>Price: $80.00/day</td>
-                                        </tr>
-                                         <tr>
-                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td bgcolor="orange">Available to book now</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Transmisi : Automatic</td>
-                                            <td>Bahan Bakar : Bensin</td>
-                                            <td>Jumlah Penumpang : 4</td>
-                                            <td>Nomor Polisi : BK 1777 WE</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"><hr></td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="3" height="100">Gambar</td>
-                                            <td align="left" colspan="3">SMALL : ECONOMY</td>
-                                            <td>Price: $80.00/day</td>
-                                        </tr>
-                                         <tr>
-                                            <td bgcolor="orange" align="left" colspan="3"><i>EXAMPLE OF THIS RANGE: FORD FIESTA</i></td>
-                                            <td bgcolor="orange">Available to book now</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Transmisi : Automatic</td>
-                                            <td>Bahan Bakar : Bensin</td>
-                                            <td>Jumlah Penumpang : 4</td>
-                                            <td>Nomor Polisi : BK 1777 WE</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"><hr></td>
-                                        </tr>
+                                    <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

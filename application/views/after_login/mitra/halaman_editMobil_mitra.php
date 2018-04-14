@@ -44,6 +44,9 @@
                 <!-- header header  -->
                 <?php include 'header_mitra.php'; ?>
 
+
+
+                
                 <!-- End header header -->
                 <!-- Left Sidebar  -->
                 <div class="container-fluid edit_form">
@@ -51,7 +54,7 @@
             <div class="card_edit2 col-lg-9">
                 <div class="card">
                     <div class="card-body"> 
-                        <h2><b>Tambahkan Mobil Anda</b></h2>
+                        <h2><b>Edit Mobil  </b></h2>
                     </div>
                 </div>
             </div>
@@ -59,7 +62,7 @@
             <div class="card_edit2 col-lg-9"><!--mengganti ukuran form-->
                 <div class="card card-outline-primary">
                     <div class="card-body">
-                        <form class="form-valide" enctype="c_beranda_mitra/tambahMobil" action="<?php echo base_url('c_register_mitra/insert_data_mobil');?>" method="post">
+                        <form class="form-valide" action="<?php echo base_url('c_beranda_mitra/insert_data');?>" method="post">
 
                             <div class="form-body">
                                 <div class="row p-t-20">
@@ -69,7 +72,7 @@
                                                 <label class="control-label">Nomor Polisi
                                                     <span class="text-danger">*</span>
                                                 </label>
-                                                    <input type="text" class="form-control" id="val-nomorPolisi" name="val-nomorPolisi" placeholder="Nomor Polisi">
+                                                    <input type="text" value="" class="form-control" id="val-nomorPolisi" name="val-nomorPolisi" placeholder="Nomor Polisi">
                                                 </div> 
                                             </div>
                                         </div>
@@ -228,8 +231,7 @@
                                             <div class="form-group">
                                                 <div>
                                                     <label for="exampleInputFile">Gambar Mobil</label>
-                                                    <input type="file" class="form-control-file" id="val-gambarMobil" name="val-gambarMobil">
-
+                                                    <input type="file" class="form-control-file" id="val-gambarMobil" name="val-gambarMobil" aria-describedby="fileHelp">
                                                     <small id="fileHelp" class="form-text text-muted">Pilih gambar mobil</small>
                                                 </div>
                                             </div>
@@ -258,6 +260,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </div>
                                     <!--/row-->                           
                                     <div class="row">
                                         <div class="col-md-8">
@@ -272,7 +275,7 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                            <button type="submit" name="btnSave" value="save" class="btn col-lg-6 btn-success">TAMBAH</button>
+                                            <button type="submit" name="btnUpdate" value="update" class="btn col-lg-6 btn-success">EDIT</button>
                                         </div>
                                         <!--/span-->
                                     </div>

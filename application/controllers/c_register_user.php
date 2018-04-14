@@ -28,10 +28,12 @@ class C_register_user extends CI_Controller {
 			'id_kota' =>$kota_id
 		);
 		$res = $this->m_register->insert_data('tb_pengguna',$data_insert);
-		if($res){
-			echo "<h2>Insert Data Berhasil </h2>";
+		if($res>0){
+			$this->session->set_flashdata('success_msg', 'Data Berhasil Disimpan');
+			redirect(base_url('auth_user'));
 		}else{
-			echo "GAGAL";
+			$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Data');
+			redirect(base_url('c_register_user'));
 		}
 	}
 }
