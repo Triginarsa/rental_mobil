@@ -79,7 +79,7 @@
                     <div class="card_edit2 col-lg-9">
                         <form class="form-valide" method="post">
                             <div class="col-lg-5">
-                            <a href="<?php echo base_url()."c_beranda_mitra/tambahMobil";?>" class="btn btn-success"><i class="fa fa-plus"></i> TAMBAH MOBIL</a>
+                            <a href="<?php echo site_url('c_beranda_mitra/tambahMobil/'.$this->session->userdata('id'));?>" class="btn btn-success"><i class="fa fa-plus"></i> TAMBAH MOBIL</a>
                             </div>
                         </form>
                     </div>
@@ -101,7 +101,7 @@
                                     <tbody>
                                     <?php foreach ($mobil as $mobil) { ?>
                                         <tr>
-                                            <td rowspan="4" height="100"><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></td>
+                                            <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210"/></td>
                                             <td id="warna_teks" align="left" colspan="2"><b><?php echo $mobil['merk']; ?></b></td>
                                             <td id="warna_teks"><b><?php echo $mobil['tipe_mobil']; ?></b></td>
                                             <td id="warna_teks">Harga (/hari)</td>

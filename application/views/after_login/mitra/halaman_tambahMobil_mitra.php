@@ -59,7 +59,7 @@
             <div class="card_edit2 col-lg-9"><!--mengganti ukuran form-->
                 <div class="card card-outline-primary">
                     <div class="card-body">
-                        <form class="form-valide" enctype="c_beranda_mitra/tambahMobil" action="<?php echo base_url('c_register_mitra/insert_data_mobil');?>" method="post">
+                        <form class="form-valide" enctype='multipart/form-data' action="<?php echo site_url('c_register_mitra/insert_data_mobil/'.$this->session->userdata('id'));?>" method="post" >
 
                             <div class="form-body">
                                 <div class="row p-t-20">

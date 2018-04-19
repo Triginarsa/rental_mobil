@@ -197,7 +197,7 @@
                     <table>
                         <tr>
                             <td width="400"></td>
-                            <td><a href="#"><i class="fa fa-car"></i> Data Mobil</a></td>
+                            <td><a href="<?php echo site_url('c_beranda_mitra/dataMobil/'.$this->session->userdata('id'));?>"><i class="fa fa-car"></i> Data Mobil</a></td>
                             <td width="50"></td>
                             <td><a href="#"><i class="fa fa-list-alt"></i> Data Order</a></td>
                             <td width="50"></td>

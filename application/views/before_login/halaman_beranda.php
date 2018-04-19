@@ -70,7 +70,7 @@
                                     <tbody>
                                        <?php foreach ($mobil as $mobil) { ?>
                                         <tr>
-                                            <td rowspan="4" height="100"><img src="<?php echo base_url('assets/images/download.jpg')?>" alt="homepage" class="dark-logo" width="200" /></td>
+                                            <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="200" /></td>
                                             <td id="warna_teks" align="left" colspan="2"><b><?php echo $mobil['merk']; ?></b></td>
                                             <td id="warna_teks"><b><?php echo $mobil['tipe_mobil']; ?></b></td>
                                             <td id="warna_teks">Harga (/hari)</td>

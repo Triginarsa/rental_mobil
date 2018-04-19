@@ -21,12 +21,6 @@ class C_beranda_mitra extends CI_Controller {
 	public function dataMobil($id){
 		$this->load->model('m_mobil');
 		$mobil = $this->m_mobil->get_dataMobil($id);
-		// $datamerk[mobils] = $this->m_mobil->get_merkMobil_query();
-		// $datatipe[mobils] = $this->m_mobil->get_tipeMobil_query();
-		// $databiaya[mobils] = $this->m_mobil->get_biayaSewa_query();
-		// $datatransmisi[mobils] = $this->m_mobil->get_transmisi_query();
-		// $databahanbakar[mobils] = $this->m_mobil->get_bahanBakar_query();
-		// $datajumlahpenumpang[mobils] = $this->m_mobil->get_jumlahPenumpang_query();
 		$this->load->view('/after_login/mitra/halaman_dataMobil_mitra', array('mobil' => $mobil));  //halaman data mobil mitra
 	}
 
@@ -52,7 +46,10 @@ class C_beranda_mitra extends CI_Controller {
 		}else{
 			$this->session->set_flashdata('error_msg', 'Gagal Menghapus Data');
 		}
-		redirect(base_url('c_beranda_mitra/dataMobil'));
+		$id = $this->session->userdata('id'); //nampilin lagi
+		$this->load->model('m_mobil');
+		$mobil = $this->m_mobil->get_dataMobil($id);
+		$this->load->view('/after_login/mitra/halaman_dataMobil_mitra', array('mobil' => $mobil));
 	}
 
 
