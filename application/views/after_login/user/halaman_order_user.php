@@ -10,7 +10,7 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Beranda</title>
+            <title>RentCar | Order</title>
             <!-- Bootstrap Core CSS -->
             <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
@@ -24,6 +24,7 @@
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front.css')?>" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
+            <!-- untuk css footer -->
             <style type="text/css">
                 #warna_teks{
                     color: black; 
@@ -58,63 +59,112 @@
                     <div class="card_edit2 col-lg-9">
                         <div class="card">
                             <div class="card-body">
+                                <form method="post" action="#" class="form-valide">
                                 <table border="0" class="col-lg-12" id="hehe">
                                     <thead>
                                         <tr>
                                             <th width="220"></th>
+                                            <th width="30"></th>
                                             <th></th>
+                                            <th width="190"></th>
                                             <th></th>
-                                            <th width="140"></th>
-                                            <th width="160"></th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($mobil as $mobil) { ?>
                                         <tr>
-                                            <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210" /></td>
-                                            <td width="10"></td>
-                                            <td id="warna_teks" align="left" colspan="2" style="font-size: 15pt"><b><?php echo $mobil['merk']; ?>/<?php echo $mobil['tipe_mobil']; ?></b></td>
                                             <td></td>
-                                            <td id="warna_teks" align="center">Harga</td>
-                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo $mobil['biaya']; ?></b>/hari</td>
+                                            <td height=60></td>
+                                            <td id="warna_teks" align="left" colspan="5" style="font-size: 20pt"><b><?php echo $mobil->merk; ?>/<?php echo $mobil->tipe_mobil; ?></b></td>
                                             <td></td>
                                         </tr>
-                                         <tr>
+                                        <tr><!--Baris9-->
+                                            <td rowspan="11" height="100"><img src="<?=base_url()?>uploads/<?=$mobil->gbr_mobil; ?>" alt="homepage" class="dark-logo" width="410" /></td>
+                                            <td colspan="6"><hr></td>
+                                        </tr>
+                                        <tr> <!--Baris1-->
                                             <td></td>
-                                            <td id="warna_teks2" bgcolor="#093645" align="left" colspan="3"><i class="fa fa-user-circle"></i><i> <?php echo $mobil['nama']; ?></i></td>
-                                            <td id="warna_teks2" bgcolor="12505E" colspan="2" align="center">
-                                                <i class="fa fa-location-arrow"></i> <b><?php echo $mobil['kota']; ?>,<?php echo $mobil['provinsi']; ?></b>
+                                            <td id="warna_teks" colspan="2">Pemilik :<b> <?php echo $mobil->nama; ?></b></td>
+                                            <td id="warna_teks" colspan="2">Daerah:<b> <?php echo $mobil->kota; ?>,<b> <?php echo $mobil->provinsi; ?></b></b></td>
+                                        </tr>
+                                        <tr> <!--Baris2-->
+                                            <td></td>
+                                            <td height="50" id="warna_teks" rowspan="2" colspan="2" style="font-size: 20pt"><b>Rp <?php echo $mobil->biaya; ?></b>/hari</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr></tr>
+                                         <tr><!--Baris2-->
+                                            <td></td>
+                                            <td id="warna_teks2" bgcolor="#093645" align="center" colspan="2">Spesifikasi</td>
+                                            <td id="warna_teks2" bgcolor="12505E" colspan="2">Kapan Anda akan menggunakan?</td>
+                                        </tr>
+                                        <tr><!--Baris3-->
+                                            <td height="50"></td>
+                                            <td style="color: #EC5E24" align="center" width="70"><i class="fa fa-male"></i>/<i class="fa fa-female"></i>/<i class="fa fa-child"></i></td>
+                                            <td id="warna_teks"><?php echo $mobil->jlh_penumpang; ?> orang(maks)</td>
+                                            <td colspan="2" style="font-size: 10pt">*rentang waktu pemesanan adalah 20 hari dengan batas maksimal rental 10 hari</td>
+                                        </tr>
+                                        <tr><!--Baris4-->
+                                            <td height="40"></td>
+                                            <td style="color: #EC5E24" id="warna_teks" align="center"><i class="fa fa-drivers-license"></i></td>
+                                            <td id="warna_teks"><?php echo $mobil->nomor_polisi; ?>
+                                            <td id="warna_teks" rowspan="2" colspan="2" align="center" width="130" height="100">Tanggal Pakai
+                                                <div class="form-group">
+                                                    <div>
+                                                        <input type="text" id="val-tglMulai" name="val-tglMulai" placeholder="Tanggal Mulai">
+                                                    </div>
+                                                </div>
+                                            </td>
                                             </td>
                                             <td></td>
                                         </tr>
-                                        <tr>
+                                        <tr><!--Baris4-->
+                                            <td height="40"></td>
+                                            <td style="color: #EC5E24" id="warna_teks" align="center"><i class="fa fa-dashboard"></i></td>
+                                            <td id="warna_teks"><?php echo $mobil->transmisi; ?></td>
                                             <td></td>
-                                            <td id="warna_teks">Transmisi</td>
-                                            <td id="warna_teks" align="left"><b><?php echo $mobil['transmisi']; ?></b></td>
-                                            <td id="warna_teks">Penumpang</td>
-                                            <td id="warna_teks" align="left"><b><?php echo $mobil['jlh_penumpang']; ?> orang(maks)</b></td>
-                                            <td rowspan="2">
+                                        </tr>
+                                        <tr><!--Baris4-->
+                                            <td height="40"></td>
+                                            <td style="color: #EC5E24" id="warna_teks" align="center"><i class="fa fa-creative-commons"></i></td>
+                                            <td id="warna_teks"><?php echo $mobil->jlh_cc ?> cc</td>
+                                            <td id="warna_teks" rowspan="2" colspan="2" align="center" width="130" height="100">Tanggal Kembali
+                                                <div class="form-group">
+                                                    <div>
+                                                        <input type="text" id="val-tglKembali" name="val-tglKembali" placeholder="Tanggal Kembali">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                         <tr><!--Baris4-->
+                                            <td height="40"></td>
+                                            <td style="color: #EC5E24" id="warna_teks" align="center"><i class="fa fa-filter"></i></td>
+                                            <td id="warna_teks"><?php echo $mobil->bahan_bakar ?></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr><!--Baris5-->
+                                            <td height="60"></td>
+                                            <td rowspan="2" colspan="4">
                                                 <center>
-                                                    <form method="post" action="<?php echo base_url('c_beranda_user/orderMobil/'.$mobil['id_mobil']); ?>">
-                                                        <button type="submit" class="btn col-lg-12 btn-success"><i class="fa fa-cart-plus"></i> Book Now</button>
+                                                        <button type="submit" class="btn col-lg-10 btn-success"><i class="fa fa-cart-arrow-down"></i> Pesan Sekarang</button>
                                                 </center>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td id="warna_teks">Bahan Bakar</td>
-                                            <td id="warna_teks"><b><?php echo $mobil['bahan_bakar']; ?></b></td>
-                                            <td id="warna_teks">Nomor Polisi</td>
-                                            <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
-                                            <td></td>
+                                        <tr><!--Baris6--></tr>
+                                        <tr><!--Baris7--></tr>
+                                        <tr><!--Baris8--></tr>
+                                        <tr><!--Baris9-->
+                                            <td colspan="6"><hr></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="7"><hr></td>
+                                            <td colspan="6">*order Anda akan diproses apabila pemilik mobil telah menerima pesanan Anda</td>
                                         </tr>
-                                        <?php } ?>
                                     </tbody>
                                 </table>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -126,7 +176,7 @@
                 </div>
                 <!-- End Container fluid  -->
                 <!-- footer -->
-                <?php include 'footer.php'; ?>
+                <?php include 'footer_user.php'; ?>
                 <!-- End footer -->
                 
                 <!-- End Page wrapper  -->
@@ -172,7 +222,7 @@
 
             <!-- Form validation -->
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate-init.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/form-validation/order.validate-init.js')?>"></script>
             <!--Custom JavaScript -->
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
             <!--Date Picker-->
@@ -180,15 +230,15 @@
             <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
             <script>
                 $(document).ready(function(){
-                    $('#tanggal').Zebra_DatePicker({
-                        direction: true,
-                        pair: $('#tanggal1'),
+                    $('#val-tglMulai').Zebra_DatePicker({
+                        direction: [true,20],
+                        pair: $('#val-tglKembali'),
                         format: 'd-F-Y',
                         months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
                         days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
                         days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
                     });
-                    $('#tanggal1').Zebra_DatePicker({
+                    $('#val-tglKembali').Zebra_DatePicker({
                         direction: [1,10],
                         format: 'd-F-Y',
                         months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],

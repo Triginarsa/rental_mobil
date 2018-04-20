@@ -19,5 +19,12 @@ class C_beranda_user extends CI_Controller {
 		$mobil = $this->m_mobil->get_dataMobil_beranda();
 		$this->load->view('/after_login/user/halaman_beranda_user',array('provinsi' => $provinsi,'mobil' => $mobil));//halaman beranda user setelah login
 	}
+
+	public function orderMobil($id){
+		$this->load->model('m_mobil');
+		//$data['mobil'] = $this->m_mobil->get_OrderMobil($id);
+		$mobil = $this->m_mobil->get_OrderMobil($id);
+		$this->load->view('/after_login/user/halaman_order_user',array('mobil' => $mobil));
+	}
 }
 ?>

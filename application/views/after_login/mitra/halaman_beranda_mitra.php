@@ -22,7 +22,7 @@
             <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
-            <link href="<?php echo base_url('assets/css/front_css.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/front.css')?>" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <!-- untuk css footer -->
         </head>

@@ -33,12 +33,6 @@
                         </select>
                     </td>
                     <td>
-                        <input type="text" class="tgl_mulai" id="tanggal" placeholder="Tanggal Mulai">
-                    </td>
-                    <td>
-                        <input type="text" class="tgl_mulai" id="tanggal1" placeholder="Tanggal Selesai">
-                    </td>
-                    <td>
                         <button type="submit" class="btn col-lg-12 btn-success tombolku"><i class="ti-search"></i>CARI</button>
                     </td>
                 </tr>
