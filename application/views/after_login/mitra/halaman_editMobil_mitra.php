@@ -72,7 +72,7 @@
                                                 <label class="control-label">Nomor Polisi
                                                     <span class="text-danger">*</span>
                                                 </label>
-                                                    <input type="text" value="" class="form-control" id="val-nomorPolisi" name="val-nomorPolisi" placeholder="Nomor Polisi">
+                                                    <input type="text" value="<?php echo $mobils->nomor_polisi; ?>" class="form-control" id="val-nomorPolisi" name="val-nomorPolisi" placeholder="Nomor Polisi">
                                                 </div> 
                                             </div>
                                         </div>
