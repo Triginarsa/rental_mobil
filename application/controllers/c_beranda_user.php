@@ -21,10 +21,11 @@ class C_beranda_user extends CI_Controller {
 	}
 
 	public function orderMobil($id){
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
 		$this->load->model('m_mobil');
-		//$data['mobil'] = $this->m_mobil->get_OrderMobil($id);
 		$mobil = $this->m_mobil->get_OrderMobil($id);
-		$this->load->view('/after_login/user/halaman_order_user',array('mobil' => $mobil));
+		$this->load->view('/after_login/user/halaman_order_user',array('mobil' => $mobil,'provinsi' => $provinsi));
 	}
 }
 ?>
