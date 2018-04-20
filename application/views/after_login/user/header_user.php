@@ -1,6 +1,6 @@
 <div class="header2">
     <div class="bar_atas">
-            <a href="#" class="jarak">PESANAN</a>
+            <a href="<?php echo site_url('c_beranda_user/dataPesanan/'.$this->session->userdata('id'));?>" class="jarak">PESANAN</a>
             <a href="#" class="jarak"><?php echo $this->session->userdata('nama'); ?></a>
             <a href="<?php echo site_url('c_logout')?>" class="jarak">LOGOUT</a>
     </div>

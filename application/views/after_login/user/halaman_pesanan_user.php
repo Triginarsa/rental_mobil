@@ -10,7 +10,7 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Beranda</title>
+            <title>RentCar | Pesanan</title>
             <!-- Bootstrap Core CSS -->
             <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
@@ -57,26 +57,17 @@
                 <div class="container-fluid edit_form">
                     <!-- Start Page Content -->
                     <div class="card_edit2 col-lg-9">
-                        <!-- ALERT BERHASIL TAMBAH DATA-->
-                        <?php 
-                            if($this->session->flashdata('success_msg')){
-                        ?>
-                            <div class="alert alert-info"><i class="fa fa-check"></i>
-                                <?php echo $this->session->flashdata('success_msg'); ?>
+                        <div class="card">
+                            <div class="card-body"> 
+                                <center> 
+                                    <h2><b><i class="fa fa-navicon"></i> Daftar Pesanan </b></h2>
+                                    <span>Ini adalah daftar pesanan atas nama <?php echo $this->session->userdata('nama'); ?> yang masih di proses, Anda masih dapat melakukan pembatalan pesanan </span>
+                                </center>
                             </div>
-                        <?php
-                            }
-                        ?>
-                        <!-- ALERT GAGAL TAMBAH DATA-->
-                        <?php 
-                            if($this->session->flashdata('error_msg')){
-                        ?>
-                            <div class="alert alert-info"><i class="fa fa-close"></i>
-                                <?php echo $this->session->flashdata('error_msg'); ?>
-                            </div>
-                        <?php
-                            }
-                        ?>
+                        </div>
+                    </div>
+
+                    <div class="card_edit2 col-lg-9">
                         <div class="card">
                             <div class="card-body">
                                 <table border="0" class="col-lg-12" id="hehe">
@@ -84,50 +75,48 @@
                                         <tr>
                                             <th width="220"></th>
                                             <th></th>
-                                            <th></th>
+                                            <th width="154"></th>
                                             <th width="140"></th>
-                                            <th width="160"></th>
+                                            <th width="200"></th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($mobil as $mobil) { ?>
+                                        <?php foreach ($order as $order) { ?>
                                         <tr>
-                                            <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210" /></td>
+                                            <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$order['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210" /></td>
                                             <td width="10"></td>
-                                            <td id="warna_teks" align="left" colspan="2" style="font-size: 15pt"><b><?php echo $mobil['merk']; ?>/<?php echo $mobil['tipe_mobil']; ?></b></td>
+                                            <td id="warna_teks" align="left" colspan="2" style="font-size: 15pt"><b><?php echo $order['nomor_polisi']; ?></b></td>
                                             <td></td>
                                             <td id="warna_teks" align="center">Harga</td>
-                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo $mobil['biaya']; ?></b>/hari</td>
+                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo $order['biaya']; ?></b>/hari</td>
                                             <td></td>
                                         </tr>
                                          <tr>
                                             <td></td>
-                                            <td id="warna_teks2" bgcolor="#093645" align="left" colspan="3"><i class="fa fa-user-circle"></i><i> <?php echo $mobil['nama']; ?></i></td>
+                                            <td id="warna_teks2" bgcolor="#093645" align="left" colspan="3"><i class="fa fa-user-circle"></i><i> <?php echo $order['pemilik']; ?></i></td>
                                             <td id="warna_teks2" bgcolor="12505E" colspan="2" align="center">
-                                                <i class="fa fa-location-arrow"></i> <b><?php echo $mobil['kota']; ?>,<?php echo $mobil['provinsi']; ?></b>
+                                                <i class="fa fa-location-arrow"></i> <b><?php echo $order['kota']; ?>,<?php echo $order['provinsi']; ?></b>
                                             </td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td id="warna_teks">Transmisi</td>
-                                            <td id="warna_teks" align="left"><b><?php echo $mobil['transmisi']; ?></b></td>
-                                            <td id="warna_teks">Penumpang</td>
-                                            <td id="warna_teks" align="left"><b><?php echo $mobil['jlh_penumpang']; ?> orang(maks)</b></td>
+                                            <td id="warna_teks"><i class="fa fa-calendar"></i> Tanggal Rental</td>
+                                            <td id="warna_teks" align="left"><b><?php echo $order['tgl_rental']; ?></b></td>
+                                            <td id="warna_teks" align="center"><i class="fa fa-calendar"></i> Tanggal Kembali</td>
+                                            <td id="warna_teks" align="left"><b><?php echo $order['tgl_pengembalian']; ?></b></td>
                                             <td rowspan="2">
                                                 <center>
-                                                    <form method="post" action="<?php echo base_url('c_beranda_user/orderMobil/'.$mobil['id_mobil']); ?>">
-                                                        <button type="submit" class="btn col-lg-12 btn-success"><i class="fa fa-cart-plus"></i> Book Now</button></form>
+                                                    AAA
                                                 </center>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td id="warna_teks">Bahan Bakar</td>
-                                            <td id="warna_teks"><b><?php echo $mobil['bahan_bakar']; ?></b></td>
-                                            <td id="warna_teks">Nomor Polisi</td>
-                                            <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
+                                            <td id="warna_teks" colspan="2"><b><?php echo $order['merk']; ?>/<?php echo $order['tipe_mobil']; ?></b></td>
+                                            <td id="warna_teks" align="center"><i class="fa fa-home"></i><b> <?php echo $order['alamat']; ?></b></td>
+                                            <td id="warna_teks" align="center"><b><span class="badge badge-primary"><?php echo $order['status']; ?></span></b></td>
                                             <td></td>
                                         </tr>
                                         <tr>

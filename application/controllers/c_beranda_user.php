@@ -27,5 +27,35 @@ class C_beranda_user extends CI_Controller {
 		$mobil = $this->m_mobil->get_OrderMobil($id);
 		$this->load->view('/after_login/user/halaman_order_user',array('mobil' => $mobil,'provinsi' => $provinsi));
 	}
+
+	public function buatOrder($id,$idp){
+		$tgl_mulai	= $_POST['val-tglMulai'];
+		$tgl_kembali = $_POST['val-tglKembali'];
+		$data_insert = array(
+			'tgl_rental' => $tgl_mulai,
+			'tgl_pengembalian' => $tgl_kembali,
+			'id_mobil' => $id,
+			'id_pengguna' => $idp
+		);
+		$res = $this->m_mobil->get_buatOrder('tb_pemesanan',$data_insert);
+		if($res>0){
+			// echo "<pre>";
+			// print_r($data_insert);
+			// echo "</pre>";
+			$this->session->set_flashdata('success_msg', 'Pesanan berhasil dibuat, silahkan lihat halaman pesanan untuk melihat status pesanan Anda');
+			redirect(base_url('c_beranda_user'));
+		}else{
+			$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Pesanan');
+			redirect(base_url('c_beranda_user'));
+		}
+	}
+
+	public function dataPesanan($id){
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$this->load->model('m_mobil');
+		$order= $this->m_mobil->get_DataPesanan($id);
+		$this->load->view('/after_login/user/halaman_pesanan_user',array('provinsi' => $provinsi, 'order' => $order));
+	}
 }
 ?>

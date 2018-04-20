@@ -59,7 +59,7 @@
                     <div class="card_edit2 col-lg-9">
                         <div class="card">
                             <div class="card-body">
-                                <form method="post" action="#" class="form-valide">
+                                <form action="<?php echo base_url('c_beranda_user/buatOrder/'.$mobil->id_mobil) .'/'.$this->session->userdata('id'); ?>" class="form-valide" method="post">
                                 <table border="0" class="col-lg-12" id="hehe">
                                     <thead>
                                         <tr>
