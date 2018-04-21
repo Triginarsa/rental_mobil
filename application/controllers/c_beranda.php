@@ -16,5 +16,11 @@ class C_beranda extends CI_Controller {
 		$mobil = $this->m_mobil->get_dataMobil_beranda();
 		$this->load->view('/after_login/mitra/halaman_dataMobil_mitra', array('mobil' => $mobil));  //halaman data mobil mitra
 	}
+
+	public function getDataByKota($id){
+		$this->load->model('m_mobil');
+		$mobil = $this->m_mobil->get_MobilByKota($id);
+		$this->load->view('/before_login/halaman_pencarian',array('mobil' => $mobil));
+	}
 }
 ?>

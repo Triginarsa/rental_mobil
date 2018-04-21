@@ -98,7 +98,6 @@
                                                 <center>
                                                     <form method="post" action="<?php echo base_url('c_beranda_user/orderMobil/'.$mobil['id_mobil']); ?>">
                                                         <button type="submit" class="btn col-lg-12 btn-success"><i class="fa fa-cart-plus"></i> Book Now</button>
-                                                    </form>
                                                 </center>
                                             </td>
                                         </tr>
