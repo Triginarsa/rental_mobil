@@ -94,63 +94,7 @@ class C_register_mitra extends CI_Controller {
 		}else{
 			$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Data');
 		}
-		//redirect(site_url('c_beranda_mitra/dataMobil'));
-		$id = $this->session->userdata('id');
-		$this->load->model('m_mobil');
-		$mobil = $this->m_mobil->get_dataMobil($id);
-		$this->load->view('/after_login/mitra/halaman_dataMobil_mitra', array('mobil' => $mobil));
-
+		redirect(base_url('c_beranda_mitra/dataMobil/'.$this->session->userdata('id')));
       }
-
-
-
-		// $this->load->model('m_mobil'); 
-		// $nomor_polisi		= $_POST['val-nomorPolisi'];
-		// $merk_mobil			= $_POST['val-merkMobil'];
-		// $tipe_mobil			= $_POST['val-tipeMobil'];
-		// $tahun_rakit		= $_POST['val-tahunRakit'];
-		// $nomor_rangka		= $_POST['val-nomorRangka'];
-		// $nomor_mesin		= $_POST['val-nomorMesin'];
-		// $bahan_bakar		= $_POST['val-bahanBakar'];
-		// $jumlah_cc			= $_POST['val-jumlahCC'];
-		// $transmisi			= $_POST['val-transmisi'];
-		// $biaya_sewa			= $_POST['val-biayaSewa'];
-		// $jumlah_penumpang	= $_POST['val-jumlahPenumpang'];
-		// $gambar_mobil		= $_POST['val-gambarMobil'];
-		// $gambar_STNK		= $_POST['val-gambarSTNK'];
-		// $gambar_BPKB		= $_POST['val-gambarBPKB'];
-		// $id_pemilik			= $this->session->userdata('id'); 
-		// $id_kota			= $this->session->userdata('id_kota');  
-
-		// $data_insert 		= array(
-		// 	'nomor_polisi' 	=> $nomor_polisi,
-		// 	'id_merk' 			=> $merk_mobil,
-		// 	'tipe_mobil'	=> $tipe_mobil,
-		// 	'tahun_rakit'	=> $tahun_rakit,
-		// 	'nomor_rangka'	=> $nomor_rangka,
-		// 	'nomor_mesin'	=> $nomor_mesin,
-		// 	'bahan_bakar'	=> $bahan_bakar,
-		// 	'jlh_cc' 		=> $jumlah_cc,
-		// 	'transmisi'		=> $transmisi,
-		// 	'biaya' 		=>$biaya_sewa,
-		// 	'jlh_penumpang' =>$jumlah_penumpang,
-		// 	'gbr_mobil' 	=>$gambar_mobil,
-		// 	'gbr_stnk' 		=>$gambar_STNK,
-		// 	'gbr_bpkb' 		=>$gambar_BPKB,
-		// 	'id_pemilik'	=>$id_pemilik,
-		// 	'id_kota'		=>$id_kota,
-		// );
-		
-		// $res = $this->m_mobil->insert_data('tb_mobil', $data_insert);
-		// if($res){
-		// 	$this->session->set_flashdata('success_msg', 'Data Berhasil Disimpan');
-		// }else{
-		// 	$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Data');
-		// }
-		// //redirect(site_url('c_beranda_mitra/dataMobil'));
-		// $id = $this->session->userdata('id');
-		// $this->load->model('m_mobil');
-		// $mobil = $this->m_mobil->get_dataMobil($id);
-		// $this->load->view('/after_login/mitra/halaman_dataMobil_mitra', array('mobil' => $mobil));
 	}
 }

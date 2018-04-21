@@ -108,7 +108,7 @@
                                             <td id="warna_teks" align="left"><b><?php echo $order['tgl_pengembalian']; ?></b></td>
                                             <td rowspan="2">
                                                 <center>
-                                                    <a href="<?php echo base_url('c_beranda_mitra/deleteMobil/'); ?>" class="btn col-lg-4 btn-danger" onclick="return confirm('Apakah anda yakin menghapus mobil ini?');"><i class="fa fa-trash"></i></a>
+                                                    <a href="<?php echo base_url('c_beranda_user/deleteDataPesanan/'.$order['id_pemesanan']); ?>" class="btn col-lg-4 btn-danger" onclick="return confirm('Apakah anda yakin menghapus mobil ini?');"><i class="fa fa-trash"></i></a>
                                                 </center>
                                             </td>
                                         </tr>

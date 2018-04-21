@@ -57,5 +57,20 @@ class C_beranda_user extends CI_Controller {
 		$order= $this->m_mobil->get_DataPesanan($id);
 		$this->load->view('/after_login/user/halaman_pesanan_user',array('provinsi' => $provinsi, 'order' => $order));
 	}
+
+	public function deleteDataPesanan($id){
+		$this->load->model('m_mobil');
+		$res = $this->m_mobil->deletePesanan($id);
+		if($res){
+			$this->session->set_flashdata('success_msg', 'Data Berhasil Dihapus');
+		}else{
+			$this->session->set_flashdata('error_msg', 'Gagal Menghapus Data');
+		}
+		redirect(base_url('c_beranda_user/dataPesanan/'.$this->session->userdata('id')));
+		// $id = $this->session->userdata('id'); //nampilin lagi
+		// $this->load->model('m_mobil');
+		// $mobil = $this->m_mobil->get_dataMobil($id);
+		// $this->load->view('/after_login/mitra/halaman_dataMobil_mitra', array('mobil' => $mobil));
+	}
 }
 ?>

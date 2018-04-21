@@ -46,10 +46,11 @@ class C_beranda_mitra extends CI_Controller {
 		}else{
 			$this->session->set_flashdata('error_msg', 'Gagal Menghapus Data');
 		}
-		$id = $this->session->userdata('id'); //nampilin lagi
-		$this->load->model('m_mobil');
-		$mobil = $this->m_mobil->get_dataMobil($id);
-		$this->load->view('/after_login/mitra/halaman_dataMobil_mitra', array('mobil' => $mobil));
+		redirect(base_url('c_beranda_mitra/dataMobil/'.$this->session->userdata('id')));
+		// $id = $this->session->userdata('id'); //nampilin lagi
+		// $this->load->model('m_mobil');
+		// $mobil = $this->m_mobil->get_dataMobil($id);
+		// $this->load->view('/after_login/mitra/halaman_dataMobil_mitra', array('mobil' => $mobil));
 	}
 
 

@@ -75,10 +75,19 @@ class M_mobil extends CI_Model {
 		}
 	}
 
-
 	public function delete($id){
 		$this->db->where('id_mobil' , $id);
 		$this->db->delete('tb_mobil');
+		if ($this->db->affected_rows()>0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function deletePesanan($id){
+		$this->db->where('id_pemesanan' , $id);
+		$this->db->delete('tb_pemesanan');
 		if ($this->db->affected_rows()>0){
 			return true;
 		}else{
