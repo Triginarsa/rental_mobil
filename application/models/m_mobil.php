@@ -95,16 +95,16 @@ class M_mobil extends CI_Model {
 		}
 	}
 
-	public function get_MobilByKota($id){
+	public function get_MobilByKota($kota){
 		$this->db->SELECT('id_mobil, nomor_polisi, tb_merk.`merk`, tipe_mobil, tahun_rakit, bahan_bakar, nomor_mesin, nomor_rangka, jlh_cc, jlh_penumpang, gbr_mobil, gbr_bpkb, gbr_stnk, transmisi, biaya, tb_kota.`kota`, tb_provinsi.`provinsi`, tb_pemilik_mobil.`nama`, tb_mobil.`status`');
 		$this->db->FROM('tb_mobil');
 		$this->db->join('tb_merk','tb_merk.`id_merk` =  tb_mobil.`id_merk`');
 		$this->db->join('tb_kota','tb_kota.`id_kota` = tb_mobil.`id_kota`');
 		$this->db->join('tb_provinsi','tb_provinsi.`id_provinsi` = tb_kota.`id_provinsi`');
 		$this->db->join('tb_pemilik_mobil','tb_pemilik_mobil.`id` = tb_mobil.`id_pemilik`');
-		$this->db->where('id_kota' , $id);
+		$this->db->where('tb_kota.`id_kota`' , $kota);
 		$query = $this->db->get();
-		return $query->row();
+		return $query->result_array();
 	}
 
 }

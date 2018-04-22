@@ -16,11 +16,11 @@
                 <!-- Logo text -->
             </a>
         </div>
-        <form>
+        <form method="get" action="<?php echo base_url('c_beranda/getDataByKota/'); ?>">
             <table>
                 <tr>
                     <td>
-                        <select class="form-control provinsiku" id="provinsi" name="provinsi">
+                        <select class="form-control provinsiku" id="val-provinsi" name="val-provinsi" required="">
                             <option value="">Lokasi Provinsi Anda</option>
                                 <?php foreach($provinsi as $a){ ?>
                                     <option value="<?php echo $a['id_provinsi']; ?>"><?php echo $a['provinsi']; ?></option>
@@ -28,7 +28,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="form-control kotaku" id="kota" name="kota" disabled="">
+                        <select class="form-control kotaku" id="val-kota" name="val-kota" disabled="" required="">
                             <option>Lokasi Kota Anda</option>
                         </select>
                     </td>

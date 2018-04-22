@@ -144,19 +144,19 @@
             <!--Header Data Kota -->
             <script type="text/javascript">
                 $(document).ready(function(){
-                    $('#provinsi').on('change', function(){
+                    $('#val-provinsi').on('change', function(){
                         var id_provinsi = $(this).val();
                         if(id_provinsi==''){
-                            $('#kota').prop('disabled', true);
+                            $('#val-kota').prop('disabled', true);
                         }else{
-                            $('#kota').prop('disabled', false);
+                            $('#val-kota').prop('disabled', false);
                             $.ajax({
                                 url:"<?php echo base_url()?>c_get_kota",
                                 type: "POST",
                                 data: {'id_provinsi' : id_provinsi},
                                 dataType: 'json',
                                 success: function(data){
-                                    $('#kota').html(data);
+                                    $('#val-kota').html(data);
                                 },
                                 error: function(){
                                     alert('data kota tidak ada...');

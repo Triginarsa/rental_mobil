@@ -245,28 +245,28 @@
             <!--stickey kit -->
             <script src="<?php echo base_url('assets/js/lib/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
             <script type="text/javascript">
-            $(document).ready(function(){
-                $('#val-provinsi').on('change', function(){
-                    var id_provinsi = $(this).val();
-                    if(id_provinsi==''){
-                        $('#val-kota').prop('disabled', true);
-                    }else{
-                        $('#val-kota').prop('disabled', false);
-                        $.ajax({
-                            url:"<?php echo base_url()?>c_get_kota",
-                            type: "POST",
-                            data: {'id_provinsi' : id_provinsi},
-                            dataType: 'json',
-                            success: function(data){
-                                $('#val-kota').html(data);
-                            },
-                            error: function(){
-                                alert('data kota tidak ada...');
-                            }
-                        });
-                    }
+                $(document).ready(function(){
+                    $('#val-provinsi').on('change', function(){
+                        var id_provinsi = $(this).val();
+                        if(id_provinsi==''){
+                            $('#val-kota').prop('disabled', true);
+                        }else{
+                            $('#val-kota').prop('disabled', false);
+                            $.ajax({
+                                url:"<?php echo base_url()?>c_get_kota",
+                                type: "POST",
+                                data: {'id_provinsi' : id_provinsi},
+                                dataType: 'json',
+                                success: function(data){
+                                    $('#val-kota').html(data);
+                                },
+                                error: function(){
+                                    alert('data kota tidak ada...');
+                                }
+                            });
+                        }
+                    });
                 });
-            });
             </script>
             
 
