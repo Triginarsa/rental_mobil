@@ -10,7 +10,7 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Data Mitra RentCar</title>
+            <title>RentCar | Validasi Data Mobil</title>
             <!-- Bootstrap Core CSS -->
             <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
@@ -52,7 +52,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <center> 
-                                <h2><b><i class="fa fa-user-circle"></i> Data Mitra RentCar</b></h2>
+                                <h2><b><i class="fa fa-list-alt""></i> Validasi Data Mobil</b></h2>
                                     <span>Kelola mobil Anda bersama kami. Dirancang khusus untuk memudahkan Anda mengatur pelanggan, mobil dalam satu langkah!</span>
                                 </center>
                             </div>
@@ -67,39 +67,49 @@
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>ID Pengguna</th>
-                                                <th>Nama</th>
-                                                <th>NIK</th>
-                                                <th>Email</th>
-                                                <th>No.Hp</th>
-                                                <th>Alamat</th>
+                                                <th>ID Mobil</th>
+                                                <th>Pemilik Mobil</th>
+                                                <th>Nomor Polisi</th>
+                                                <th>Merk</th>
+                                                <th>Tipe</th>
                                                 <th>Kota</th>
                                                 <th>Provinsi</th>
+                                                <th>Biaya Sewa</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>ID Pengguna</th>
-                                                <th>Nama</th>
-                                                <th>NIK</th>
-                                                <th>Email</th>
-                                                <th>No.Hp</th>
-                                                <th>Alamat</th>
+                                                <th>ID Mobil</th>
+                                                <th>Pemilik Mobil</th>
+                                                <th>Nomor Polisi</th>
+                                                <th>Merk</th>
+                                                <th>Tipe</th>
                                                 <th>Kota</th>
                                                 <th>Provinsi</th>
+                                                <th>Biaya Sewa</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <?php foreach($mitra as $dt){?>
+                                            <?php foreach($valid as $dt){?>
                                             <tr>
-                                                <td><?php echo $dt['id']; ?></td>
+                                                <td><?php echo $dt['id_mobil']; ?></td>
                                                 <td><?php echo $dt['nama']; ?></td>
-                                                <td><?php echo $dt['nik']; ?></td>
-                                                <td><?php echo $dt['email']; ?></td>
-                                                <td><?php echo $dt['no_hp']; ?></td>
-                                                <td><?php echo $dt['alamat']; ?></td>
+                                                <td><?php echo $dt['nomor_polisi']; ?></td>
+                                                <td><?php echo $dt['merk']; ?></td>
+                                                <td><?php echo $dt['tipe_mobil']; ?></td>
                                                 <td><?php echo $dt['kota']; ?></td>
                                                 <td><?php echo $dt['provinsi']; ?></td>
+                                                <td><?php echo $dt['biaya']; ?></td>
+                                                <td><span class="badge badge-primary"><?php echo $dt['status']; ?></span></td>
+                                                <td><center>
+                                                    <form method="post" action="<?php echo base_url('c_beranda_admin/detailValidMobil/'.$dt['id_mobil']); ?>">
+                                                        <button type="submit" class="btn col-lg-12 btn-success"><i class="  fa fa-search"></i> Detail</button>
+                                                    </form>
+                                                </center></td>
                                             </tr>
                                              <?php } ?>
                                         </tbody>

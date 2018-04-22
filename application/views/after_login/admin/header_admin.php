@@ -8,7 +8,7 @@
     <nav class="navbar top-navbar navbar-expand-md navbar-light">
         <!-- Logo -->
         <div class="navbar-header">
-            <a class="navbar-brand edit_logo" href="index.html">
+            <a class="navbar-brand edit_logo" href="<?php echo base_url('c_beranda_admin')?>">
                 <!-- Logo icon -->
                 <b><img src="<?php echo base_url('assets/images/admin_rentcar.png')?>" alt="homepage" class="dark-logo" /></b>
                 <!--End Logo icon -->
@@ -197,15 +197,15 @@
                     <table>
                         <tr>
                             <td width="400"></td>
-                            <td><a href="<?php echo base_url()."c_beranda_admin/dataUser";?>"><i class="fa fa-car"></i> Data Mobil</a></td>
+                            <td><a href="<?php echo base_url()."c_beranda_admin/dataMobil";?>"><i class="fa fa-car"></i> Data Mobil</a></td>
                             <td width="50"></td>
                             <td><a href="<?php echo base_url()."c_beranda_admin/dataUser";?>"><i class="fa fa-users"></i> Data User</a></td>
                             <td width="50"></td>
                             <td><a href="<?php echo base_url()."c_beranda_admin/dataMitra";?>"><i class="fa fa-user-circle"></i> Data Mitra</a></td>
                             <td width="50"></td>
-                            <td><a href="#"><i class="fa fa-list-alt"></i> Data Order</a></td>
+                            <td><a href="<?php echo base_url()."c_beranda_admin/dataOrder";?>"><i class="fa fa-list-alt"></i> Data Order</a></td>
                             <td width="50"></td>
-                            <td><a href="#"><i class="fa fa-tasks"></i> Validasi Data Mobil</a></td>
+                            <td><a href="<?php echo base_url()."c_beranda_admin/validasiMobil";?>"><i class="fa fa-tasks"></i> Validasi Data Mobil</a></td>
                             <td width="50"></td>
                             <td><a href="#"><i class="fa fa-user"></i> Edit Profil</a></td>
                         </tr>

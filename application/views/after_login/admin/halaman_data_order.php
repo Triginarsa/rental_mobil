@@ -10,7 +10,7 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Data Mitra RentCar</title>
+            <title>RentCar | Data Order</title>
             <!-- Bootstrap Core CSS -->
             <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
@@ -52,7 +52,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <center> 
-                                <h2><b><i class="fa fa-user-circle"></i> Data Mitra RentCar</b></h2>
+                                <h2><b><i class="fa fa-list-alt""></i> Data Order</b></h2>
                                     <span>Kelola mobil Anda bersama kami. Dirancang khusus untuk memudahkan Anda mengatur pelanggan, mobil dalam satu langkah!</span>
                                 </center>
                             </div>
@@ -67,39 +67,48 @@
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>ID Pengguna</th>
-                                                <th>Nama</th>
-                                                <th>NIK</th>
-                                                <th>Email</th>
-                                                <th>No.Hp</th>
-                                                <th>Alamat</th>
+                                                <th>ID Order</th>
+                                                <th>Waktu Order</th>
+                                                <th>Atas Nama</th>
+                                                <th>Nomor Polisi</th>
+                                                <th>Mobil</th>
+                                                <th>Pemilik Mobil</th>
                                                 <th>Kota</th>
                                                 <th>Provinsi</th>
+                                                <th>Tgl Rental</th>
+                                                <th>Tgl Kembali</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>ID Pengguna</th>
-                                                <th>Nama</th>
-                                                <th>NIK</th>
-                                                <th>Email</th>
-                                                <th>No.Hp</th>
-                                                <th>Alamat</th>
+                                                <th>ID Order</th>
+                                                <th>Waktu Order</th>
+                                                <th>Atas Nama</th>
+                                                <th>Nomor Polisi</th>
+                                                <th>Mobil</th>
+                                                <th>Pemilik Mobil</th>
                                                 <th>Kota</th>
                                                 <th>Provinsi</th>
+                                                <th>Tgl Rental</th>
+                                                <th>Tgl Kembali</th>
+                                                <th>Status</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <?php foreach($mitra as $dt){?>
+                                            <?php foreach($order as $dt){?>
                                             <tr>
-                                                <td><?php echo $dt['id']; ?></td>
+                                                <td><?php echo $dt['id_pemesanan']; ?></td>
+                                                <td><?php echo $dt['created_at']; ?></td>
                                                 <td><?php echo $dt['nama']; ?></td>
-                                                <td><?php echo $dt['nik']; ?></td>
-                                                <td><?php echo $dt['email']; ?></td>
-                                                <td><?php echo $dt['no_hp']; ?></td>
-                                                <td><?php echo $dt['alamat']; ?></td>
+                                                <td><?php echo $dt['nomor_polisi']; ?></td>
+                                                <td><?php echo $dt['merk']; ?></td>
+                                                <td><?php echo $dt['pemilik']; ?></td>
                                                 <td><?php echo $dt['kota']; ?></td>
                                                 <td><?php echo $dt['provinsi']; ?></td>
+                                                <td><?php echo $dt['tgl_rental']; ?></td>
+                                                <td><?php echo $dt['tgl_pengembalian']; ?></td>
+                                                <th><span class="badge badge-primary"><?php echo $dt['status']; ?></span></th>
                                             </tr>
                                              <?php } ?>
                                         </tbody>

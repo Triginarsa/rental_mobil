@@ -10,7 +10,7 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Beranda Mitra RentCar</title>
+            <title>RentCar | Data User</title>
             <!-- Bootstrap Core CSS -->
             <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
             <!-- Custom CSS -->

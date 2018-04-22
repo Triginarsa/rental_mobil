@@ -129,7 +129,7 @@
                                         <tr>
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
-                                                    <a href="#">
+                                                    <a href="<?php echo base_url()."c_beranda_admin/dataMobil";?>">
                                                     <img src="<?php echo base_url('assets/images/icon_mitra1.png')?>" width="156" height="156"></a>
                                                 </button>
                                             </td>
@@ -155,13 +155,13 @@
                                         <tr>
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
-                                                    <a href="#">
+                                                    <a href="<?php echo base_url()."c_beranda_admin/dataOrder";?>">
                                                     <img src="<?php echo base_url('assets/images/icon_data_order.png')?>" width="136" height="136"></a>
                                                 </button>
                                             </td>
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
-                                                    <a href="#">
+                                                    <a href="<?php echo base_url()."c_beranda_admin/validasiMobil";?>">
                                                     <img src="<?php echo base_url('assets/images/icon_validasi_mobil.png')?>" width="156" height="126"></a>
                                                 </button>
                                             </td>
