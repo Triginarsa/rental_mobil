@@ -2,10 +2,11 @@
 <!DOCTYPE html>
     <html lang="en">
         <head>
-            <meta charset="utf-8">
+            <meta charset="utf-8"> 
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <!-- Tell the browser to be responsive to screen width -->
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="viewport" content="width=device-width, minimum-scale">
+            
             <meta name="description" content="">
             <meta name="author" content="">
             <!-- Favicon icon -->
@@ -80,7 +81,7 @@
                     <!-- page content -->
                     <div class="card_edit"><!--mengganti ukuran form-->
                         <div class="card card-outline-primary">
-                            <div class="card-body ">
+                            <div class="card-body">
                                 <form class="form-valide" method="post" action="<?php echo base_url()."auth_user/cek_login";?>">
                                     <div class="form-body">
                                         <div class="row p-t-20">
