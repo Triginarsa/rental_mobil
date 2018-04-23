@@ -38,6 +38,15 @@ class C_beranda_mitra extends CI_Controller {
 		$this->load->view('/after_login/mitra/halaman_editMobil_mitra', $data);
 	}
 
+	public function updateMobil($id){
+		$biaya = $_POST['val-biayaSewa'];
+		$gbr_mobil = $_POST['val-gambarMobil'];
+		$this->load->model('m_mobil');
+		$this->m_mobil->m_update($id, $biaya, $gbr_mobil);
+		
+		redirect(base_url('c_beranda_mitra/dataMobil/'.$this->session->userdata('id')));
+	}
+
 	public function deleteMobil($id){
 		$this->load->model('m_mobil');
 		$res = $this->m_mobil->delete($id);

@@ -93,46 +93,55 @@
                                             <th width="220"></th>
                                             <th></th>
                                             <th></th>
-                                            <th width="190"></th>
-                                            <th></th>
+                                            <th width="140"></th>
+                                            <th width="160"></th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php foreach ($mobil as $mobil) { ?>
+                                        <?php foreach ($mobil as $mobil) { ?>
                                         <tr>
-                                            <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210"/></td>
-                                            <td id="warna_teks" align="left" colspan="2"><b><?php echo $mobil['merk']; ?></b></td>
-                                            <td id="warna_teks"><b><?php echo $mobil['tipe_mobil']; ?></b></td>
-                                            <td id="warna_teks">Harga (/hari)</td>
-                                            <td id="warna_teks" width="120"><b><?php echo $mobil['biaya']; ?></b></td>
+                                            <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210" /></td>
+                                            <td width="10"></td>
+                                            <td id="warna_teks" align="left" colspan="2" style="font-size: 15pt"><b><?php echo $mobil['merk']; ?>/<?php echo $mobil['tipe_mobil']; ?></b></td>
+                                            <td></td>
+                                            <td id="warna_teks" align="center">Harga</td>
+                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo $mobil['biaya']; ?></b>/hari</td>
+                                            <td></td>
                                         </tr>
                                          <tr>
-                                            <td id="warna_teks" bgcolor="orange" align="left" colspan="3"><i>PEMILIK MOBIL <?php echo $mobil['nama']; ?></i></td>
-                                            <td id="warna_teks2" bgcolor="orange" colspan="2">Available to book now</td>
+                                            <td></td>
+                                            <td id="warna_teks2" bgcolor="#093645" align="left" colspan="3"><i class="fa fa-user-circle"></i><i> <?php echo $mobil['nama']; ?></i></td>
+                                            <td id="warna_teks2" bgcolor="12505E" colspan="2" align="center">
+                                                <i class="fa fa-location-arrow"></i> <b><?php echo $mobil['kota']; ?>,<?php echo $mobil['provinsi']; ?></b>
+                                            </td>
+                                            <td></td>
                                         </tr>
                                         <tr>
+                                            <td></td>
                                             <td id="warna_teks">Transmisi</td>
-                                            <td id="warna_teks"><b><?php echo $mobil['transmisi']; ?></b></td>
-                                            <td id="warna_teks">Penumpang(orang)</td>
-                                            <td id="warna_teks"><b><?php echo $mobil['jlh_penumpang']; ?></b></td>
-                                            <td>
-                                                <a href=" <?php echo base_url('c_beranda_mitra/editMobil/'.$mobil['id_mobil']); ?> " class="btn col-lg-4 btn-info"><i class="fa fa-edit"></i></a>
-                                                <a href="<?php echo base_url('c_beranda_mitra/deleteMobil/'.$mobil['id_mobil']); ?>" class="btn col-lg-4 btn-danger" onclick="return confirm('Apakah anda yakin menghapus mobil ini?');"><i class="fa fa-trash"></i></a>
+                                            <td id="warna_teks" align="left"><b><?php echo $mobil['transmisi']; ?></b></td>
+                                            <td id="warna_teks">Penumpang</td>
+                                            <td id="warna_teks" align="left"><b><?php echo $mobil['jlh_penumpang']; ?> orang(maks)</b></td>
+                                            <td rowspan="2">
+                                                <center>
+                                                    <a href=" <?php echo base_url('c_beranda_mitra/editMobil/'.$mobil['id_mobil']); ?> " class="btn col-lg-4 btn-info"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?php echo base_url('c_beranda_mitra/deleteMobil/'.$mobil['id_mobil']); ?>" class="btn col-lg-4 btn-danger" onclick="return confirm('Apakah anda yakin menghapus mobil ini?');"><i class="fa fa-trash"></i></a>
+                                                </center>
                                             </td>
                                         </tr>
                                         <tr>
+                                            <td></td>
                                             <td id="warna_teks">Bahan Bakar</td>
                                             <td id="warna_teks"><b><?php echo $mobil['bahan_bakar']; ?></b></td>
                                             <td id="warna_teks">Nomor Polisi</td>
                                             <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
                                             <td></td>
                                         </tr>
-
                                         <tr>
-                                            <td colspan="10"><hr></td>
+                                            <td colspan="7"><hr></td>
                                         </tr>
-                                    <?php } ?>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
