@@ -196,15 +196,22 @@ CREATE TABLE `tb_mobil` (
   `id_kota` int(10) unsigned DEFAULT NULL,
   `id_pemilik` int(10) unsigned DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `status` enum('verifikasi','belum') DEFAULT 'belum',
+  `status` varchar(191) DEFAULT 'unverified',
   PRIMARY KEY (`id_mobil`),
-  UNIQUE KEY `nomor_polisi` (`nomor_polisi`,`nomor_mesin`,`nomor_rangka`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `nomor_polisi` (`nomor_polisi`,`nomor_mesin`,`nomor_rangka`),
+  KEY `id_pemilik` (`id_pemilik`),
+  CONSTRAINT `tb_mobil_ibfk_1` FOREIGN KEY (`id_pemilik`) REFERENCES `tb_pemilik_mobil` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_mobil` */
 
 insert  into `tb_mobil`(`id_mobil`,`nomor_polisi`,`id_merk`,`tipe_mobil`,`tahun_rakit`,`bahan_bakar`,`nomor_mesin`,`nomor_rangka`,`jlh_cc`,`jlh_penumpang`,`gbr_mobil`,`gbr_bpkb`,`gbr_stnk`,`transmisi`,`biaya`,`id_kota`,`id_pemilik`,`created_at`,`status`) values 
-(29,'BK 1077 WE',1,'G','2013','Premium','JFZ1E1020380','MHJ1FJZ113GK01478','1300','8','download.jpg','toyota-avanza-rear-cross-side-view-341276.jpg','toyota-avanza-front-angle-low-view-970685.jpg','Manual','2300000',24,8,'2018-04-14 16:12:46','belum');
+(35,'B 189 LAU',1,'Veloz','2016','Premium','ABC0E0000001','ABCDEFG0000000001','1500','8','gallery_new-car-carlist-toyota-vellfire-mpv-malaysia_3675193_4gTN19AJf99GiNvCxxQEl8.jpg','toyota-avanza-front-angle-low-view-9706851.jpg','toyota-avanza-front-angle-low-view-9706851.jpg','Manual','10000',24,28,'2018-04-24 08:58:04','verified'),
+(36,'B 445 UKI',3,'G','2015','Premium','ABC0E0000002','ABCDEFG0000000002','1300','8','Suzuki_Ertiga_L_1.jpg','Suzuki_Ertiga_L_1.jpg','Suzuki_Ertiga_L_1.jpg','Manual','250.000',24,28,'2018-04-22 23:26:40','verified'),
+(37,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-3.jpg',NULL,NULL,NULL,'10000',NULL,NULL,'2018-04-24 08:50:25','unverified'),
+(38,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-31.jpg',NULL,NULL,NULL,'10000',NULL,NULL,'2018-04-24 08:50:38','unverified'),
+(39,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-32.jpg',NULL,NULL,NULL,'10000',NULL,NULL,'2018-04-24 08:54:15','unverified'),
+(40,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Daihatsu_Alya_L_12.jpg',NULL,NULL,NULL,'10000',NULL,NULL,'2018-04-24 08:54:25','unverified');
 
 /*Table structure for table `tb_pemesanan` */
 
@@ -213,16 +220,21 @@ DROP TABLE IF EXISTS `tb_pemesanan`;
 CREATE TABLE `tb_pemesanan` (
   `id_pemesanan` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_pengguna` int(10) unsigned DEFAULT NULL,
-  `tgl_rental` date DEFAULT NULL,
-  `tgl_pengembalian` date DEFAULT NULL,
+  `tgl_rental` varchar(191) DEFAULT NULL,
+  `tgl_pengembalian` varchar(191) DEFAULT NULL,
   `id_mobil` int(10) unsigned DEFAULT NULL,
   `status` enum('berhasil','gagal','menunggu') DEFAULT 'menunggu',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id_pemesanan`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pemesanan` */
+
+insert  into `tb_pemesanan`(`id_pemesanan`,`id_pengguna`,`tgl_rental`,`tgl_pengembalian`,`id_mobil`,`status`,`created_at`,`updated_at`) values 
+(37,27,'24-April-2018','26-April-2018',36,'menunggu','2018-04-21 01:46:42','0000-00-00 00:00:00'),
+(38,27,'24-April-2018','26-April-2018',36,'menunggu','2018-04-21 01:47:38','0000-00-00 00:00:00'),
+(39,17,NULL,NULL,35,'menunggu','2018-04-22 20:25:15','0000-00-00 00:00:00');
 
 /*Table structure for table `tb_pemilik_mobil` */
 
@@ -245,18 +257,13 @@ CREATE TABLE `tb_pemilik_mobil` (
   UNIQUE KEY `email` (`email`),
   KEY `id_kota` (`id_kota`),
   CONSTRAINT `tb_pemilik_mobil_ibfk_1` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pemilik_mobil` */
 
 insert  into `tb_pemilik_mobil`(`id`,`nama`,`nik`,`email`,`password`,`no_hp`,`alamat`,`id_kota`,`created_at`,`updated_at`) values 
 (8,'Raditya Dika','1272072410982223','radit@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',24,'2018-04-09 18:17:37','0000-00-00 00:00:00'),
-(13,'Justin Bieber','1272072410982224','justin@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',60,'2018-04-14 14:16:45','0000-00-00 00:00:00'),
-(14,'Katty Perry','1272072410982225','katty@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',61,'2018-04-14 14:18:00','0000-00-00 00:00:00'),
-(15,'Justin Timberlake','1272072410982228','timber@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',58,'2018-04-14 14:20:41','0000-00-00 00:00:00'),
-(24,'Jonas Blue','1272072410982256','jonas@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','08223799772','medan',66,'2018-04-14 14:41:11','0000-00-00 00:00:00'),
-(25,'Kodaline','1272072410982289','koda@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','08223799772','medan',64,'2018-04-14 14:42:34','0000-00-00 00:00:00'),
-(26,'Kodalines','1272072410982234','kodas@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','08223799772','medan',66,'2018-04-14 14:43:14','0000-00-00 00:00:00');
+(28,'Raffi Ahmad','1272072410980001','raffi@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jl. Cempaka No.11',24,'2018-04-20 21:33:40','0000-00-00 00:00:00');
 
 /*Table structure for table `tb_pengguna` */
 
@@ -281,7 +288,7 @@ CREATE TABLE `tb_pengguna` (
 /*Data for the table `tb_pengguna` */
 
 insert  into `tb_pengguna`(`id`,`nama`,`email`,`password`,`no_hp`,`alamat`,`id_kota`,`status`,`created_at`,`updated_at`) values 
-(17,'EVAN HIMAWAN SARAGIH','imelda@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','jalan merpati no.7',102,'admin','2018-04-12 19:10:16','0000-00-00 00:00:00'),
+(17,'EVAN HIMAWAN SARAGIH','evan@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','jalan merpati no.7',102,'admin','2018-04-20 22:39:02','0000-00-00 00:00:00'),
 (24,'RADITYA DIKA','radit@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',23,'user','2018-04-09 19:44:31','0000-00-00 00:00:00'),
 (26,'EVAN HIMAWAN SARAGIH','himawanevan24@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082237997747','Jalan Kompi No.8',104,'user','2018-04-11 05:06:10','0000-00-00 00:00:00'),
 (27,'ATIKA SARAGIH','atika@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',64,'user','2018-04-14 14:50:02','0000-00-00 00:00:00');
