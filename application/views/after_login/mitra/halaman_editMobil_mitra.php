@@ -43,18 +43,18 @@
             <div id="main-wrapper">
                 <!-- header header  -->
                 <?php include 'header_mitra.php'; ?>
-
-
-
                 
                 <!-- End header header -->
                 <!-- Left Sidebar  -->
-                <div class="container-fluid edit_form">
+            <div class="container-fluid edit_form">
             <!-- Start Page Content -->
             <div class="card_edit2 col-lg-9">
                 <div class="card">
                     <div class="card-body"> 
-                        <h2><b>Edit Mobil  </b></h2>
+                        <center> 
+                            <h2><b><i class="fa fa-car"></i> Edit Data Mobil </b></h2>
+                            <span>Anda hanya bisa mengedit Biaya Sewa dan Gambar Mobil! </span>
+                        </center>
                     </div>
                 </div>
             </div>
@@ -62,8 +62,8 @@
             <div class="card_edit2 col-lg-9"><!--mengganti ukuran form-->
                 <div class="card card-outline-primary">
                     <div class="card-body">
-                        <form class="form-valide" action="<?php echo base_url('c_beranda_mitra/insert_data');?>" method="post">
-
+                        <form class="form-valide" enctype='multipart/form-data' action="<?php echo base_url('c_beranda_mitra/updateMobil/'.$mobils->id_mobil);?>" method="post">
+                        <input type="hidden" value="<?php echo $mobils->id_mobil; ?>" name="txt_hidden_id" >
                             <div class="form-body">
                                 <div class="row p-t-20">
                                      <div class="col-md-6">
@@ -72,7 +72,7 @@
                                                 <label class="control-label">Nomor Polisi
                                                     <span class="text-danger">*</span>
                                                 </label>
-                                                    <input type="text" value="<?php echo $mobils->nomor_polisi; ?>" class="form-control" id="val-nomorPolisi" name="val-nomorPolisi" placeholder="Nomor Polisi">
+                                                    <input type="text" value="<?php echo $mobils->nomor_polisi; ?>" class="form-control" id="val-nomorPolisi" name="val-nomorPolisi" placeholder="Nomor Polisi" disabled>
                                                 </div> 
                                             </div>
                                         </div>
@@ -83,12 +83,7 @@
                                                         <label class="control-label">Merk Mobil
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <select class="form-control" id="val-merkMobil" name="val-merkMobil">
-                                                            <option value="">Pilih Merk Mobil Anda</option>
-                                                                <?php foreach($merk as $ab){ ?>
-                                                                    <option value="<?php echo $ab['id_merk']; ?>"><?php echo $ab['merk']; ?></option>
-                                                                <?php } ?>
-                                                        </select>
+                                                        <input type="text" value="<?php echo $mobils->id_merk; ?>" class="form-control" id="val-merkMobil" name="val-merkMobil" placeholder="Nomor Polisi" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,7 +98,7 @@
                                                 <label class="control-label">Tipe Mobil
                                                     <span class="text-danger">*</span>
                                                 </label>
-                                                    <input type="text" class="form-control" id="val-tipeMobil" name="val-tipeMobil" placeholder="Masukkan tipe mobil anda">
+                                                    <input type="text" class="form-control" id="val-tipeMobil" name="val-tipeMobil" placeholder="Masukkan tipe mobil anda" value="<?php echo $mobils->tipe_mobil; ?>" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,7 +109,7 @@
                                                         <label class="control-label">Tahun Rakit
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control" id="val-tahunRakit" name="val-tahunRakit" placeholder="Masukkan tahunrakit mobil anda">
+                                                        <input type="text" class="form-control" id="val-tahunRakit" name="val-tahunRakit" value="<?php echo $mobils->tahun_rakit; ?>" disabled>
                                                     </div>
                                                 </div>
                                         </div>
@@ -128,7 +123,7 @@
                                                 <label class="control-label">Nomor Rangka
                                                     <span class="text-danger">*</span>
                                                 </label>
-                                                    <input type="text" class="form-control" id="val-nomorRangka" name="val-nomorRangka" placeholder="Masukkan nomor rangka mobil anda">
+                                                    <input type="text" class="form-control" id="val-nomorRangka" name="val-nomorRangka" placeholder="Masukkan nomor rangka mobil anda" value="<?php echo $mobils->nomor_rangka; ?>" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -139,7 +134,7 @@
                                                         <label class="control-label">Nomor Mesin
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control" id="val-nomorMesin" name="val-nomorMesin" placeholder="Masukkan nomor mesin mobil anda">
+                                                        <input type="text" class="form-control" id="val-nomorMesin" name="val-nomorMesin" value="<?php echo $mobils->nomor_mesin; ?>" disabled>
                                                     </div>
                                                 </div>
                                         </div>
@@ -153,11 +148,7 @@
                                                         <label class="control-label">Bahan Bakar
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <select class="form-control" id="val-bahanBakar" name="val-bahanBakar">
-                                                            <option value="">Pilih bahan bakar mobil</option>
-                                                            <option>Premium</option>
-                                                            <option>Solar</option>
-                                                        </select>
+                                                        <input type="text" value="<?php echo $mobils->bahan_bakar; ?>" class="form-control" id="val-bahanBakar" name="val-bahanBakar" placeholder="Nomor Polisi" disabled>
                                                     </div>
                                                 </div>
                                         </div>
@@ -168,7 +159,7 @@
                                                     <label class="control-label">Jumlah CC Mobil
                                                          <span class="text-danger">*</span>
                                                     </label>
-                                                    <input type="text" class="form-control" id="val-jumlahCC" name="val-jumlahCC" placeholder="Masukkan jumlah CC mobil anda">
+                                                    <input type="text" class="form-control" id="val-jumlahCC" name="val-jumlahCC" placeholder="Masukkan jumlah CC mobil anda" value="<?php echo $mobils->jlh_cc; ?>" disabled>
                                                  </div>
                                             </div>
                                         </div>
@@ -182,11 +173,7 @@
                                                         <label class="control-label">Transmisi
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <select class="form-control" id="val-transmisi" name="val-transmisi">
-                                                            <option value="">Pilih transmisi mobil</option>
-                                                            <option>Matic</option>
-                                                            <option>Manual</option>
-                                                        </select>
+                                                        <input type="text" value="<?php echo $mobils->transmisi; ?>" class="form-control" id="val-transmisi" name="val-transmisi" placeholder="Nomor Polisi" disabled>
                                                     </div>
                                                 </div>
                                         </div>
@@ -197,85 +184,43 @@
                                                 <label class="control-label">Jumlah Penumpang
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <select class="form-control" id="val-jumlahPenumpang" name="val-jumlahPenumpang">
-                                                            <option value="">Pilih jumlah penumpang mobil</option>
-                                                            <option>2</option>
-                                                            <option>3</option>
-                                                            <option>4</option>
-                                                            <option>5</option>
-                                                            <option>6</option>
-                                                            <option>7</option>
-                                                            <option>8</option>
-                                                        </select>
+                                                        <input type="text" value="<?php echo $mobils->jlh_penumpang; ?>" class="form-control" id="val-jumlahPenumpang" name="val-jumlahPenumpang" placeholder="Nomor Polisi" disabled>
                                                 </div>
                                             </div>
                                         </div>
                                         <!--/span-->
                                     </div>
-
                                     <!--/row-->
-                                    <div class="row">
-                                    <div class="col-md-6">
+                                     <div class="row">
+                                       <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div>
+                                                    <label for="exampleInputFile">Gambar Mobil</label>
+                                                    <small id="fileHelp" class="form-text text-muted">Pilih gambar mobil</small>
+                                                    <input type="file"  value="<?php echo $mobils->gbr_mobil; ?>" class="form-control-file" id="val-gambarMobil" name="val-gambarMobil" aria-describedby="fileHelp"  alt="homepage" class="dark-logo" width="410"> <img src="<?=base_url()?>uploads/<?=$mobils->gbr_mobil; ?>" alt="homepage" class="dark-logo" width="410" />
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <div>
                                                     <label class="control-label">Biaya Sewa
                                                         <span class="text-danger">*</span>
                                                     </label>
-                                                    <input type="text" class="form-control" id="val-biayaSewa" name="val-biayaSewa" placeholder="Masukkan biaya sewa mobil">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div>
-                                                    <label for="exampleInputFile">Gambar Mobil</label>
-                                                    <input type="file" class="form-control-file" id="val-gambarMobil" name="val-gambarMobil" aria-describedby="fileHelp">
-                                                    <small id="fileHelp" class="form-text text-muted">Pilih gambar mobil</small>
+                                                    <input type="text" class="form-control" id="val-biayaSewa" name="val-biayaSewa" value="<?php echo $mobils->biaya; ?>" placeholder="Masukkan biaya sewa mobil">
                                                 </div>
                                             </div>
                                         </div>
                                         <!--/span-->
                                     </div>
-                                    <!--/row-->
-                                    <div class="row">
-                                    <div class="col-md-6">
-                                            <div class="form-group">
-                                                 <div>
-                                                    <label for="exampleInputFile">Gambar STNK</label>
-                                                    <input type="file" class="form-control-file" id="val-gambarSTNK" name="val-gambarSTNK" aria-describedby="fileHelp">
-                                                    <small id="fileHelp" class="form-text text-muted">Pilih gambar STNK mobil</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div>
-                                                    <label for="exampleInputFile">Gambar BPKB</label>
-                                                    <input type="file" class="form-control-file" id="val-gambarBPKB" name="val-gambarBPKB" aria-describedby="fileHelp">
-                                                    <small id="fileHelp" class="form-text text-muted">Pilih gambar BPKB mobil</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <!--/row-->                           
+                                    <!--/row-->                      
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <div class="">
-                                                    <label class="css-control css-control-primary css-checkbox" for="val-terms">
-                                                        <input type="checkbox" class="css-control-input" id="val-terms" name="val-terms" value="1">
-                                                        <span class="css-control-indicator">Saya mengisi data dengan BENAR</span> 
-                                                        <a href="#">Kebijakan Privasi RentCar
-                                                            <span class="text-danger">*</span>
-                                                        </a>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <button type="submit" name="btnUpdate" value="update" class="btn col-lg-6 btn-success">EDIT</button>
+                                                <button type="submit" name="btnUpdate" value="update" class="btn col-lg-4 btn-info">Edit</button>
+                                                <a href="<?php echo base_url('c_beranda_mitra/dataMobil/'.$this->session->userdata('id')); ?>" class="btn col-lg-3 btn-warning" onclick="return confirm('Apakah anda yakin tidak melakukan edit?');">Cancel</a>
                                         </div>
                                         <!--/span-->
                                     </div>
@@ -311,19 +256,19 @@
             <!--Header Data Kota -->
             <script type="text/javascript">
                 $(document).ready(function(){
-                    $('#val-provinsi').on('change', function(){
+                    $('#provinsi').on('change', function(){
                         var id_provinsi = $(this).val();
                         if(id_provinsi==''){
-                            $('#val-kota').prop('disabled', true);
+                            $('#kota').prop('disabled', true);
                         }else{
-                            $('#val-kota').prop('disabled', false);
+                            $('#kota').prop('disabled', false);
                             $.ajax({
                                 url:"<?php echo base_url()?>c_get_kota",
                                 type: "POST",
                                 data: {'id_provinsi' : id_provinsi},
                                 dataType: 'json',
                                 success: function(data){
-                                    $('#val-kota').html(data);
+                                    $('#kota').html(data);
                                 },
                                 error: function(){
                                     alert('data kota tidak ada...');

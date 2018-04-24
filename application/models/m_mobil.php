@@ -76,6 +76,16 @@ class M_mobil extends CI_Model {
 		}
 	}
 
+	public function m_update($id, $data){
+		$this->db->where('id_mobil', $id);
+		$res= $this->db->update('tb_mobil',$data);
+		if($res){
+			$this->session->set_flashdata('success_msg', 'Data Berhasil Di Update');
+		}else{
+			$this->session->set_flashdata('error_msg', 'Gagal Mengupdate Data');
+		}
+	}
+
 	public function delete($id){ //oleh mitra sendiri
 		$this->db->where('id_mobil' , $id);
 		$this->db->delete('tb_mobil');

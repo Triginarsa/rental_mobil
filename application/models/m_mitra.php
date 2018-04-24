@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_mitra extends CI_Model {
-	public function get_dataOrder(){
+	public function get_dataOrder($id){
 		$this->db->SELECT('id_pemesanan, tb_pengguna.`nama`, tgl_rental, tgl_pengembalian, tb_merk.`merk`, `tb_pemilik_mobil`.`nama` AS pemilik, tb_mobil.`nomor_polisi`, tb_pemesanan.`status`, tb_kota.`kota`,tb_provinsi.`provinsi`, tb_pemesanan.`created_at`');
 		$this->db->FROM('tb_pemesanan');
 		$this->db->join('tb_mobil','tb_mobil.`id_mobil` = tb_pemesanan.`id_mobil`');
@@ -11,6 +11,7 @@ class M_mitra extends CI_Model {
 		$this->db->join('tb_kota','tb_kota.`id_kota` = tb_mobil.`id_kota`');
 		$this->db->join('tb_provinsi','tb_provinsi.`id_provinsi` = tb_kota.`id_provinsi`');
 		$this->db->join('tb_pengguna','tb_pengguna.`id` = tb_pemesanan.`id_pengguna`');
+		$this->db->where('tb_mobil.`id_pemilik`' , $id);
 		$query = $this->db->get();
 		return $query->result_array();
 	}
