@@ -73,11 +73,42 @@ class C_beranda_mitra extends CI_Controller {
 		redirect(base_url('c_beranda_mitra/dataMobil/'.$this->session->userdata('id')));
 	}
 
-	public function validasiOrder($id){
+	public function dataValOrder($id){ // halaman validasi order mengambil data yang berstatus menunggu
 		$this->load->model('m_mitra');
-		$dvalid= $this->m_mitra->get_dataOrder($id);
-		$this->load->view('/after_login/mitra/halaman_validasi_order', array('dvalid' => $dvalid)); //halaman data mobil mitra
+		$dvalid= $this->m_mitra->get_dataValOrder($id);
+		$this->load->view('/after_login/mitra/halaman_validasi_order', array('dvalid' => $dvalid)); 
 	}
 
+	public function detailValidOrder($id){
+		$this->load->model('m_mitra');
+		$valid= $this->m_mitra->get_detValidOrder($id);
+		$this->load->view('/after_login/mitra/halaman_detail_validasi', array('valid' => $valid)); //halaman data mobil mitra
+	}
+
+	public function validasiOrder1($id){ //agree
+		$pesan = $_POST['pesan'];
+		$this->load->model('m_mitra');
+		$this->m_mitra->get_validasiAgree($id, $pesan);
+		redirect(base_url('c_beranda_mitra/dataValOrder/'.$this->session->userdata('id')));
+	}
+
+	public function validasiOrder2($id){ //disagree
+		$pesan = $_POST['pesan'];
+		$this->load->model('m_mitra');
+		$this->m_mitra->get_validasiDisagree($id, $pesan);
+		redirect(base_url('c_beranda_mitra/dataValOrder/'.$this->session->userdata('id')));
+	}
+
+	public function dataOrder($id){ //halaman validasi order mengambil data yang berstatus berhasil
+		$this->load->model('m_mitra');
+		$order= $this->m_mitra->get_dataOrder($id);
+		$this->load->view('/after_login/mitra/halaman_data_order', array('order' => $order)); 
+	}
+
+	public function detailDataOrder($id){
+		$this->load->model('m_mitra');
+		$valid= $this->m_mitra->get_detDataOrder($id);
+		$this->load->view('/after_login/mitra/halaman_detail_order', array('valid' => $valid)); //halaman data mobil mitra
+	}
 
 }

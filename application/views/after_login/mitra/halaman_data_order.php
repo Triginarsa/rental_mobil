@@ -10,7 +10,7 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Validasi Data Order</title>
+            <title>RentCar | Data Order</title>
             <!-- Bootstrap Core CSS -->
             <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
@@ -52,7 +52,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <center> 
-                                <h2><b><i class="fa fa-tasks"></i> Validasi Data Mobil</b></h2>
+                                <h2><b><i class="fa fa-list-alt""></i> Data Order</b></h2>
                                     <span>Kelola mobil Anda bersama kami. Dirancang khusus untuk memudahkan Anda mengatur pelanggan, mobil dalam satu langkah!</span>
                                 </center>
                             </div>
@@ -129,7 +129,7 @@
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <?php foreach($dvalid as $dt){?>
+                                            <?php foreach($order as $dt){?>
                                             <tr>
                                                 <td><?php echo $dt['id_pemesanan']; ?></td>
                                                 <td><?php echo $dt['nama']; ?></td>
@@ -141,7 +141,7 @@
                                                 <td><span class="badge badge-primary"><?php echo $dt['status']; ?></span></td>
                                                 <td>
                                                     <center>
-                                                        <a href="<?php echo base_url('c_beranda_mitra/detailValidOrder/'.$dt['id_pemesanan']); ?> " class="btn col-lg-9 btn-success"><i class="fa fa-handshake-o"></i></a>
+                                                        <a href="<?php echo base_url('c_beranda_mitra/detailDataOrder/'.$dt['id_pemesanan']); ?> " class="btn col-lg-9 btn-success"><i class="fa fa-handshake-o"></i></a>
                                                     </center>
                                                 </td>
                                             </tr>
