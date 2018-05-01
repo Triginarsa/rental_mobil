@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Order</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -27,12 +27,15 @@
             <!-- untuk css footer -->
             <style type="text/css">
                 #warna_teks{
-                    color: black; 
+                    color: #444444; 
                 }
                 #warna_teks2{
                     color: white; 
                 }
             </style>
+            <?php function format_ribuan ($nilai){
+                return number_format ($nilai, 0, ',', '.');
+            } ?>
         </head>
         <body class="fix-header">
         <!-- Preloader - style you can find in spinners.css -->
@@ -89,7 +92,7 @@
                                         </tr>
                                         <tr> <!--Baris2-->
                                             <td></td>
-                                            <td height="50" id="warna_teks" rowspan="2" colspan="2" style="font-size: 20pt"><b>Rp <?php echo $mobil->biaya; ?></b>/hari</td>
+                                            <td height="50" id="warna_teks" rowspan="2" colspan="2" style="font-size: 20pt"><b>Rp <?php echo format_ribuan($mobil->biaya); ?></b>/hari</td>
                                             <td></td>
                                             <td></td>
                                         </tr>
@@ -186,7 +189,7 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->
@@ -233,14 +236,14 @@
                     $('#val-tglMulai').Zebra_DatePicker({
                         direction: [true,20],
                         pair: $('#val-tglKembali'),
-                        format: 'd-F-Y',
+                        format: 'Y-m-d',
                         months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
                         days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
                         days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
                     });
                     $('#val-tglKembali').Zebra_DatePicker({
                         direction: [1,10],
-                        format: 'd-F-Y',
+                        format: 'Y-m-d',
                         months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
                         days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
                         days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']

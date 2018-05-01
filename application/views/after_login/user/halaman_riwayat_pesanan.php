@@ -10,9 +10,9 @@
             <meta name="author" content="">
             <!-- Favicon icon -->
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
-            <title>RentCar | Beranda</title>
+            <title>RentCar | Riwayat Pesanan</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -24,6 +24,7 @@
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front.css')?>" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
+            <!-- untuk css footer -->
             <style type="text/css">
                 #warna_teks{
                     color: #444444; 
@@ -60,68 +61,69 @@
                     <!-- Start Page Content -->
                     <div class="card_edit2 col-lg-9">
                         <div class="card">
+                            <div class="card-body"> 
+                                <center> 
+                                    <h2><b><i class="fa fa-navicon"></i> Riwayat Pesanan </b></h2>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php foreach ($order as $order) { ?>
+                    <div class="card_edit2 col-lg-9">
+                        <div class="card">
                             <div class="card-body">
-                                <table border="0" class="col-lg-12" id="hehe">
+                                <table border="0" class="col-lg-12">
                                     <thead>
                                         <tr>
-                                            <th width="220"></th>
+                                            <th width="20"></th>
                                             <th></th>
-                                            <th></th>
+                                            <th width="154"></th>
                                             <th width="140"></th>
-                                            <th width="160"></th>
+                                            <th width="200"></th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($mobil as $mobil) { ?>
+                                        
                                         <tr>
-                                            <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210" /></td>
-                                            <td width="10"></td>
-                                            <td id="warna_teks" align="left" colspan="2" style="font-size: 15pt"><b><?php echo $mobil['merk']; ?>/<?php echo $mobil['tipe_mobil']; ?></b></td>
                                             <td></td>
-                                            <td id="warna_teks" align="center">Harga</td>
-                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo format_ribuan($mobil['biaya']); ?></b>/hari</td>
-                                            <td></td>
+                                            <td height="40" id="warna_teks" align="left" colspan="2" style="font-size: 15pt">Dipesan: <b><?php echo $order['tgl_b']; ?> <?php echo $order['bulan_b']; ?> <?php echo $order['tahun_b']; ?></b></td>
+                                            <td id="warna_teks" align="center" colspan="3"><i class="fa fa-reorder"></i></td>
                                         </tr>
                                          <tr>
-                                            <td></td>
-                                            <td id="warna_teks2" bgcolor="#093645" align="left" colspan="3"><i class="fa fa-user-circle"></i><i> <?php echo $mobil['nama']; ?></i></td>
-                                            <td id="warna_teks2" bgcolor="12505E" colspan="2" align="center">
-                                                <i class="fa fa-location-arrow"></i> <b><?php echo $mobil['kota']; ?>,<?php echo $mobil['provinsi']; ?></b>
+                                            <td height="40" id="warna_teks2" bgcolor="#093645" ></td>
+                                            <td id="warna_teks2" bgcolor="#093645" align="left" colspan="2">Rental Mobil - <b><?php echo $order['nomor_polisi']; ?> - <?php echo $order['merk']; ?></b></td>
+                                            <td id="warna_teks2" bgcolor="12505E" colspan="3" align="right">
+                                                <b>Rp <?php echo number_format($order['total']);?></b>
                                             </td>
-                                            <td></td>
+                                            <td id="warna_teks2" bgcolor="12505E" width="10"></td>
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td id="warna_teks">Transmisi</td>
-                                            <td id="warna_teks" align="left"><b><?php echo $mobil['transmisi']; ?></b></td>
-                                            <td id="warna_teks">Penumpang</td>
-                                            <td id="warna_teks" align="left"><b><?php echo $mobil['jlh_penumpang']; ?> orang(maks)</b></td>
-                                            <td rowspan="2">
+                                             <td colspan="2" style="font-size: 15pt" id="warna_teks" align="left">
+                                                <?php if ($order['status'] == "Berhasil") {?>
+                                                    <b><span class="badge badge-info"><i class="fa fa-check-circle"></i> Pemesanan <?php echo $order['status']; ?></span></b>
+                                                <?php } ?>
+                                                <?php if ($order['status'] == "Ditolak") {?>
+                                                    <b><span class="badge badge-danger"><i class="fa fa-times-circle"></i> Pemesanan <?php echo $order['status']; ?></span></b>
+                                                <?php } ?>
+                                                <?php if ($order['status'] == "Masih di proses") {?>
+                                                    <b><span class="badge badge-warning"><i class="fa fa-exclamation-circle"></i> Pemesanan <?php echo $order['status']; ?></span></b>
+                                                <?php } ?>
+                                            </td>
+                                            <td rowspan="1" colspan="4">
                                                 <center>
-                                                    <form method="post" action="<?php echo base_url('c_beranda_user/orderMobil/'.$mobil['id_mobil']); ?>">
-                                                        <button type="submit" class="btn col-lg-12 btn-success"><i class="fa fa-cart-plus"></i> Book Now</button>
-                                                    </form>
+                                                    <a href="<?php echo base_url('c_beranda_user/det_riwayatPesanan/'.$order['id_pemesanan']); ?>" class="m-t-5 btn col-lg-4 btn-success">Lihat Detail</a>
                                                 </center>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td id="warna_teks">Bahan Bakar</td>
-                                            <td id="warna_teks"><b><?php echo $mobil['bahan_bakar']; ?></b></td>
-                                            <td id="warna_teks">Nomor Polisi</td>
-                                            <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="7"><hr></td>
-                                        </tr>
-                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                     <!-- page content -->
                     
                     <!-- /page content -->
@@ -130,7 +132,7 @@
                 </div>
                 <!-- End Container fluid  -->
                 <!-- footer -->
-                <?php include 'footer.php'; ?>
+                <?php include 'footer_user.php'; ?>
                 <!-- End footer -->
                 
                 <!-- End Page wrapper  -->
@@ -140,7 +142,7 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->
@@ -179,28 +181,5 @@
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate-init.js')?>"></script>
             <!--Custom JavaScript -->
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
-            <!--Date Picker-->
-            <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
-            <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
-            <script>
-                $(document).ready(function(){
-                    $('#tanggal').Zebra_DatePicker({
-                        direction: true,
-                        pair: $('#tanggal1'),
-                        format: 'd-F-Y',
-                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
-                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
-                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
-                    });
-                    $('#tanggal1').Zebra_DatePicker({
-                        direction: [1,10],
-                        format: 'd-F-Y',
-                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
-                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
-                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
-                    });
-                });
-            </script>
-            <!--End Date Picker-->
         </body>
 </html>

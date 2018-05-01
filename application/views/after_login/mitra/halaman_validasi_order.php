@@ -52,7 +52,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <center> 
-                                <h2><b><i class="fa fa-tasks"></i> Validasi Data Mobil</b></h2>
+                                <h2><b><i class="fa fa-tasks"></i> Validasi Data Order</b></h2>
                                     <span>Kelola mobil Anda bersama kami. Dirancang khusus untuk memudahkan Anda mengatur pelanggan, mobil dalam satu langkah!</span>
                                 </center>
                             </div>
@@ -62,7 +62,7 @@
                             if($this->session->flashdata('success_msg')){
                         ?>
                             <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                <?php echo $this->session->flashdata('success_msg'); ?>
+                                <i class="fa fa-check"></i><?php echo $this->session->flashdata('success_msg'); ?>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -75,7 +75,7 @@
                             if($this->session->flashdata('error_msg')){
                         ?>
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <?php echo $this->session->flashdata('error_msg'); ?>
+                                <i class="fa fa-close"></i><?php echo $this->session->flashdata('error_msg'); ?>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -88,7 +88,7 @@
                             if($this->session->flashdata('warning_msg')){
                         ?>
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <?php echo $this->session->flashdata('warning_msg'); ?>
+                                <i class="fa fa-exclamation-circle"></i><?php echo $this->session->flashdata('warning_msg'); ?>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -133,12 +133,12 @@
                                             <tr>
                                                 <td><?php echo $dt['id_pemesanan']; ?></td>
                                                 <td><?php echo $dt['nama']; ?></td>
-                                                <td><?php echo $dt['tgl_rental']; ?></td>
-                                                <td><?php echo $dt['tgl_pengembalian']; ?></td>
+                                                <td><?php echo $dt['hari_r'];?>, <?php echo $dt['tgl_r'];?> <?php echo $dt['bulan_r'];?> <?php echo $dt['tahun_r'];?></td>
+                                                <td><?php echo $dt['hari_p'];?>, <?php echo $dt['tgl_p'];?> <?php echo $dt['bulan_p'];?> <?php echo $dt['tahun_p'];?></td>
                                                 <td><?php echo $dt['merk']; ?></td>
                                                 <td><?php echo $dt['nomor_polisi']; ?></td>
                                                 <td><?php echo $dt['created_at']; ?></td>
-                                                <td><span class="badge badge-primary"><?php echo $dt['status']; ?></span></td>
+                                                <td><span class="badge badge-warning"><?php echo $dt['status']; ?></span></td>
                                                 <td>
                                                     <center>
                                                         <a href="<?php echo base_url('c_beranda_mitra/detailValidOrder/'.$dt['id_pemesanan']); ?> " class="btn col-lg-9 btn-success"><i class="fa fa-handshake-o"></i></a>

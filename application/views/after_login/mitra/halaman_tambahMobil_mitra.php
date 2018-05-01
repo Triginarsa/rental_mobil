@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Beranda Mitra RentCar</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -26,7 +26,7 @@
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <style type="text/css">
                 #warna_teks{
-                    color: black; 
+                    color: #444444; 
                 }
                 #warna_teks2{
                     color: white; 
@@ -100,7 +100,7 @@
                                                 <label class="control-label">Tipe Mobil
                                                     <span class="text-danger">*</span>
                                                 </label>
-                                                    <input type="text" class="form-control" id="val-tipeMobil" name="val-tipeMobil" placeholder="Masukkan tipe mobil anda">
+                                                    <input type="text" class="form-control" id="val-tipeMobil" name="val-tipeMobil" placeholder="Masukkan tipe mobil anda (tingkatan mobil)">
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +111,7 @@
                                                         <label class="control-label">Tahun Rakit
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control" id="val-tahunRakit" name="val-tahunRakit" placeholder="Masukkan tahunrakit mobil anda">
+                                                        <input type="text" class="form-control" id="val-tahunRakit" name="val-tahunRakit" placeholder="Masukkan tahun rakit mobil anda">
                                                     </div>
                                                 </div>
                                         </div>
@@ -165,7 +165,7 @@
                                                     <label class="control-label">Jumlah CC Mobil
                                                          <span class="text-danger">*</span>
                                                     </label>
-                                                    <input type="text" class="form-control" id="val-jumlahCC" name="val-jumlahCC" placeholder="Masukkan jumlah CC mobil anda">
+                                                    <input type="text" class="form-control" id="val-jumlahCC" name="val-jumlahCC" placeholder="Masukkan jumlah CC mobil anda (ex:1500)">
                                                  </div>
                                             </div>
                                         </div>
@@ -218,7 +218,7 @@
                                                     <label class="control-label">Biaya Sewa
                                                         <span class="text-danger">*</span>
                                                     </label>
-                                                    <input type="text" class="form-control" id="val-biayaSewa" name="val-biayaSewa" placeholder="Masukkan biaya sewa mobil">
+                                                    <input type="text" class="form-control" id="val-biayaSewa" name="val-biayaSewa" placeholder="Masukkan biaya sewa mobil (ex: 200000)">
                                                 </div>
                                             </div>
                                         </div>
@@ -228,6 +228,7 @@
                                             <div class="form-group">
                                                 <div>
                                                     <label for="exampleInputFile">Gambar Mobil</label>
+                                                    <span class="text-danger">*</span>
                                                     <input type="file" class="form-control-file" id="val-gambarMobil" name="val-gambarMobil">
 
                                                     <small id="fileHelp" class="form-text text-muted">Pilih gambar mobil</small>
@@ -242,6 +243,7 @@
                                             <div class="form-group">
                                                  <div>
                                                     <label for="exampleInputFile">Gambar STNK</label>
+                                                    <span class="text-danger">*</span>
                                                     <input type="file" class="form-control-file" id="val-gambarSTNK" name="val-gambarSTNK" aria-describedby="fileHelp">
                                                     <small id="fileHelp" class="form-text text-muted">Pilih gambar STNK mobil</small>
                                                 </div>
@@ -252,6 +254,7 @@
                                             <div class="form-group">
                                                 <div>
                                                     <label for="exampleInputFile">Gambar BPKB</label>
+                                                    <span class="text-danger">*</span>
                                                     <input type="file" class="form-control-file" id="val-gambarBPKB" name="val-gambarBPKB" aria-describedby="fileHelp">
                                                     <small id="fileHelp" class="form-text text-muted">Pilih gambar BPKB mobil</small>
                                                 </div>
@@ -298,7 +301,7 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->
@@ -337,28 +340,5 @@
             <script src="<?php echo base_url('assets/js/lib/form-validation/car.validate-init.js')?>"></script>
             <!--Custom JavaScript -->
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
-            <!--Date Picker-->
-            <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
-            <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
-            <script>
-                $(document).ready(function(){
-                    $('#tanggal').Zebra_DatePicker({
-                        direction: true,
-                        pair: $('#tanggal1'),
-                        format: 'd-F-Y',
-                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
-                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
-                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
-                    });
-                    $('#tanggal1').Zebra_DatePicker({
-                        direction: [1,10],
-                        format: 'd-F-Y',
-                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
-                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
-                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
-                    });
-                });
-            </script>
-            <!--End Date Picker-->
         </body>
 </html>

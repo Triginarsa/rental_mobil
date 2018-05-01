@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Data Mobil</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -57,8 +57,45 @@
                                 </center>
                             </div>
                         </div>
-                        <!--Menu Angka Statistik -->
-                        <!--akhir menu angka statistik -->
+                        <!-- ALERT BERHASIL TAMBAH DATA-->
+                        <?php 
+                            if($this->session->flashdata('success_msg')){
+                        ?>
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <i class="fa fa-check"></i><?php echo $this->session->flashdata('success_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            }
+                        ?>
+                        <!-- ALERT GAGAL TAMBAH DATA-->
+                        <?php 
+                            if($this->session->flashdata('error_msg')){
+                        ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fa fa-close"></i><?php echo $this->session->flashdata('error_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            }
+                        ?>
+                        <!-- ALERT WARNING-->
+                        <?php 
+                            if($this->session->flashdata('warning_msg')){
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <i class="fa fa-exclamation-circle"></i><?php echo $this->session->flashdata('warning_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <div class="card_edit3 col-lg-10">
                         <div class="card">
@@ -104,7 +141,14 @@
                                                 <td><?php echo $dt['kota']; ?></td>
                                                 <td><?php echo $dt['provinsi']; ?></td>
                                                 <td><?php echo $dt['biaya']; ?></td>
-                                                <td><span class="badge badge-primary"><?php echo $dt['status']; ?></span></td>
+                                                <td>
+                                                    <?php if ($dt['status'] == "verified") {?>
+                                                    <span class="badge badge-info"><?php echo $dt['status']; ?></span>
+                                                    <?php } ?>
+                                                    <?php if ($dt['status'] == "blokir") {?>
+                                                    <span class="badge badge-warning"><?php echo $dt['status']; ?></span>
+                                                    <?php } ?>
+                                                </td>
                                                 <td><center>
                                                     <form method="post" action="<?php echo base_url('c_beranda_admin/detailMobil/'.$dt['id_mobil']); ?>">
                                                         <button type="submit" class="btn col-lg-12 btn-success"><i class="  fa fa-search"></i> Detail</button>
@@ -136,7 +180,7 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->

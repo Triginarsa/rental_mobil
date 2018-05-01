@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Beranda</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -27,12 +27,15 @@
             <!-- untuk css footer -->
             <style type="text/css">
                 #warna_teks{
-                    color: black; 
+                    color: #444444; 
                 }
                 #warna_teks2{
                     color: white; 
                 }
             </style>
+            <?php function format_ribuan ($nilai){
+                return number_format ($nilai, 0, ',', '.');
+            } ?>
         </head>
         <body class="fix-header">
         <!-- Preloader - style you can find in spinners.css -->
@@ -77,6 +80,7 @@
                         <?php
                             }
                         ?>
+                        <?php foreach ($mobil as $mobil) { ?>
                         <div class="card">
                             <div class="card-body">
                                 <table border="0" class="col-lg-12" id="hehe">
@@ -91,14 +95,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($mobil as $mobil) { ?>
                                         <tr>
                                             <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210" /></td>
                                             <td width="10"></td>
                                             <td id="warna_teks" align="left" colspan="2" style="font-size: 15pt"><b><?php echo $mobil['merk']; ?>/<?php echo $mobil['tipe_mobil']; ?></b></td>
                                             <td></td>
                                             <td id="warna_teks" align="center">Harga</td>
-                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo $mobil['biaya']; ?></b>/hari</td>
+                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo format_ribuan($mobil['biaya']); ?></b>/hari</td>
                                             <td></td>
                                         </tr>
                                          <tr>
@@ -131,14 +134,11 @@
                                             <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
                                             <td></td>
                                         </tr>
-                                        <tr>
-                                            <td colspan="7"><hr></td>
-                                        </tr>
-                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
                     <!-- page content -->
                     
@@ -158,7 +158,7 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->

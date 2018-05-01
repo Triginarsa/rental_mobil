@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Pesanan</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -27,12 +27,15 @@
             <!-- untuk css footer -->
             <style type="text/css">
                 #warna_teks{
-                    color: black; 
+                    color: #444444; 
                 }
                 #warna_teks2{
                     color: white; 
                 }
             </style>
+            <?php function format_ribuan ($nilai){
+                return number_format ($nilai, 0, ',', '.');
+            } ?>
         </head>
         <body class="fix-header">
         <!-- Preloader - style you can find in spinners.css -->
@@ -76,7 +79,7 @@
                                             <th width="220"></th>
                                             <th></th>
                                             <th width="154"></th>
-                                            <th width="140"></th>
+                                            <th width="160"></th>
                                             <th width="200"></th>
                                             <th></th>
                                         </tr>
@@ -86,10 +89,9 @@
                                         <tr>
                                             <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$order['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210" /></td>
                                             <td width="10"></td>
-                                            <td id="warna_teks" align="left" colspan="2" style="font-size: 15pt"><b><?php echo $order['nomor_polisi']; ?></b></td>
-                                            <td></td>
+                                            <td id="warna_teks" align="left" colspan="3" style="font-size: 15pt"><b><?php echo $order['nomor_polisi']; ?> - <?php echo $order['merk']; ?>/<?php echo $order['tipe_mobil']; ?></b></td>
                                             <td id="warna_teks" align="center">Harga</td>
-                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo $order['biaya']; ?></b>/hari</td>
+                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo format_ribuan($order['biaya']); ?></b>/hari</td>
                                             <td></td>
                                         </tr>
                                          <tr>
@@ -102,21 +104,19 @@
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td id="warna_teks"><i class="fa fa-calendar"></i> Tanggal Rental</td>
-                                            <td id="warna_teks" align="left"><b><?php echo $order['tgl_rental']; ?></b></td>
-                                            <td id="warna_teks" align="center"><i class="fa fa-calendar"></i> Tanggal Kembali</td>
-                                            <td id="warna_teks" align="left"><b><?php echo $order['tgl_pengembalian']; ?></b></td>
-                                            <td rowspan="2">
+                                            <td id="warna_teks" align="center" colspan="2"><i class="fa fa-calendar"></i> Tanggal Rental</td>
+                                            <td id="warna_teks" align="center" colspan="2"><i class="fa fa-calendar"></i> Tanggal Kembali</td>
+                                            <td rowspan="1">
                                                 <center>
-                                                    <a href="<?php echo base_url('c_beranda_user/deleteDataPesanan/'.$order['id_pemesanan']); ?>" class="btn col-lg-4 btn-danger" onclick="return confirm('Apakah anda yakin menghapus mobil ini?');"><i class="fa fa-trash"></i></a>
+                                                    <a href="<?php echo base_url('c_beranda_user/deleteDataPesanan/'.$order['id_pemesanan']); ?>" class="m-t-5 btn col-lg-4 btn-danger" onclick="return confirm('Apakah anda yakin menghapus mobil ini?');"><i class="fa fa-trash"></i></a>
                                                 </center>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td id="warna_teks" colspan="2"><b><?php echo $order['merk']; ?>/<?php echo $order['tipe_mobil']; ?></b></td>
-                                            <td id="warna_teks" align="center"><i class="fa fa-home"></i><b> <?php echo $order['alamat']; ?></b></td>
-                                            <td id="warna_teks" align="center"><b><span class="badge badge-primary"><?php echo $order['status']; ?></span></b></td>
+                                            <td id="warna_teks" align="center" colspan="2"><b><?php echo $order['hari_r'];?>, <?php echo $order['tgl_r'];?> <?php echo $order['bulan_r'];?> <?php echo $order['tahun_r'];?></td>
+                                            <td id="warna_teks" align="center" colspan="2"><b><?php echo $order['hari_p'];?>, <?php echo $order['tgl_p'];?> <?php echo $order['bulan_p'];?> <?php echo $order['tahun_p'];?></b></td>
+                                            <td style="font-size: 14pt" id="warna_teks" align="center"><b><span class="badge badge-warning"><i class="fa fa-exclamation-circle"></i> <?php echo $order['status']; ?></span></b></td>
                                             <td></td>
                                         </tr>
                                         <tr>
@@ -146,7 +146,7 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->

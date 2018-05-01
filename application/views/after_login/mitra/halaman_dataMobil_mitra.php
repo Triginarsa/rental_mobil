@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Beranda Mitra RentCar</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -26,12 +26,15 @@
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <style type="text/css">
                 #warna_teks{
-                    color: black; 
+                    color: #444444; 
                 }
                 #warna_teks2{
                     color: white; 
                 }
             </style>
+            <?php function format_ribuan ($nilai){
+                return number_format ($nilai, 0, ',', '.');
+            } ?>
         </head>
         <body class="fix-header">
         <!-- Preloader - style you can find in spinners.css -->
@@ -59,8 +62,11 @@
                         <?php 
                             if($this->session->flashdata('success_msg')){
                         ?>
-                            <div class="alert alert-info">
-                                <?php echo $this->session->flashdata('success_msg'); ?>
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <i class="fa fa-check"></i><?php echo $this->session->flashdata('success_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                         <?php
                             }
@@ -69,8 +75,24 @@
                         <?php 
                             if($this->session->flashdata('error_msg')){
                         ?>
-                            <div class="alert alert-info">
-                                <?php echo $this->session->flashdata('error_msg'); ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fa fa-close"></i><?php echo $this->session->flashdata('error_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            }
+                        ?>
+                        <!-- ALERT WARNING-->
+                        <?php 
+                            if($this->session->flashdata('warning_msg')){
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <i class="fa fa-exclamation-circle"></i><?php echo $this->session->flashdata('warning_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                         <?php
                             }
@@ -84,6 +106,7 @@
                         </form>
                     </div>
                     <!--Start Data-->
+                    <?php foreach ($mobil as $mobil) { ?>
                     <div class="card_edit2 col-lg-9">
                         <div class="card">
                             <div class="card-body">
@@ -99,14 +122,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($mobil as $mobil) { ?>
                                         <tr>
                                             <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210" /></td>
                                             <td width="10"></td>
-                                            <td id="warna_teks" align="left" colspan="2" style="font-size: 15pt"><b><?php echo $mobil['merk']; ?>/<?php echo $mobil['tipe_mobil']; ?></b></td>
-                                            <td></td>
+                                            <td id="warna_teks" align="left" colspan="3" style="font-size: 15pt"><b><?php echo $mobil['merk']; ?>/<?php echo $mobil['tipe_mobil']; ?> 
+                                                <?php if ($mobil['status'] == "verified") {?>
+                                                <b><span class="badge badge-info"><i class="fa fa-check-circle"></i> <?php echo $mobil['status']; ?></span></b><?php } ?>
+                                                <?php if ($mobil['status'] == "unverified") {?>
+                                                <b><span class="badge badge-warning"><i class="fa fa-exclamation-circle"></i> <?php echo $mobil['status']; ?></span></b><?php } ?>
+                                                <?php if ($mobil['status'] == "blokir") {?>
+                                                <b><span class="badge badge-danger"><i class="fa fa-times-circle"></i> <?php echo $mobil['status']; ?></span></b><?php } ?>
+                                            </td>
                                             <td id="warna_teks" align="center">Harga</td>
-                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo $mobil['biaya']; ?></b>/hari</td>
+                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo format_ribuan($mobil['biaya']); ?></b>/hari</td>
                                             <td></td>
                                         </tr>
                                          <tr>
@@ -125,7 +153,7 @@
                                             <td id="warna_teks" align="left"><b><?php echo $mobil['jlh_penumpang']; ?> orang(maks)</b></td>
                                             <td rowspan="2">
                                                 <center>
-                                                    <a href=" <?php echo base_url('c_beranda_mitra/editMobil/'.$mobil['id_mobil']); ?> " class="btn col-lg-4 btn-info"><i class="fa fa-edit"></i></a>
+                                                    <a href=" <?php echo base_url('c_beranda_mitra/editMobil/'.$mobil['id_mobil']); ?> " class="btn col-lg-4 btn-info" onclick="return confirm('Apakah anda ingin mengedit data mobil ini?');"><i class="fa fa-edit"></i></a>
                                                     <a href="<?php echo base_url('c_beranda_mitra/deleteMobil/'.$mobil['id_mobil']); ?>" class="btn col-lg-4 btn-danger" onclick="return confirm('Apakah anda yakin menghapus mobil ini?');"><i class="fa fa-trash"></i></a>
                                                 </center>
                                             </td>
@@ -138,15 +166,12 @@
                                             <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
                                             <td></td>
                                         </tr>
-                                        <tr>
-                                            <td colspan="7"><hr></td>
-                                        </tr>
-                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                     
                     <!-- /page content -->
 
@@ -165,39 +190,13 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->
             <script src="<?php echo base_url('assets/js/sidebarmenu.js')?>"></script>
             <!--stickey kit -->
             <script src="<?php echo base_url('assets/js/lib/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
-            <!--Header Data Kota -->
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $('#val-provinsi').on('change', function(){
-                        var id_provinsi = $(this).val();
-                        if(id_provinsi==''){
-                            $('#val-kota').prop('disabled', true);
-                        }else{
-                            $('#val-kota').prop('disabled', false);
-                            $.ajax({
-                                url:"<?php echo base_url()?>c_get_kota",
-                                type: "POST",
-                                data: {'id_provinsi' : id_provinsi},
-                                dataType: 'json',
-                                success: function(data){
-                                    $('#val-kota').html(data);
-                                },
-                                error: function(){
-                                    alert('data kota tidak ada...');
-                                }
-                            });
-                        }
-                    });
-                });
-            </script>
-            <!--End Header Data Kota -->
 
             <!-- Form validation -->
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate.min.js')?>"></script>
@@ -207,25 +206,5 @@
             <!--Date Picker-->
             <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
             <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
-            <script>
-                $(document).ready(function(){
-                    $('#tanggal').Zebra_DatePicker({
-                        direction: true,
-                        pair: $('#tanggal1'),
-                        format: 'd-F-Y',
-                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
-                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
-                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
-                    });
-                    $('#tanggal1').Zebra_DatePicker({
-                        direction: [1,10],
-                        format: 'd-F-Y',
-                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
-                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
-                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
-                    });
-                });
-            </script>
-            <!--End Date Picker-->
         </body>
 </html>

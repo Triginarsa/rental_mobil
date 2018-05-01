@@ -81,8 +81,8 @@ class C_beranda_mitra extends CI_Controller {
 
 	public function detailValidOrder($id){
 		$this->load->model('m_mitra');
-		$valid= $this->m_mitra->get_detValidOrder($id);
-		$this->load->view('/after_login/mitra/halaman_detail_validasi', array('valid' => $valid)); //halaman data mobil mitra
+		$valid= $this->m_mitra->get_detDataOrder($id);
+		$this->load->view('/after_login/mitra/halaman_detail_order', array('valid' => $valid)); //halaman data mobil mitra
 	}
 
 	public function validasiOrder1($id){ //agree

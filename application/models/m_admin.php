@@ -85,22 +85,32 @@ class M_admin extends CI_Model {
 	public function get_verify($id){ //validasi
 		$this->db->set('tb_mobil.`status`', 'verified');
 		$this->db->where('id_mobil' , $id);
-		$this->db->update('tb_mobil');
+		$res = $this->db->update('tb_mobil');
+		if($res){
+			$this->session->set_flashdata('success_msg', 'Data Mobil berhasil divalidasi');
+		}else{
+			$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Data');
+		}
 	}
 
 	public function get_blok($id){ //validasi
 		$this->db->set('tb_mobil.`status`', 'blokir');
 		$this->db->where('id_mobil' , $id);
-		$this->db->update('tb_mobil');
+		$res = $this->db->update('tb_mobil');
+		if($res){
+			$this->session->set_flashdata('warning_msg', 'Izin Mobil di Blokir');
+		}else{
+			$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Data');
+		}
 	}
 	
 	public function delete($id){ //delete untuk hlm validasi dan data mobil
 		$this->db->where('id_mobil' , $id);
-		$this->db->delete('tb_mobil');
-		if ($this->db->affected_rows()>0){
-			return true;
+		$res = $this->db->delete('tb_mobil');
+		if($res){
+			$this->session->set_flashdata('warning_msg', 'Data Mobil Berhasil di Hapus');
 		}else{
-			return false;
+			$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Data');
 		}
 	}
 }

@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Data Mobil</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -27,7 +27,7 @@
             <!-- untuk css footer -->
             <style type="text/css">
                 #warna_teks{
-                    color: black; 
+                    color: #444444; 
                 }
                 #warna_teks2{
                     color: white; 
@@ -59,7 +59,6 @@
                     <div class="card_edit2 col-lg-9">
                         <div class="card">
                             <div class="card-body">
-                                <form action="<?php echo base_url('c_beranda_user/buatOrder/'.$mobil->id_mobil) .'/'.$this->session->userdata('id'); ?>" class="form-valide" method="post">
                                 <table border="0" class="col-lg-12" id="hehe">
                                     <thead>
                                         <tr>
@@ -190,12 +189,60 @@
                                             <td height="60"></td>
                                             <td rowspan="2" colspan="4">
                                                 <center>
-                                                        <a href="<?php echo base_url('c_beranda_admin/get_blokir/'.$mobil->id_mobil); ?>" class="btn col-lg-10 btn-warning" onclick="return confirm('Apakah anda yakin membatalkan izin mobil ini?');"><i class=" fa fa-exclamation-circle"></i> Batalkan Izin</a>
+                                                        <button type="button" class="btn col-lg-10 btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class=" fa fa-exclamation-circle"></i> Batalkan Izin</button>
+                                                        <form action="<?php echo base_url('c_beranda_admin/get_blokir/'.$mobil->id_mobil); ?>" class="form-valide" method="post">
+                                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                          <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                              <div class="modal-header">
+                                                                <h3 class="modal-title" id="exampleModalLabel"><i class="fa fa-exclamation-circle"></i> Blokir</h3>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                  <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                              </div>
+                                                              <div class="modal-body">
+                                                                  <div class="form-group">
+                                                                    <label for="recipient-name" class="col-form-label">Menyetujui hal ini berarti Anda <b>Menarik Izin Rental Mobil ini</b> kepada pihak yang berkaitan. *s&k berlaku</label>
+                                                                    <label for="recipient-name" class="col-form-label">Anda yakin ingin Menarik Izin Rental?</label>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-success">Ya</button>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                    </form>
                                                 </center>
                                             </td>
                                             <td colspan="2">
                                                 <center>
-                                                    <a href="<?php echo base_url('c_beranda_admin/delete/'.$mobil->id_mobil); ?>" class="btn col-lg-10 btn-danger" onclick="return confirm('Apakah anda yakin menghapus data mobil ini?');"><i class="fa fa-trash"></i> Hapus Data</a>
+                                                    <button type="button" class="btn col-lg-10 btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo"><i class=" fa fa-trash"></i> Hapus Data</button>
+                                                    <form action="<?php echo base_url('c_beranda_admin/delete/'.$mobil->id_mobil); ?>" class="form-valide" method="post">
+                                                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                          <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                              <div class="modal-header">
+                                                                <h3 class="modal-title" id="exampleModalLabel"><i class="fa fa-trash"></i> Hapus Data Mobil</h3>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                  <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                              </div>
+                                                              <div class="modal-body">
+                                                                  <div class="form-group">
+                                                                    <label for="recipient-name" class="col-form-label">Menyetujui hal ini berarti Anda <b>Menghapus Data Mobil ini</b> tanpa izin dari pemilik. *s&k berlaku</label>
+                                                                    <label for="recipient-name" class="col-form-label">Anda yakin ingin Menghapus Data Mobil?</label>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-success">Ya</button>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                    </form>
                                                 </center>
                                             </td>
                                         </tr>
@@ -204,7 +251,31 @@
                                             <td height="60"></td>
                                             <td rowspan="2" colspan="4">
                                                 <center>
-                                                        <a href="<?php echo base_url('c_beranda_admin/get_verifiedBlok/'.$mobil->id_mobil); ?>" class="btn col-lg-10 btn-info" onclick="return confirm('Apakah anda yakin membuka blokir mobil ini?');"><i class="fa fa-check-circle"></i> Buka Blokir</a>
+                                                    <button type="button" class="btn col-lg-10 btn-info" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo"><i class=" fa fa-check-circle"></i> Buka Blokir</button>
+                                                    <form action="<?php echo base_url('c_beranda_admin/get_verifiedBlok/'.$mobil->id_mobil); ?>" class="form-valide" method="post">
+                                                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                          <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                              <div class="modal-header">
+                                                                <h3 class="modal-title" id="exampleModalLabel"><i class="fa fa-check-circle"></i> Buka Blokir</h3>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                  <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                              </div>
+                                                              <div class="modal-body">
+                                                                  <div class="form-group">
+                                                                    <label for="recipient-name" class="col-form-label">Menyetujui hal ini berarti Anda <b>Memberi Izin Rental Mobil ini</b>. *s&k berlaku</label>
+                                                                    <label for="recipient-name" class="col-form-label">Anda yakin ingin Memberi Izin Rental Mobil?</label>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-success">Ya</button>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                    </form>
                                                 </center>
                                             </td>
                                             <td colspan="2"></td>
@@ -215,7 +286,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </form>
                             </div>
                         </div>
                     </div>
@@ -237,7 +307,7 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->

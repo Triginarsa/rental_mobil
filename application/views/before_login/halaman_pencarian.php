@@ -32,6 +32,9 @@
                     color: white; 
                 }
             </style>
+            <?php function format_ribuan ($nilai){
+                return number_format ($nilai, 0, ',', '.');
+            } ?>
         </head>
         <body class="fix-header">
         <!-- Preloader - style you can find in spinners.css -->
@@ -77,7 +80,7 @@
                                             <td id="warna_teks" align="left" colspan="2" style="font-size: 15pt"><b><?php echo $mobil['merk']; ?>/<?php echo $mobil['tipe_mobil']; ?></b></td>
                                             <td></td>
                                             <td id="warna_teks" align="center">Harga</td>
-                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo $mobil['biaya']; ?></b>/hari</td>
+                                            <td id="warna_teks" width="150" colspan="1" align="center"><b>Rp <?php echo format_ribuan($mobil['biaya']); ?></b>/hari</td>
                                             <td></td>
                                         </tr>
                                          <tr>
@@ -175,28 +178,5 @@
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate-init.js')?>"></script>
             <!--Custom JavaScript -->
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
-            <!--Date Picker-->
-            <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
-            <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
-            <script>
-                $(document).ready(function(){
-                    $('#tanggal').Zebra_DatePicker({
-                        direction: true,
-                        pair: $('#tanggal1'),
-                        format: 'd-F-Y',
-                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
-                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
-                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
-                    });
-                    $('#tanggal1').Zebra_DatePicker({
-                        direction: [1,10],
-                        format: 'd-F-Y',
-                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
-                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
-                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
-                    });
-                });
-            </script>
-            <!--End Date Picker-->
         </body>
 </html>

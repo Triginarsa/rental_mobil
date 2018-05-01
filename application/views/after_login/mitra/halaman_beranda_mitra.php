@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Beranda Mitra RentCar</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -73,13 +73,13 @@
                                         <tr>
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
-                                                    <a value="<?php echo $this->session->userdata('id'); ?>" href="<?php echo site_url('c_beranda_mitra/dataMobil/'.$this->session->userdata('id'));?>">
+                                                    <a href="<?php echo site_url('c_beranda_mitra/dataMobil/'.$this->session->userdata('id'));?>">
                                                     <img src="<?php echo base_url('assets/images/icon_mitra1.png')?>" width="156" height="156"></a>
                                                 </button>
                                             </td>
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
-                                                    <a href="#">
+                                                    <a href="<?php echo site_url('c_beranda_mitra/dataOrder/'.$this->session->userdata('id'));?>">
                                                     <img src="<?php echo base_url('assets/images/icon_mitra2.png')?>" width="100" height="166"></a>
                                                 </button>
                                             </td>
@@ -99,7 +99,7 @@
                                         <tr>
                                             <td>
                                                 <button type="submit" class="tombol1 btn-primary1">
-                                                    <a href="#">
+                                                    <a href="<?php echo site_url('c_beranda_mitra/dataValOrder/'.$this->session->userdata('id'));?>">
                                                     <img src="<?php echo base_url('assets/images/icon_data_order.png')?>" width="136" height="136"></a>
                                                 </button>
                                             </td>
@@ -134,39 +134,13 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->
             <script src="<?php echo base_url('assets/js/sidebarmenu.js')?>"></script>
             <!--stickey kit -->
             <script src="<?php echo base_url('assets/js/lib/sticky-kit-master/dist/sticky-kit.min.js')?>"></script>
-            <!--Header Data Kota -->
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $('#val-provinsi').on('change', function(){
-                        var id_provinsi = $(this).val();
-                        if(id_provinsi==''){
-                            $('#val-kota').prop('disabled', true);
-                        }else{
-                            $('#val-kota').prop('disabled', false);
-                            $.ajax({
-                                url:"<?php echo base_url()?>c_get_kota",
-                                type: "POST",
-                                data: {'id_provinsi' : id_provinsi},
-                                dataType: 'json',
-                                success: function(data){
-                                    $('#val-kota').html(data);
-                                },
-                                error: function(){
-                                    alert('data kota tidak ada...');
-                                }
-                            });
-                        }
-                    });
-                });
-            </script>
-            <!--End Header Data Kota -->
 
             <!-- Form validation -->
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate.min.js')?>"></script>

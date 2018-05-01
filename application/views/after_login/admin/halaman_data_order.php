@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Data Order</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -108,7 +108,17 @@
                                                 <td><?php echo $dt['provinsi']; ?></td>
                                                 <td><?php echo $dt['tgl_rental']; ?></td>
                                                 <td><?php echo $dt['tgl_pengembalian']; ?></td>
-                                                <th><span class="badge badge-primary"><?php echo $dt['status']; ?></span></th>
+                                                <td>
+                                                    <?php if ($dt['status'] == "Berhasil") {?>
+                                                    <span class="badge badge-info"><?php echo $dt['status']; ?></span>
+                                                    <?php } ?>
+                                                    <?php if ($dt['status'] == "Ditolak") {?>
+                                                    <span class="badge badge-danger"><?php echo $dt['status']; ?></span>
+                                                    <?php } ?>
+                                                    <?php if ($dt['status'] == "Masih di proses") {?>
+                                                    <span class="badge badge-warning"><?php echo $dt['status']; ?></span>
+                                                    <?php } ?>
+                                                </td>
                                             </tr>
                                              <?php } ?>
                                         </tbody>
@@ -135,7 +145,7 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->

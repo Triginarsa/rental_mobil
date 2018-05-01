@@ -20,6 +20,15 @@ class C_beranda_user extends CI_Controller {
 		$this->load->view('/after_login/user/halaman_beranda_user',array('provinsi' => $provinsi,'mobil' => $mobil));//halaman beranda user setelah login
 	}
 
+	public function getDataByKota(){
+		$kota = $_GET['val-kota'];
+		$this->load->model('m_mobil');
+		$mobil = $this->m_mobil->get_MobilByKota($kota);
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$this->load->view('/after_login/user/halaman_pencarian',array('mobil' => $mobil,'provinsi' => $provinsi));
+	}
+
 	public function orderMobil($id){
 		$this->load->model('m_provinsi');
 		$provinsi= $this->m_provinsi->get_provinsi_query();
@@ -58,6 +67,22 @@ class C_beranda_user extends CI_Controller {
 		$this->load->view('/after_login/user/halaman_pesanan_user',array('provinsi' => $provinsi, 'order' => $order));
 	}
 
+	public function riwayatPesanan($id){
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$this->load->model('m_mobil');
+		$order= $this->m_mobil->get_RiwayatPesanan($id);
+		$this->load->view('/after_login/user/halaman_riwayat_pesanan',array('provinsi' => $provinsi, 'order' => $order));
+	}
+
+	public function det_riwayatPesanan($id){
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$this->load->model('m_mobil');
+		$driwayat= $this->m_mobil->get_detRiwayatPesanan($id);
+		$this->load->view('/after_login/user/halaman_det_riwayat',array('provinsi' => $provinsi, 'driwayat' => $driwayat));
+	}
+
 	public function deleteDataPesanan($id){
 		$this->load->model('m_mobil');
 		$res = $this->m_mobil->deletePesanan($id);
@@ -67,10 +92,8 @@ class C_beranda_user extends CI_Controller {
 			$this->session->set_flashdata('error_msg', 'Gagal Menghapus Data');
 		}
 		redirect(base_url('c_beranda_user/dataPesanan/'.$this->session->userdata('id')));
-		// $id = $this->session->userdata('id'); //nampilin lagi
-		// $this->load->model('m_mobil');
-		// $mobil = $this->m_mobil->get_dataMobil($id);
-		// $this->load->view('/after_login/mitra/halaman_dataMobil_mitra', array('mobil' => $mobil));
 	}
+
+
 }
 ?>
