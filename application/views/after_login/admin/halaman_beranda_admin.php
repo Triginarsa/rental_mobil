@@ -56,7 +56,46 @@
                                     <span>Kelola mobil Anda bersama kami. Dirancang khusus untuk memudahkan Anda mengatur pelanggan, mobil dalam satu langkah!</span>
                                 </center>
                             </div>
-                        </div>
+                    </div>
+                    <!-- ALERT BERHASIL TAMBAH DATA-->
+                        <?php 
+                            if($this->session->flashdata('success_msg')){
+                        ?>
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <i class="fa fa-check"></i><?php echo $this->session->flashdata('success_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            }
+                        ?>
+                        <!-- ALERT GAGAL TAMBAH DATA-->
+                        <?php 
+                            if($this->session->flashdata('error_msg')){
+                        ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fa fa-close"></i><?php echo $this->session->flashdata('error_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            }
+                        ?>
+                        <!-- ALERT WARNING-->
+                        <?php 
+                            if($this->session->flashdata('warning_msg')){
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <i class="fa fa-exclamation-circle"></i><?php echo $this->session->flashdata('warning_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            }
+                        ?>
                         <!--Menu Angka Statistik -->
                         <div class="row">
                             <div class="col-md-3">
@@ -167,7 +206,7 @@
                                             </td>
                                             <td><center>
                                                 <button type="submit" class="tombol1 btn-primary1 edit_letak">
-                                                    <a href="#">
+                                                    <a value="<?php echo $this->session->userdata('id'); ?>" href="<?php echo site_url('c_beranda_admin/editProfil/'.$this->session->userdata('id'));?>">
                                                     <img src="<?php echo base_url('assets/images/icon_data_admin.png')?>" width="180" height="180"></a></center>
                                                 </button>
                                             </td>

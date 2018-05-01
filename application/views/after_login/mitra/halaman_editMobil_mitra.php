@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Beranda Mitra RentCar</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -26,7 +26,7 @@
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <style type="text/css">
                 #warna_teks{
-                    color: #444444; 
+                    color: black; 
                 }
                 #warna_teks2{
                     color: white; 
@@ -52,7 +52,7 @@
                 <div class="card">
                     <div class="card-body"> 
                         <center> 
-                            <h2><b><i class="fa fa-car"></i> Edit Data Mobil </b></h2>
+                            <h2><b><i class="fa fa-car"></i> Edit Mobil </b></h2>
                             <span>Anda hanya bisa mengedit Biaya Sewa dan Gambar Mobil! </span>
                         </center>
                     </div>
@@ -83,7 +83,7 @@
                                                         <label class="control-label">Merk Mobil
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <input type="text" value="<?php echo $mobils->id_merk; ?>" class="form-control" id="val-merkMobil" name="val-merkMobil" placeholder="Nomor Polisi" disabled>
+                                                        <input type="text" value="<?php echo $mobils->merk; ?>" class="form-control" id="val-merkMobil" name="val-merkMobil" placeholder="Nomor Polisi" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -246,7 +246,7 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->
@@ -288,5 +288,25 @@
             <!--Date Picker-->
             <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
             <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
+            <script>
+                $(document).ready(function(){
+                    $('#tanggal').Zebra_DatePicker({
+                        direction: true,
+                        pair: $('#tanggal1'),
+                        format: 'd-F-Y',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                    $('#tanggal1').Zebra_DatePicker({
+                        direction: [1,10],
+                        format: 'd-F-Y',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                });
+            </script>
+            <!--End Date Picker-->
         </body>
 </html>

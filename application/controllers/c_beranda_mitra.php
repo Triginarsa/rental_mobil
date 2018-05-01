@@ -31,11 +31,10 @@ class C_beranda_mitra extends CI_Controller {
 	}
 
 	public function editMobil($id){
+		$this->load->model('m_merk');
 		$this->load->model('m_mobil');
-		// $this->load->model('m_merk');
-		// $merk= $this->m_merk->get_merk_query();	
-		$data['mobils'] = $this->m_mobil->getMobilById($id);
-		$this->load->view('/after_login/mitra/halaman_editMobil_mitra', $data);
+		$mobils= $this->m_mobil->getMobilById($id);
+		$this->load->view('/after_login/mitra/halaman_editMobil_mitra',  array('mobils' => $mobils));
 	}
 
 	public function updateMobil($id){
@@ -109,6 +108,24 @@ class C_beranda_mitra extends CI_Controller {
 		$this->load->model('m_mitra');
 		$valid= $this->m_mitra->get_detDataOrder($id);
 		$this->load->view('/after_login/mitra/halaman_detail_order', array('valid' => $valid)); //halaman data mobil mitra
+	}
+
+	public function editProfil($id){
+		$this->load->model('m_mitra'); 	 	 	
+		$profils = $this->m_mitra->getProfilMitraById($id);
+		$this->load->view('/after_login/mitra/halaman_editProfil_mitra',array('profils' => $profils));
+	}
+
+
+	public function updateProfil(){
+		$this ->load->model('m_mitra');
+		$this->m_mitra->m_updateProfil();
+		// if($result){
+		// 	$this->session->set_flashdata('success_msg', 'Data Berhasil Di Update');
+		// }else{
+		// 	$this->session->set_flashdata('error_msg', 'Gagal Mengupdate Data');
+		// }
+		redirect(base_url('c_beranda_mitra/index/'.$this->session->userdata('id')));
 	}
 
 }

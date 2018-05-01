@@ -113,5 +113,34 @@ class M_admin extends CI_Model {
 			$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Data');
 		}
 	}
+
+	public function getProfilAdminById($id){	
+		$this->db->SELECT('id, nama,email,no_hp,alamat');
+		$this->db->FROM('tb_pengguna');
+		$this->db->where('id',$id);
+		$query = $this->db->get();
+		if($query->num_rows() > 0){
+			return $query->row();
+		}else{
+			return false;
+		}
+	}
+
+	public function m_updateAdmin(){
+		$id= $this->session->userdata('id');
+		$data = array(
+      			"nama"		=> $this->input->post('val-nama'),
+      			"email"		=> $this->input->post('val-email'),
+      			"no_hp"		=> $this->input->post('val-phone'),
+      			"alamat"	=> $this->input->post('val-alamat')
+      		);
+		$this->db->where('id', $id);
+		$res= $this->db->update('tb_pengguna',$data);
+		if($res){
+			$this->session->set_flashdata('success_msg', 'Data Berhasil Di Update');
+		}else{
+			$this->session->set_flashdata('error_msg', 'Gagal Mengupdate Data');
+		}
+	}
 }
 ?>

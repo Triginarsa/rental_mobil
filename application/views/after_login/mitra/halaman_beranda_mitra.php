@@ -57,6 +57,45 @@
                                 </center>
                             </div>
                         </div>
+                        <!-- ALERT BERHASIL TAMBAH DATA-->
+                        <?php 
+                            if($this->session->flashdata('success_msg')){
+                        ?>
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <i class="fa fa-check"></i><?php echo $this->session->flashdata('success_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            }
+                        ?>
+                        <!-- ALERT GAGAL TAMBAH DATA-->
+                        <?php 
+                            if($this->session->flashdata('error_msg')){
+                        ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fa fa-close"></i><?php echo $this->session->flashdata('error_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            }
+                        ?>
+                        <!-- ALERT WARNING-->
+                        <?php 
+                            if($this->session->flashdata('warning_msg')){
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <i class="fa fa-exclamation-circle"></i><?php echo $this->session->flashdata('warning_msg'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <div class="card_edit3 col-lg-10">
                         <div class="card">
@@ -85,7 +124,7 @@
                                             </td>
                                             <td><center>
                                                 <button type="submit" class="tombol1 btn-primary1 edit_letak">
-                                                    <a href="#">
+                                                    <a href="<?php echo site_url('c_beranda_mitra/editProfil/'.$this->session->userdata('id'));?>">
                                                     <img src="<?php echo base_url('assets/images/icon_mitra3.png')?>" width="180" height="180"></a></center>
                                                 </button>
                                             </td>

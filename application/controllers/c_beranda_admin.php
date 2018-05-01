@@ -93,5 +93,22 @@ class C_beranda_admin extends CI_Controller {
 		$hasil = $this->m_admin->delete($id);
 		redirect(base_url('c_beranda_admin/validasiMobil/'));
 	}
+
+	public function editProfil($id){
+		$this->load->model('m_admin'); 	 	 	
+		$profils = $this->m_admin->getProfilAdminById($id);
+		$this->load->view('/after_login/admin/halaman_editProfil_admin',array('profils' => $profils));
+	}
+
+	public function updateAdmin(){
+		$this ->load->model('m_admin');
+		$this->m_admin->m_updateAdmin();
+		// if($result){
+		// 	$this->session->set_flashdata('success_msg', 'Data Berhasil Di Update');
+		// }else{
+		// 	$this->session->set_flashdata('error_msg', 'Gagal Mengupdate Data');
+		// }
+		redirect(base_url('c_beranda_admin/index/'.$this->session->userdata('id')));
+	}
 }
 ?>
