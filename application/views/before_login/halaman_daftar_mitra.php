@@ -22,7 +22,7 @@
             <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
-            <link href="<?php echo base_url('assets/css/front.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/log_mitra.css')?>" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <!-- untuk css footer -->
         </head>
@@ -36,40 +36,27 @@
             <div id="main-wrapper">
                 <!-- header header  -->
                 <?php include 'header_mitra.php'; ?>
-                
-                <!-- End header header -->
-                <!-- Left Sidebar  -->
-                
-                <!-- End Left Sidebar  -->
-                <!-- Page wrapper  -->
-                    <!-- Bread crumb -->
-                    
-                    <!-- End Bread crumb -->
-                    <!-- Container fluid  -->
                 <div class="container-fluid edit_form">
-                    <!-- Start Page Content -->
                     <div class="col-lg-7">
                         <div class="card">
                             <div class="card-body"> 
                                 <h2><b>Buat Akun Mitra RentCar Anda</b></h2>
                                     <span>sudah bergabung?
-                                        <a href="<?php echo base_url()."index.php/auth_mitra";?>"> Login </a>disini
+                                        <a href="<?php echo base_url()."index.php/auth_mitra";?>" class="link"> Login </a>disini
                                     </span>
                             </div>
                         </div>
                     </div>
-
-                <!-- ALERT GAGAL TAMBAH DATA-->
-                <?php 
-                    if($this->session->flashdata('error_msg')){
-                ?>
-                    <div class="card_edit2 col-lg-9 alert alert-info">
-                        <?php echo $this->session->flashdata('error_msg'); ?>
-                    </div>
-                <?php
-                    }
-                ?>
-
+                    <!-- ALERT GAGAL TAMBAH DATA-->
+                    <?php 
+                        if($this->session->flashdata('error_msg')){
+                    ?>
+                        <div class="card_edit2 col-lg-9 alert alert-info">
+                            <?php echo $this->session->flashdata('error_msg'); ?>
+                        </div>
+                    <?php
+                        }
+                    ?>
                     <!-- page content -->
                     <div class="col-lg-7"><!--mengganti ukuran form-->
                         <div class="card card-outline-primary">
@@ -222,14 +209,12 @@
                         </div>
                     </div>
                     <!-- /page content -->
-
                     <!-- End Page Content -->
                 </div>
                 <!-- End Container fluid  -->
                 <!-- footer -->
                 <?php include 'footer.php';?>
                 <!-- End footer -->
-                
                 <!-- End Page wrapper  -->
             </div>
             <!-- End Wrapper -->
@@ -268,8 +253,6 @@
                     });
                 });
             </script>
-            
-
             <!-- Form validation -->
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate.min.js')?>"></script>
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate-init.js')?>?"></script>

@@ -22,7 +22,7 @@
             <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
-            <link href="<?php echo base_url('assets/css/front.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/log_mitra.css')?>" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <!-- untuk css footer -->
         </head>
@@ -53,7 +53,7 @@
                             <div class="card-body"> 
                                 <h2><b>Buat Akun RentCar Anda</b></h2>
                                     <span>sudah menjadi member?
-                                        <a href="<?php echo base_url()."index.php/auth_user";?>"> Login </a>disini</span>
+                                        <a href="<?php echo base_url()."index.php/auth_user";?>" class="link"> Login </a>disini</span>
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
                                                         <label class="control-label">Provinsi
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <select class="form-control" id="val-provinsi" name="val-provinsi">
+                                                        <select class="form-control" id="val-provinsi1" name="val-provinsi">
                                                             <option value="">Pilih provinsi Anda</option>
                                                                 <?php foreach($provinsi as $a){ ?>
                                                                     <option value="<?php echo $a['id_provinsi']; ?>"><?php echo $a['provinsi']; ?></option>
@@ -179,7 +179,7 @@
                                                         <label class="control-label">Kota
                                                             <span class="text-danger">*</span>
                                                         </label>
-                                                        <select class="form-control" id="val-kota" name="val-kota" disabled="">
+                                                        <select class="form-control" id="val-kota1" name="val-kota" disabled="">
                                                             <option value="">Pilih kota Anda</option>
                                                         </select>
                                                     </div>
@@ -250,19 +250,19 @@
             <!--Header Data Kota -->
             <script type="text/javascript">
                 $(document).ready(function(){
-                    $('#val-provinsi').on('change', function(){
+                    $('#val-provinsi1').on('change', function(){
                         var id_provinsi = $(this).val();
                         if(id_provinsi==''){
-                            $('#val-kota').prop('disabled', true);
+                            $('#val-kota1').prop('disabled', true);
                         }else{
-                            $('#val-kota').prop('disabled', false);
+                            $('#val-kota1').prop('disabled', false);
                             $.ajax({
                                 url:"<?php echo base_url()?>c_get_kota",
                                 type: "POST",
                                 data: {'id_provinsi' : id_provinsi},
                                 dataType: 'json',
                                 success: function(data){
-                                    $('#val-kota').html(data);
+                                    $('#val-kota1').html(data);
                                 },
                                 error: function(){
                                     alert('data kota tidak ada...');

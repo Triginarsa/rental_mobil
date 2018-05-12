@@ -47,16 +47,27 @@
             <div id="main-wrapper">
                 <!-- header header  -->
                 <?php include 'header_user.php'; ?>
-                
-                <!-- End header header -->
-                <!-- Left Sidebar  -->
-                
-                <!-- End Left Sidebar  -->
-                <!-- Page wrapper  -->
-                    <!-- Bread crumb -->
-                    
-                    <!-- End Bread crumb -->
-                    <!-- Container fluid  -->
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img height="360" class="d-block w-100" src="<?php echo base_url('assets/images/banner_2.png')?>" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                          <img height="360" class="d-block w-100" src="<?php echo base_url('assets/images/banner_1.png')?>" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                          <img height="360" class="d-block w-100" src="<?php echo base_url('assets/images/banner_3.png')?>" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
                 <div class="container-fluid edit_form">
                     <!-- Start Page Content -->
                     <div class="card_edit2 col-lg-9">

@@ -60,10 +60,12 @@ class C_register_mitra extends CI_Controller {
       //jika berhasil upload
       {
           //dapatkan data file yg d upload
-				$upload_data = $this->upload->data();
+				// $upload_data = $this->upload->data();
  
-				//dapatkan nama file
-				$image = $upload_data['file_name'];
+				// //dapatkan nama file
+				// $image = $upload_data['file_name'];
+				// $image1 = $upload_data['file_name'];
+				// $image2 = $upload_data['file_name'];
 
 				$data = array(
 				  "nomor_polisi" => $this->input->post('val-nomorPolisi'),
@@ -80,11 +82,11 @@ class C_register_mitra extends CI_Controller {
 				  "id_pemilik" => $this->session->userdata('id'),
 				  "id_kota" => $this->session->userdata('id_kota'),
 				  "gbr_stnk" => $this->input->post('val-gambarSTNK'),
-				  "gbr_stnk" => $image,
+				  "gbr_stnk" => $this->upload->data('file_name1'),
 				  "gbr_mobil" => $this->input->post('val-gambarMobil'),
-				  "gbr_mobil" => $image,
+				  "gbr_mobil" => $this->upload->data('file_name'),
 				  "gbr_bpkb" => $this->input->post('val-gambarBPKB'),
-				  "gbr_bpkb" => $image
+				  "gbr_bpkb" => $this->upload->data('file_name2')
 				);
 
          $this->load->model('m_mobil'); 

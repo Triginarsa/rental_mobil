@@ -3,10 +3,10 @@
 		<thead>
 			<tr>
 				<td width="150"></td>
-				<td width="250"><b>Layanan Pelanggan</b></td>
-				<td width="250" align="left"><b>Jelajahi RentCar</b></td>
+				<td width="250"><h4 class="teks_footer"><b>Layanan Pelanggan</b></h4></td>
+				<td width="250" align="left"><h4 class="teks_footer"><b>Jelajahi RentCar</b></h4></td>
 				<td width="100"></td>
-				<td><b>Follow Us</b></td>
+				<td><h4 class="teks_footer"><b>Follow Us</b></h4></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -17,8 +17,8 @@
 		<tbody>
 			<tr>
 				<td></td>
-				<td><a href="#">Pusat Bantuan</a></td>
-				<td><a href="#">Tentang RentCar</a></td>
+				<td><a href="<?php echo base_url()."c_beranda_user/hlm_bantuan/";?>">Pusat Bantuan</a></td>
+				<td><a href="<?php echo base_url()."c_beranda_user/hlm_about/";?>">Tentang RentCar</a></td>
 				<td></td>
 				<td rowspan="2">
 					<a href="#"><img src="<?php echo base_url('assets/images/facebook.png')?>" width="30" height="30"></a>
@@ -35,14 +35,14 @@
 					<img src="<?php echo base_url('assets/images/icon-rentcar.png')?>" width="70" height="70">
 				</td>
 				<td></td>
-				<td>RentaCar</td>
+				<td>RentCar</td>
 				<td></td>
 
 			</tr>
 			<tr>
 				<td></td>
-				<td><a href="#">Cara Pemesanan</a></td>
-				<td><a href="#">Syarat & Ketentuan</a></td>
+				<td><a href="<?php echo base_url()."c_beranda_user/hlm_cara/";?>">Cara Pemesanan</a></td>
+				<td><a href="<?php echo base_url()."c_beranda_user/hlm_syarat/";?>">Syarat & Ketentuan</a></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -52,7 +52,7 @@
 			<tr>
 				<td></td>
 				<td></td>
-				<td><a href="#">Kebijakan Privasi</a></td>
+				<td><a href="<?php echo base_url()."c_beranda_user/hlm_kebijakan/";?>">Kebijakan Privasi</a></td>
 				<td></td>
 				<td></td>
 				<td></td>

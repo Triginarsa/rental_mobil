@@ -17,8 +17,8 @@
 		<tbody>
 			<tr>
 				<td></td>
-				<td><a href="#">Pusat Bantuan</a></td>
-				<td><a href="#">Tentang RentCar</a></td>
+				<td><a href="<?php echo base_url()."c_beranda/hlm_bantuan/";?>">Pusat Bantuan</a></td>
+				<td><a href="<?php echo base_url()."c_beranda/hlm_about/";?>">Tentang RentCar</a></td>
 				<td></td>
 				<td rowspan="2">
 					<a href="#"><img src="<?php echo base_url('assets/images/facebook.png')?>" width="30" height="30"></a>
@@ -41,8 +41,8 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><a href="#">Cara Pemesanan</a></td>
-				<td><a href="#">Syarat & Ketentuan</a></td>
+				<td><a href="<?php echo base_url()."c_beranda/hlm_cara/";?>">Cara Pemesanan</a></td>
+				<td><a href="<?php echo base_url()."c_beranda/hlm_syarat/";?>">Syarat & Ketentuan</a></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -52,7 +52,7 @@
 			<tr>
 				<td></td>
 				<td></td>
-				<td><a href="#">Kebijakan Privasi</a></td>
+				<td><a href="<?php echo base_url()."c_beranda/hlm_kebijakan/";?>">Kebijakan Privasi</a></td>
 				<td></td>
 				<td></td>
 				<td></td>

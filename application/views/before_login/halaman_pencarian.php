@@ -12,7 +12,7 @@
             <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/logo-icon.png')?>">
             <title>RentCar | Beranda</title>
             <!-- Bootstrap Core CSS -->
-            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.min.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/lib/bootstrap/bootstrap.css')?>" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="<?php echo base_url('assets/css/helper.css')?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
@@ -37,7 +37,6 @@
             } ?>
         </head>
         <body class="fix-header">
-        <!-- Preloader - style you can find in spinners.css -->
             <div class="preloader">
                 <svg class="circular" viewBox="25 25 50 50">
                     <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
@@ -46,19 +45,39 @@
             <div id="main-wrapper">
                 <!-- header header  -->
                 <?php include 'header_user.php'; ?>
-                
-                <!-- End header header -->
-                <!-- Left Sidebar  -->
-                
-                <!-- End Left Sidebar  -->
-                <!-- Page wrapper  -->
-                    <!-- Bread crumb -->
-                    
-                    <!-- End Bread crumb -->
-                    <!-- Container fluid  -->
+               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img height="360" class="d-block w-100" src="<?php echo base_url('assets/images/banner_2.png')?>" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                          <img height="360" class="d-block w-100" src="<?php echo base_url('assets/images/banner_1.png')?>" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                          <img height="360" class="d-block w-100" src="<?php echo base_url('assets/images/banner_3.png')?>" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
                 <div class="container-fluid edit_form">
                     <!-- Start Page Content -->
                     <div class="card_edit2 col-lg-9">
+                        <table border="0">
+                            <tr height="20"></tr>
+                            <tr>
+                                <td>
+                                    <a style="font-size:17pt">Daftar Kendaraan</a>
+                                </td>
+                            </tr>
+                        </table>
+                        <?php foreach ($mobil as $mobil) { ?>
                         <div class="card">
                             <div class="card-body">
                                 <table border="0" class="col-lg-12" id="hehe">
@@ -73,7 +92,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($mobil as $mobil) { ?>
+                                         <tr>
+                                            <td>
+                                                
+                                            
+                                            </td>
+                                        </tr>
+                                        
                                         <tr>
                                             <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210" /></td>
                                             <td width="10"></td>
@@ -101,6 +126,7 @@
                                                 <center>
                                                     <form method="post" action="<?php echo base_url('c_beranda_user/orderMobil/'.$mobil['id_mobil']); ?>">
                                                         <button type="submit" class="btn col-lg-12 btn-success"><i class="fa fa-cart-plus"></i> Book Now</button>
+                                                    </form>
                                                 </center>
                                             </td>
                                         </tr>
@@ -112,14 +138,11 @@
                                             <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
                                             <td></td>
                                         </tr>
-                                        <tr>
-                                            <td colspan="7"><hr></td>
-                                        </tr>
-                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
                     <!-- page content -->
                     
@@ -139,7 +162,7 @@
             <script src="<?php echo base_url('assets/js/lib/jquery/jquery.min.js')?>"></script>
             <!-- Bootstrap tether Core JavaScript -->
             <script src="<?php echo base_url('assets/js/lib/bootstrap/js/popper.min.js')?>"></script>
-            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+            <script src="<?php echo base_url('assets/js/lib/bootstrap/js/bootstrap.js')?>"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
             <script src="<?php echo base_url('assets/js/jquery.slimscroll.js')?>"></script>
             <!--Menu sidebar -->
@@ -178,5 +201,29 @@
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate-init.js')?>"></script>
             <!--Custom JavaScript -->
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
+
+            <!--Date Picker-->
+            <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
+            <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
+            <script>
+                $(document).ready(function(){
+                    $('#val-tglMulai').Zebra_DatePicker({
+                        direction: [true,20],
+                        pair: $('#val-tglKembali'),
+                        format: 'Y-m-d',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                    $('#val-tglKembali').Zebra_DatePicker({
+                        direction: [1,10],
+                        format: 'Y-m-d',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                });
+            </script>
+            <!--End Date Picker-->
         </body>
 </html>

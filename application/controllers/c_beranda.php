@@ -11,6 +11,36 @@ class C_beranda extends CI_Controller {
 		$this->load->view('/before_login/halaman_beranda',array('provinsi' => $provinsi, 'mobil' => $mobil));//halaman beranda user setelah login
 	}
 
+	public function hlm_bantuan(){
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$this->load->view('/before_login/halaman_bantuan',array('provinsi' => $provinsi));//halaman beranda user setelah login
+	}
+
+	public function hlm_about(){
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$this->load->view('/before_login/halaman_about',array('provinsi' => $provinsi));//halaman beranda user setelah login
+	}
+
+	public function hlm_syarat(){
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$this->load->view('/before_login/halaman_syarat',array('provinsi' => $provinsi));//halaman beranda user setelah login
+	}
+
+	public function hlm_kebijakan(){
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$this->load->view('/before_login/halaman_kebijakan',array('provinsi' => $provinsi));//halaman beranda user setelah login
+	}
+
+	public function hlm_cara(){
+		$this->load->model('m_provinsi');
+		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$this->load->view('/before_login/halaman_cara',array('provinsi' => $provinsi));//halaman beranda user setelah login
+	}
+
 	public function dataMobil(){
 		$this->load->model('m_mobil');
 		$mobil = $this->m_mobil->get_dataMobil_beranda();

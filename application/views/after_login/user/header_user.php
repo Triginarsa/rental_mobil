@@ -2,7 +2,7 @@
     <div class="bar_atas">
             <a href="<?php echo site_url('c_beranda_user/riwayatPesanan/'.$this->session->userdata('id'));?>" class="jarak">RIWAYAT</a>
             <a href="<?php echo site_url('c_beranda_user/dataPesanan/'.$this->session->userdata('id'));?>" class="jarak">PESANAN</a>
-            <a href="#" class="jarak"><?php echo $this->session->userdata('nama'); ?></a>
+            <a href="#" class="jarak head1" style="text-transform: uppercase;><?php echo $this->session->userdata('nama'); ?></a>
             <a href="#" class="jarak" data-toggle="modal" data-target="#ModalKeluar">LOGOUT</a>
             <div class="modal fade" id="ModalKeluar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
@@ -31,7 +31,7 @@
     <nav class="navbar top-navbar navbar-expand-md navbar-light">
         <!-- Logo -->
         <div class="navbar-header">
-            <a class="navbar-brand edit_logo" href="index.html">
+            <a class="navbar-brand edit_logo" href="<?php echo site_url('c_beranda_user/');?>">
                 <!-- Logo icon -->
                 <b><img src="<?php echo base_url('assets/images/logo.png')?>" alt="homepage" class="dark-logo" /></b>
                 <!--End Logo icon -->
@@ -61,5 +61,18 @@
             </table>
         </form>
     </nav>
-    <div class="header3"></div>
+    <div class="header3">
+        <table>
+            <tr>
+                <td width="400"></td>
+                <td><a href="<?php echo base_url()."c_beranda_user/hlm_bantuan/";?>"><i class="fa fa-list-alt"></i> Pusat Bantuan</a></td>
+                <td width="50"></td>
+                <td><a href="<?php echo base_url()."c_beranda_user/hlm_syarat/";?>"><i class="fa fa-list-alt"></i> Syarat & Ketentuan</a></td>
+                <td width="50"></td>
+                <td><a href="<?php echo base_url()."c_beranda_user/hlm_about/";?>"><i class="fa fa-tasks"></i> Tentang RentCar</a></td>
+                <td width="50"></td>
+                <td><a href="<?php echo base_url()."c_beranda_user/hlm_cara/";?>"><i class="fa fa-user"></i> Cara Pemesanan</a></td>
+            </tr>
+        </table>
+    </div>
 </div>

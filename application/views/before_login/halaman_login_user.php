@@ -24,7 +24,7 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front.css')?>" rel="stylesheet">
-             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
+             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>">
             <!-- untuk css footer -->
         </head>
         <body class="fix-header">
@@ -54,7 +54,7 @@
                             <div class="card-body"> 
                                 <h2><b>Selamat datang di RentCar Silahkan login</b></h2>
                                     <span>sudah menjadi member?
-                                        <a href="<?php echo base_url()."index.php/c_register_user";?>"> Daftar </a>disini</span>
+                                        <a href="<?php echo base_url()."index.php/c_register_user";?>" class="link"> Daftar </a>disini</span>
                             </div>
                         </div>
                         <!-- ALERT BERHASIL TAMBAH DATA-->

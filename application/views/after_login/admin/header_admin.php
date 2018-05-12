@@ -1,6 +1,6 @@
 <div class="header2">
     <div class="bar_atas">
-        <a href="#" class="jarak"><?php echo $this->session->userdata('nama'); ?></a>
+        <a href="#" class="jarak" style="text-transform: uppercase;><?php echo $this->session->userdata('nama'); ?></a>
         <a href="#" class="jarak" data-toggle="modal" data-target="#ModalKeluar">LOGOUT</a>
         <div class="modal fade" id="ModalKeluar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -28,14 +28,12 @@
 <div class="header">
     <nav class="navbar top-navbar navbar-expand-md navbar-light">
         <!-- Logo -->
-        <div class="navbar-header">
             <a class="navbar-brand edit_logo" href="<?php echo base_url('c_beranda_admin')?>">
                 <!-- Logo icon -->
                 <img src="<?php echo base_url('assets/images/admin_rentcar.png')?>" alt="homepage" class="dark-logo" />
                 <!--End Logo icon -->
                 <!-- Logo text -->
             </a>
-        </div>
     </nav>
     <div class="header3">
         <table>

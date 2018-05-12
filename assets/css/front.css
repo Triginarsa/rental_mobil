@@ -35,6 +35,30 @@
     width: 250px;
 }
 
+.head1{
+  color: #F37123; 
+}
+
+.link:hover{
+  color: #F37123; 
+}
+
+.edit_head1{
+  margin-left: 65px;
+}
+
+.edit_head2{
+  margin-left: 85px;
+}
+
+.edit_head3{
+  margin-left: 105px;
+}
+
+.edit_head4{
+  margin-left: 125px;
+}
+
 .tombolku{
     margin-left: 30px;
     width: 120px;
