@@ -1,6 +1,6 @@
 <div class="header2">
     <div class="bar_atas">
-        <a href="#" class="jarak" style="text-transform: uppercase;><?php echo $this->session->userdata('nama'); ?></a>
+        <a href="#" class="jarak head1" style="text-transform: uppercase;"><?php echo $this->session->userdata('nama'); ?></a>
         <a href="#" class="jarak" data-toggle="modal" data-target="#ModalKeluar">LOGOUT</a>
         <div class="modal fade" id="ModalKeluar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -49,7 +49,7 @@
                 <td width="50"></td>
                 <td><a href="<?php echo base_url()."c_beranda_admin/validasiMobil";?>"><i class="fa fa-tasks"></i> Validasi Data Mobil</a></td>
                 <td width="50"></td>
-                <td><a href="#"><i class="fa fa-user"></i> Edit Profil</a></td>
+                <td><a href="<?php echo site_url('c_beranda_admin/editProfil/'.$this->session->userdata('id'));?>"><i class="fa fa-user"></i> Edit Profil</a></td>
             </tr>
         </table>
     </div>

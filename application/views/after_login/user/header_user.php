@@ -2,7 +2,7 @@
     <div class="bar_atas">
             <a href="<?php echo site_url('c_beranda_user/riwayatPesanan/'.$this->session->userdata('id'));?>" class="jarak">RIWAYAT</a>
             <a href="<?php echo site_url('c_beranda_user/dataPesanan/'.$this->session->userdata('id'));?>" class="jarak">PESANAN</a>
-            <a href="#" class="jarak head1" style="text-transform: uppercase;><?php echo $this->session->userdata('nama'); ?></a>
+            <a href="#" class="jarak head1" style="text-transform: uppercase;"><?php echo $this->session->userdata('nama'); ?></a>
             <a href="#" class="jarak" data-toggle="modal" data-target="#ModalKeluar">LOGOUT</a>
             <div class="modal fade" id="ModalKeluar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">

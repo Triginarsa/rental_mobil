@@ -37,15 +37,6 @@
                 <!-- header header  -->
                 <?php include 'header_admin.php'; ?>
                 
-                <!-- End header header -->
-                <!-- Left Sidebar  -->
-                
-                <!-- End Left Sidebar  -->
-                <!-- Page wrapper  -->
-                    <!-- Bread crumb -->
-                    
-                    <!-- End Bread crumb -->
-                    <!-- Container fluid  -->
                 <div class="container-fluid edit_form">
                     <!-- Start Page Content -->
                     <div class="card_edit3 col-lg-10">
