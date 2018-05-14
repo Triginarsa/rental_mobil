@@ -16,6 +16,25 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`rental_mobil` /*!40100 DEFAULT CHARACTE
 
 USE `rental_mobil`;
 
+/*Table structure for table `tb_bank` */
+
+DROP TABLE IF EXISTS `tb_bank`;
+
+CREATE TABLE `tb_bank` (
+  `id_bank` int(8) NOT NULL AUTO_INCREMENT,
+  `nama_bank` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_bank`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+/*Data for the table `tb_bank` */
+
+insert  into `tb_bank`(`id_bank`,`nama_bank`) values 
+(1,'BRI'),
+(2,'BNI'),
+(3,'MANDIRI'),
+(4,'BCA'),
+(5,'CIMB');
+
 /*Table structure for table `tb_kota` */
 
 DROP TABLE IF EXISTS `tb_kota`;
@@ -197,21 +216,25 @@ CREATE TABLE `tb_mobil` (
   `id_pemilik` int(10) unsigned DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` varchar(191) DEFAULT 'unverified',
+  `status_p` varchar(191) DEFAULT '1',
   PRIMARY KEY (`id_mobil`),
   UNIQUE KEY `nomor_polisi` (`nomor_polisi`,`nomor_mesin`,`nomor_rangka`),
   KEY `id_pemilik` (`id_pemilik`),
   CONSTRAINT `tb_mobil_ibfk_1` FOREIGN KEY (`id_pemilik`) REFERENCES `tb_pemilik_mobil` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_mobil` */
 
-insert  into `tb_mobil`(`id_mobil`,`nomor_polisi`,`id_merk`,`tipe_mobil`,`tahun_rakit`,`bahan_bakar`,`nomor_mesin`,`nomor_rangka`,`jlh_cc`,`jlh_penumpang`,`gbr_mobil`,`gbr_bpkb`,`gbr_stnk`,`transmisi`,`biaya`,`id_kota`,`id_pemilik`,`created_at`,`status`) values 
-(35,'B 189 LAU',1,'Veloz','2016','Premium','ABC0E0000001','ABCDEFG0000000001','1500','8','gallery_new-car-carlist-toyota-vellfire-mpv-malaysia_3675193_4gTN19AJf99GiNvCxxQEl8.jpg','toyota-avanza-front-angle-low-view-9706851.jpg','toyota-avanza-front-angle-low-view-9706851.jpg','Manual','10000',24,28,'2018-04-24 08:58:04','verified'),
-(36,'B 445 UKI',3,'G','2015','Premium','ABC0E0000002','ABCDEFG0000000002','1300','8','Suzuki_Ertiga_L_1.jpg','Suzuki_Ertiga_L_1.jpg','Suzuki_Ertiga_L_1.jpg','Manual','250.000',24,28,'2018-04-22 23:26:40','verified'),
-(37,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-3.jpg',NULL,NULL,NULL,'10000',NULL,NULL,'2018-04-24 08:50:25','unverified'),
-(38,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-31.jpg',NULL,NULL,NULL,'10000',NULL,NULL,'2018-04-24 08:50:38','unverified'),
-(39,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-32.jpg',NULL,NULL,NULL,'10000',NULL,NULL,'2018-04-24 08:54:15','unverified'),
-(40,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Daihatsu_Alya_L_12.jpg',NULL,NULL,NULL,'10000',NULL,NULL,'2018-04-24 08:54:25','unverified');
+insert  into `tb_mobil`(`id_mobil`,`nomor_polisi`,`id_merk`,`tipe_mobil`,`tahun_rakit`,`bahan_bakar`,`nomor_mesin`,`nomor_rangka`,`jlh_cc`,`jlh_penumpang`,`gbr_mobil`,`gbr_bpkb`,`gbr_stnk`,`transmisi`,`biaya`,`id_kota`,`id_pemilik`,`created_at`,`status`,`status_p`) values 
+(36,'B 445 UKI',3,'G','2015','Premium','ABC0E0000002','ABCDEFG0000000002','1300','8','Suzuki_Ertiga_L_1.jpg','Suzuki_Ertiga_L_1.jpg','Suzuki_Ertiga_L_1.jpg','Manual','250000',24,28,'2018-05-07 15:56:58','verified','1'),
+(37,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-3.jpg',NULL,NULL,NULL,'10000',NULL,28,'2018-04-26 09:31:50','unverified','1'),
+(38,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-31.jpg',NULL,NULL,NULL,'10000',NULL,28,'2018-04-26 09:31:53','unverified','1'),
+(39,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-32.jpg',NULL,NULL,NULL,'10000',NULL,28,'2018-04-26 09:31:58','unverified','1'),
+(40,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Daihatsu_Alya_L_12.jpg',NULL,NULL,NULL,'10000',NULL,NULL,'2018-04-24 08:54:25','unverified','1'),
+(41,'DK 7890 PV',2,'G','2015','Solar','JFZ1E1020300','ABCDEFG0000000008','1300','4','Daihatsu_Alya_L_13.jpg','Daihatsu_Alya_L_13.jpg','Daihatsu_Alya_L_13.jpg','Manual','2300000',24,28,'2018-05-07 15:44:50','verified','1'),
+(55,'DK 7890 PY',4,'G','2013','Premium','ABC0E0000003','ABCDEFG0000000003','1300','6','513.png',NULL,NULL,'Matic','230000',24,28,'2018-05-06 18:23:17','unverified','1'),
+(56,'DK 7890 PW',1,'Veloz','2013','Premium','ABC0E0000005','ABCDEFG0000000005','1300','8','Daihatsu_Alya_L_16.jpg',NULL,NULL,'Manual','230000',15,29,'2018-05-07 15:51:57','verified','1'),
+(57,'BK 1910 TS',6,'G','2013','Premium','ABC0E0000020','ABCDEFG0000000020','1300','3','warna-ertiga-suzuki-model-baru-20184583.png',NULL,NULL,'Matic','230000',24,28,'2018-05-11 11:24:16','verified','1');
 
 /*Table structure for table `tb_pemesanan` */
 
@@ -220,21 +243,24 @@ DROP TABLE IF EXISTS `tb_pemesanan`;
 CREATE TABLE `tb_pemesanan` (
   `id_pemesanan` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_pengguna` int(10) unsigned DEFAULT NULL,
-  `tgl_rental` varchar(191) DEFAULT NULL,
-  `tgl_pengembalian` varchar(191) DEFAULT NULL,
+  `tgl_rental` date DEFAULT NULL,
+  `tgl_pengembalian` date DEFAULT NULL,
   `id_mobil` int(10) unsigned DEFAULT NULL,
-  `status` enum('berhasil','gagal','menunggu') DEFAULT 'menunggu',
+  `status` varchar(191) DEFAULT 'Masih di proses',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `status_rental` varchar(191) NOT NULL DEFAULT 'tidak',
+  `ket` text,
   PRIMARY KEY (`id_pemesanan`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pemesanan` */
 
-insert  into `tb_pemesanan`(`id_pemesanan`,`id_pengguna`,`tgl_rental`,`tgl_pengembalian`,`id_mobil`,`status`,`created_at`,`updated_at`) values 
-(37,27,'24-April-2018','26-April-2018',36,'menunggu','2018-04-21 01:46:42','0000-00-00 00:00:00'),
-(38,27,'24-April-2018','26-April-2018',36,'menunggu','2018-04-21 01:47:38','0000-00-00 00:00:00'),
-(39,17,NULL,NULL,35,'menunggu','2018-04-22 20:25:15','0000-00-00 00:00:00');
+insert  into `tb_pemesanan`(`id_pemesanan`,`id_pengguna`,`tgl_rental`,`tgl_pengembalian`,`id_mobil`,`status`,`created_at`,`status_rental`,`ket`) values 
+(59,27,'2018-04-30','2018-05-02',36,'Berhasil','2018-04-29 07:33:17','0000-00-00 00:00:00','hahahaha'),
+(60,27,'2018-04-30','2018-05-10',36,'Berhasil','2018-05-01 20:58:00','0000-00-00 00:00:00','heheheh'),
+(61,27,'2018-05-21','2018-05-23',36,'Masih di proses','2018-05-01 21:01:38','0000-00-00 00:00:00',NULL),
+(62,27,'2018-05-08','2018-05-10',56,'Berhasil','2018-05-07 15:53:31','0000-00-00 00:00:00','hahaha'),
+(63,27,'2018-05-19','2018-05-22',36,'Masih di proses','2018-05-11 12:30:58','tidak',NULL);
 
 /*Table structure for table `tb_pemilik_mobil` */
 
@@ -257,13 +283,14 @@ CREATE TABLE `tb_pemilik_mobil` (
   UNIQUE KEY `email` (`email`),
   KEY `id_kota` (`id_kota`),
   CONSTRAINT `tb_pemilik_mobil_ibfk_1` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pemilik_mobil` */
 
 insert  into `tb_pemilik_mobil`(`id`,`nama`,`nik`,`email`,`password`,`no_hp`,`alamat`,`id_kota`,`created_at`,`updated_at`) values 
 (8,'Raditya Dika','1272072410982223','radit@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',24,'2018-04-09 18:17:37','0000-00-00 00:00:00'),
-(28,'Raffi Ahmad','1272072410980001','raffi@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jl. Cempaka No.11',24,'2018-04-20 21:33:40','0000-00-00 00:00:00');
+(28,'Raffi Ahmad',NULL,'raffi@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jl. Cempaka No.11',24,'2018-05-01 22:52:47','0000-00-00 00:00:00'),
+(29,'desi','1272072410980001','desi@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082237997747','jimbaran',15,'2018-05-07 15:49:07','0000-00-00 00:00:00');
 
 /*Table structure for table `tb_pengguna` */
 
@@ -339,6 +366,31 @@ insert  into `tb_provinsi`(`id_provinsi`,`provinsi`) values
 (10,'Sumatera Selatan'),
 (1,'Sumatera Utara'),
 (35,'Yogyakarta');
+
+/*!50106 set global event_scheduler = 1*/;
+
+/* Event structure for event `cek_status` */
+
+/*!50106 DROP EVENT IF EXISTS `cek_status`*/;
+
+DELIMITER $$
+
+/*!50106 CREATE DEFINER=`root`@`localhost` EVENT `cek_status` ON SCHEDULE EVERY 3 SECOND STARTS '2018-05-09 09:03:36' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+	    
+	END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `validating_pesan` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `validating_pesan` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `validating_pesan`()
+BEGIN
+
+	END */$$
+DELIMITER ;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
