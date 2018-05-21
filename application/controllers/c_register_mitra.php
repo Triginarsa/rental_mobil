@@ -45,14 +45,11 @@ class C_register_mitra extends CI_Controller {
 		
 		$config['upload_path']          = './uploads';
         $config['allowed_types']        = 'gif|jpg|png';
-                // $config['max_size']             = 100;
-                // $config['max_width']            = 1024;
-                // $config['max_height']           = 768;
 
-                $this->load->library('upload', $config);
+        $this->load->library('upload', $config);
 
 
-      if (!$this->upload->do_upload('val-gambarMobil','val-gambarBPKB','val-gambarSTNK' )) //jika gagal upload
+      if (!$this->upload->do_upload('val-gambarMobil')) //jika gagal upload
       {
           $error = $this->upload->display_errors();
 			echo "<script>alert('$error');history.go(-1);</script>";
@@ -60,14 +57,40 @@ class C_register_mitra extends CI_Controller {
       //jika berhasil upload
       {
           //dapatkan data file yg d upload
-				// $upload_data = $this->upload->data();
+				$upload_data = $this->upload->data();
  
 				// //dapatkan nama file
-				// $image = $upload_data['file_name'];
-				// $image1 = $upload_data['file_name'];
-				// $image2 = $upload_data['file_name'];
+				$image = $upload_data['file_name'];
+      }
+	
 
-				$data = array(
+	if (!$this->upload->do_upload('val-gambarBPKB')) //jika gagal upload
+      {
+          $error = $this->upload->display_errors();
+			echo "<script>alert('$error');history.go(-1);</script>";
+      } else
+      //jika berhasil upload
+      {
+          //dapatkan data file yg d upload
+				$upload_data = $this->upload->data();
+				$image1 = $upload_data['file_name'];
+      }
+	
+
+	if (!$this->upload->do_upload('val-gambarSTNK')) //jika gagal upload
+      {
+          $error = $this->upload->display_errors();
+			echo "<script>alert('$error');history.go(-1);</script>";
+      } else
+      //jika berhasil upload
+      {
+          //dapatkan data file yg d upload
+				$upload_data = $this->upload->data();
+				$image2 = $upload_data['file_name'];
+      }
+	
+
+	$data = array(
 				  "nomor_polisi" => $this->input->post('val-nomorPolisi'),
 				  "id_merk" => $this->input->post('val-merkMobil'),
 				  "tipe_mobil" => $this->input->post('val-tipeMobil'),
@@ -82,11 +105,11 @@ class C_register_mitra extends CI_Controller {
 				  "id_pemilik" => $this->session->userdata('id'),
 				  "id_kota" => $this->session->userdata('id_kota'),
 				  "gbr_stnk" => $this->input->post('val-gambarSTNK'),
-				  "gbr_stnk" => $this->upload->data('file_name1'),
+				  "gbr_stnk" => $image2,
 				  "gbr_mobil" => $this->input->post('val-gambarMobil'),
-				  "gbr_mobil" => $this->upload->data('file_name'),
+				  "gbr_mobil" => $image,
 				  "gbr_bpkb" => $this->input->post('val-gambarBPKB'),
-				  "gbr_bpkb" => $this->upload->data('file_name2')
+				  "gbr_bpkb" => $image1
 				);
 
          $this->load->model('m_mobil'); 
@@ -97,6 +120,5 @@ class C_register_mitra extends CI_Controller {
 			$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Data');
 		}
 		redirect(base_url('c_beranda_mitra/dataMobil/'.$this->session->userdata('id')));
-      }
 	}
 }

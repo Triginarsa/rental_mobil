@@ -250,17 +250,15 @@ CREATE TABLE `tb_pemesanan` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status_rental` varchar(191) NOT NULL DEFAULT 'tidak',
   `ket` text,
-  PRIMARY KEY (`id_pemesanan`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_pemesanan`),
+  KEY `id_mobil` (`id_mobil`),
+  CONSTRAINT `tb_pemesanan_ibfk_1` FOREIGN KEY (`id_mobil`) REFERENCES `tb_mobil` (`id_mobil`)
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pemesanan` */
 
 insert  into `tb_pemesanan`(`id_pemesanan`,`id_pengguna`,`tgl_rental`,`tgl_pengembalian`,`id_mobil`,`status`,`created_at`,`status_rental`,`ket`) values 
-(59,27,'2018-04-30','2018-05-02',36,'Berhasil','2018-04-29 07:33:17','0000-00-00 00:00:00','hahahaha'),
-(60,27,'2018-04-30','2018-05-10',36,'Berhasil','2018-05-01 20:58:00','0000-00-00 00:00:00','heheheh'),
-(61,27,'2018-05-21','2018-05-23',36,'Masih di proses','2018-05-01 21:01:38','0000-00-00 00:00:00',NULL),
-(62,27,'2018-05-08','2018-05-10',56,'Berhasil','2018-05-07 15:53:31','0000-00-00 00:00:00','hahaha'),
-(63,27,'2018-05-19','2018-05-22',36,'Masih di proses','2018-05-11 12:30:58','tidak',NULL);
+(64,27,'2018-05-21','2018-05-24',36,'Berhasil','2018-05-18 11:29:22','tidak','ketemu di minimart');
 
 /*Table structure for table `tb_pemilik_mobil` */
 
@@ -389,6 +387,35 @@ DELIMITER $$
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `validating_pesan`()
 BEGIN
 
+	END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `filter` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `filter` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `filter`(
+in kota int,
+in tgl_r date,
+in tgl_p date)
+BEGIN
+
+	SELECT tb_pemesanan.`id_pemesanan`,tb_mobil.`id_mobil`, tb_mobil.`nomor_polisi`, tb_mobil.`id_kota`, tb_kota.`kota`, tb_provinsi.`provinsi`,
+	tb_mobil.`tipe_mobil`, tb_mobil.`transmisi`, tb_mobil.`bahan_bakar`, tb_mobil.`jlh_penumpang`, 
+	tb_mobil.`gbr_mobil`, tb_pemilik_mobil.`nama`, tb_merk.`merk`, tb_pemesanan.`tgl_rental`, tb_pemesanan.`tgl_pengembalian`, tb_mobil.`status` AS s_mobil, tb_pemesanan.`status`
+	FROM tb_mobil
+	LEFT JOIN tb_pemesanan ON tb_pemesanan.`id_mobil` = tb_mobil.`id_mobil`
+	LEFT JOIN tb_merk ON tb_merk.`id_merk` = tb_mobil.`id_merk`
+	LEFT JOIN tb_pemilik_mobil ON tb_pemilik_mobil.`id` = tb_mobil.`id_pemilik`
+	LEFT JOIN tb_kota ON tb_kota.`id_kota` = tb_pemilik_mobil.`id_kota`
+	LEFT JOIN tb_provinsi ON tb_provinsi.`id_provinsi` = tb_kota.`id_provinsi`
+	WHERE tb_pemesanan.`status` !='Berhasil' AND tb_pemesanan.`tgl_rental` NOT BETWEEN tgl_r AND tgl_p 
+	AND tb_pemesanan.`tgl_pengembalian`  NOT BETWEEN tgl_r AND tgl_p 
+	OR tb_pemesanan.`tgl_rental` IS NULL AND tb_mobil.`status` = 'verified' AND tb_mobil.`id_kota` = kota
+	GROUP BY tb_mobil.`id_mobil`;
+	
 	END */$$
 DELIMITER ;
 
