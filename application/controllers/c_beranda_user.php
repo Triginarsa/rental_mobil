@@ -15,15 +15,18 @@ class C_beranda_user extends CI_Controller {
 	public function index(){
 		$this->load->model('m_provinsi');
 		$provinsi= $this->m_provinsi->get_provinsi_query();
+		$ids = $this->session->userdata('id_kota');
 		$this->load->model('m_mobil');
-		$mobil = $this->m_mobil->get_dataMobil_beranda();
+		$mobil = $this->m_mobil->get_dataMobil_beranda_user($ids);
 		$this->load->view('/after_login/user/halaman_beranda_user',array('provinsi' => $provinsi,'mobil' => $mobil));//halaman beranda user setelah login
 	}
 
 	public function getDataByKota(){
 		$kota = $_GET['val-kota'];
+		$tgl_mulai	= $_GET['val-tglMulai'];
+		$tgl_kembali = $_GET['val-tglKembali'];
 		$this->load->model('m_mobil');
-		$mobil = $this->m_mobil->get_MobilByKota($kota);
+		$mobil = $this->m_mobil->get_MobilByKota($kota, $tgl_mulai, $tgl_kembali);
 		$this->load->model('m_provinsi');
 		$provinsi= $this->m_provinsi->get_provinsi_query();
 		$this->load->view('/after_login/user/halaman_pencarian',array('mobil' => $mobil,'provinsi' => $provinsi));

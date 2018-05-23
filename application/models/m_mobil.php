@@ -31,6 +31,19 @@ class M_mobil extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+
+	public function get_dataMobil_beranda_user($ids){ //user
+		$this->db->SELECT('id_mobil, nomor_polisi, tb_merk.`merk`, tipe_mobil, tahun_rakit, bahan_bakar, nomor_mesin, nomor_rangka, jlh_cc, jlh_penumpang, gbr_mobil, gbr_bpkb, gbr_stnk, transmisi, biaya, tb_kota.`kota`, tb_provinsi.`provinsi`, tb_pemilik_mobil.`nama`, tb_mobil.`status`');
+		$this->db->FROM('tb_mobil');
+		$this->db->join('tb_merk','tb_merk.`id_merk` =  tb_mobil.`id_merk`');
+		$this->db->join('tb_kota','tb_kota.`id_kota` = tb_mobil.`id_kota`');
+		$this->db->join('tb_provinsi','tb_provinsi.`id_provinsi` = tb_kota.`id_provinsi`');
+		$this->db->join('tb_pemilik_mobil','tb_pemilik_mobil.`id` = tb_mobil.`id_pemilik`');
+		$this->db->where('tb_mobil.`status`','verified');
+		$this->db->where('tb_mobil.`id_kota`', $ids);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 	
 	public function get_OrderMobil($id){ //user
 		$this->db->SELECT('id_mobil, nomor_polisi, tb_merk.`merk`, tipe_mobil, tahun_rakit, bahan_bakar, nomor_mesin, nomor_rangka, jlh_cc, jlh_penumpang, gbr_mobil, gbr_bpkb, gbr_stnk, transmisi, biaya, tb_kota.`kota`, tb_provinsi.`provinsi`, tb_pemilik_mobil.`nama`, tb_mobil.`status`');
@@ -144,16 +157,20 @@ class M_mobil extends CI_Model {
 		}
 	}
 
-	public function get_MobilByKota($kota){//diganti
-		$this->db->SELECT('id_mobil, nomor_polisi, tb_merk.`merk`, tipe_mobil, tahun_rakit, bahan_bakar, nomor_mesin, nomor_rangka, jlh_cc, jlh_penumpang, gbr_mobil, gbr_bpkb, gbr_stnk, transmisi, biaya, tb_kota.`kota`, tb_provinsi.`provinsi`, tb_pemilik_mobil.`nama`, tb_mobil.`status`, tb_kota.`id_kota`');
-		$this->db->FROM('tb_mobil');
-		$this->db->join('tb_merk','tb_merk.`id_merk` =  tb_mobil.`id_merk`');
-		$this->db->join('tb_kota','tb_kota.`id_kota` = tb_mobil.`id_kota`');
-		$this->db->join('tb_provinsi','tb_provinsi.`id_provinsi` = tb_kota.`id_provinsi`');
-		$this->db->join('tb_pemilik_mobil','tb_pemilik_mobil.`id` = tb_mobil.`id_pemilik`');
-		$this->db->where('tb_kota.`id_kota`' , $kota);
-		$this->db->where('tb_mobil.`status`' , 'verified');
-		$query = $this->db->get();
+	public function get_MobilByKota($kota, $tgl_mulai, $tgl_kembali){
+		$query = $this->db->query('SELECT tb_pemesanan.`id_pemesanan`,tb_mobil.`id_mobil`, tb_mobil.`nomor_polisi`, tb_mobil.`id_kota`, tb_kota.`kota`, tb_provinsi.`provinsi`,
+			tb_mobil.`tipe_mobil`, tb_mobil.`transmisi`, tb_mobil.`bahan_bakar`, tb_mobil.`jlh_penumpang`, 
+			tb_mobil.`gbr_mobil`, tb_pemilik_mobil.`nama`, tb_merk.`merk`, tb_pemesanan.`tgl_rental`, tb_pemesanan.`tgl_pengembalian`, tb_mobil.`status` AS s_mobil, tb_pemesanan.`status`, tb_mobil.`biaya`
+			FROM tb_mobil
+			LEFT JOIN tb_pemesanan ON tb_pemesanan.`id_mobil` = tb_mobil.`id_mobil`
+			LEFT JOIN tb_merk ON tb_merk.`id_merk` = tb_mobil.`id_merk`
+			LEFT JOIN tb_pemilik_mobil ON tb_pemilik_mobil.`id` = tb_mobil.`id_pemilik`
+			LEFT JOIN tb_kota ON tb_kota.`id_kota` = tb_pemilik_mobil.`id_kota`
+			LEFT JOIN tb_provinsi ON tb_provinsi.`id_provinsi` = tb_kota.`id_provinsi`
+			WHERE tb_mobil.`id_kota` = '.$kota.' AND tb_mobil.`status` = "verified" AND tb_mobil.`id_mobil` NOT IN (SELECT id_mobil FROM tb_pemesanan 
+			WHERE tb_pemesanan.`tgl_rental` BETWEEN "'.$tgl_mulai.'" AND "'.$tgl_kembali.'"
+			OR tb_pemesanan.`tgl_pengembalian`  BETWEEN "'.$tgl_mulai.'" AND "'.$tgl_kembali.'")GROUP BY tb_mobil.`id_mobil`
+					');
 		return $query->result_array();
 	}
 

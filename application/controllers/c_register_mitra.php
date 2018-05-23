@@ -62,7 +62,6 @@ class C_register_mitra extends CI_Controller {
 				// //dapatkan nama file
 				$image = $upload_data['file_name'];
       }
-	
 
 	if (!$this->upload->do_upload('val-gambarBPKB')) //jika gagal upload
       {
@@ -75,7 +74,6 @@ class C_register_mitra extends CI_Controller {
 				$upload_data = $this->upload->data();
 				$image1 = $upload_data['file_name'];
       }
-	
 
 	if (!$this->upload->do_upload('val-gambarSTNK')) //jika gagal upload
       {
@@ -88,7 +86,6 @@ class C_register_mitra extends CI_Controller {
 				$upload_data = $this->upload->data();
 				$image2 = $upload_data['file_name'];
       }
-	
 
 	$data = array(
 				  "nomor_polisi" => $this->input->post('val-nomorPolisi'),

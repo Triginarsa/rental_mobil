@@ -16,25 +16,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`rental_mobil` /*!40100 DEFAULT CHARACTE
 
 USE `rental_mobil`;
 
-/*Table structure for table `tb_bank` */
-
-DROP TABLE IF EXISTS `tb_bank`;
-
-CREATE TABLE `tb_bank` (
-  `id_bank` int(8) NOT NULL AUTO_INCREMENT,
-  `nama_bank` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_bank`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
-/*Data for the table `tb_bank` */
-
-insert  into `tb_bank`(`id_bank`,`nama_bank`) values 
-(1,'BRI'),
-(2,'BNI'),
-(3,'MANDIRI'),
-(4,'BCA'),
-(5,'CIMB');
-
 /*Table structure for table `tb_kota` */
 
 DROP TABLE IF EXISTS `tb_kota`;
@@ -216,25 +197,35 @@ CREATE TABLE `tb_mobil` (
   `id_pemilik` int(10) unsigned DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` varchar(191) DEFAULT 'unverified',
-  `status_p` varchar(191) DEFAULT '1',
   PRIMARY KEY (`id_mobil`),
   UNIQUE KEY `nomor_polisi` (`nomor_polisi`,`nomor_mesin`,`nomor_rangka`),
   KEY `id_pemilik` (`id_pemilik`),
-  CONSTRAINT `tb_mobil_ibfk_1` FOREIGN KEY (`id_pemilik`) REFERENCES `tb_pemilik_mobil` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+  KEY `id_merk` (`id_merk`),
+  KEY `id_kota` (`id_kota`),
+  CONSTRAINT `tb_mobil_ibfk_1` FOREIGN KEY (`id_pemilik`) REFERENCES `tb_pemilik_mobil` (`id`),
+  CONSTRAINT `tb_mobil_ibfk_2` FOREIGN KEY (`id_merk`) REFERENCES `tb_merk` (`id_merk`),
+  CONSTRAINT `tb_mobil_ibfk_3` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`)
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_mobil` */
 
-insert  into `tb_mobil`(`id_mobil`,`nomor_polisi`,`id_merk`,`tipe_mobil`,`tahun_rakit`,`bahan_bakar`,`nomor_mesin`,`nomor_rangka`,`jlh_cc`,`jlh_penumpang`,`gbr_mobil`,`gbr_bpkb`,`gbr_stnk`,`transmisi`,`biaya`,`id_kota`,`id_pemilik`,`created_at`,`status`,`status_p`) values 
-(36,'B 445 UKI',3,'G','2015','Premium','ABC0E0000002','ABCDEFG0000000002','1300','8','Suzuki_Ertiga_L_1.jpg','Suzuki_Ertiga_L_1.jpg','Suzuki_Ertiga_L_1.jpg','Manual','250000',24,28,'2018-05-07 15:56:58','verified','1'),
-(37,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-3.jpg',NULL,NULL,NULL,'10000',NULL,28,'2018-04-26 09:31:50','unverified','1'),
-(38,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-31.jpg',NULL,NULL,NULL,'10000',NULL,28,'2018-04-26 09:31:53','unverified','1'),
-(39,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'exterior-32.jpg',NULL,NULL,NULL,'10000',NULL,28,'2018-04-26 09:31:58','unverified','1'),
-(40,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Daihatsu_Alya_L_12.jpg',NULL,NULL,NULL,'10000',NULL,NULL,'2018-04-24 08:54:25','unverified','1'),
-(41,'DK 7890 PV',2,'G','2015','Solar','JFZ1E1020300','ABCDEFG0000000008','1300','4','Daihatsu_Alya_L_13.jpg','Daihatsu_Alya_L_13.jpg','Daihatsu_Alya_L_13.jpg','Manual','2300000',24,28,'2018-05-07 15:44:50','verified','1'),
-(55,'DK 7890 PY',4,'G','2013','Premium','ABC0E0000003','ABCDEFG0000000003','1300','6','513.png',NULL,NULL,'Matic','230000',24,28,'2018-05-06 18:23:17','unverified','1'),
-(56,'DK 7890 PW',1,'Veloz','2013','Premium','ABC0E0000005','ABCDEFG0000000005','1300','8','Daihatsu_Alya_L_16.jpg',NULL,NULL,'Manual','230000',15,29,'2018-05-07 15:51:57','verified','1'),
-(57,'BK 1910 TS',6,'G','2013','Premium','ABC0E0000020','ABCDEFG0000000020','1300','3','warna-ertiga-suzuki-model-baru-20184583.png',NULL,NULL,'Matic','230000',24,28,'2018-05-11 11:24:16','verified','1');
+insert  into `tb_mobil`(`id_mobil`,`nomor_polisi`,`id_merk`,`tipe_mobil`,`tahun_rakit`,`bahan_bakar`,`nomor_mesin`,`nomor_rangka`,`jlh_cc`,`jlh_penumpang`,`gbr_mobil`,`gbr_bpkb`,`gbr_stnk`,`transmisi`,`biaya`,`id_kota`,`id_pemilik`,`created_at`,`status`) values 
+(59,'B 2672 XCX',1,'Veloz','2015','Premium','JFZ1E1020001','ABCDEFG0000000001','1500','8','toyota-avanza-front-angle-low-view-970685.jpg','bpkb.JPG','stnk.jpg','Manual','200000',24,8,'2018-05-21 23:04:48','verified'),
+(60,'B 2828 IT',2,'G','2013','Premium','JFZ1E1020002','ABCDEFG0000000002','1000','5','5.png','bpkb1.JPG','stnk1.jpg','Matic','200000',24,8,'2018-05-21 23:04:54','verified'),
+(61,'B 8808 WX',3,'G','2015','Premium','JFZ1E1020003','ABCDEFG0000000003','1300','7','Suzuki_Ertiga_L_1.jpg','bpkb2.JPG','stnk2.jpg','Matic','230000',24,8,'2018-05-21 23:05:01','verified'),
+(62,'B 778 ZJS',4,'G','2013','Premium','JFZ1E1020004','ABCDEFG0000000004','1300','5','datsun-go-plus-front-angle-low-view-900998.jpg','bpkb3.JPG','stnk3.jpg','Matic','230000',24,28,'2018-05-21 23:12:22','verified'),
+(63,'B 864 QR',4,'G','2015','Premium','JFZ1E1020005','ABCDEFG0000000005','1300','5','datsun-go.jpg','bpkb4.JPG','stnk4.jpg','Manual','230000',24,28,'2018-05-21 23:12:27','verified'),
+(64,'B 137 NJ',7,'G','2013','Solar','JFZ1E1020006','ABCDEFG0000000006','2500','8','All-New-Kijang-Innova.jpg','bpkb5.JPG','stnk5.jpg','Manual','300000',24,28,'2018-05-21 23:12:34','verified'),
+(65,'DK 1589 YL',8,'Veloz','2015','Premium','JFZ1E1020007','ABCDEFG0000000007','1500','8','download.jpg','bpkb6.JPG','stnk6.jpg','Manual','230000',15,29,'2018-05-21 23:20:18','verified'),
+(66,'DK 1619 KQ',3,'G','2015','Premium','JFZ1E1020008','ABCDEFG0000000008','1300','7','warna-ertiga-suzuki-model-baru-20184583.png','bpkb7.JPG','stnk7.jpg','Manual','250000',15,29,'2018-05-21 23:20:22','verified'),
+(67,'DK 1775 ZJ',13,'G','2015','Solar','JFZ1E1020009','ABCDEFG0000000009','2500','8','exterior-3.jpg','bpkb8.JPG','stnk8.jpg','Manual','300000',15,29,'2018-05-21 23:20:38','verified'),
+(68,'B 7745 WE',21,'VRZ','2017','Solar','JFZ1E1020010','ABCDEFG0000000010','2500','8','fit.png','bpkb9.JPG','stnk9.jpg','Matic','450000',24,8,'2018-05-22 09:45:44','verified'),
+(71,'BK 1910 TS',22,'New Vellfire','2017','Premium','JFZ1E1020011','ABCDEFG0000000011','2700','8','gallery_new-car-carlist-toyota-vellfire-mpv-malaysia_3675193_4gTN19AJf99GiNvCxxQEl82.jpg','bpkb12.JPG','stnk12.jpg','Matic','1000000',102,30,'2018-05-22 09:47:30','verified'),
+(72,'BK 1777 WE',11,'V LUXURY','2017','Premium','JFZ1E1020012','ABCDEFG0000000012','2000','8','All-New-Kijang-Innova1.jpg','bpkb13.JPG','stnk13.jpg','Matic','450000',102,30,'2018-05-22 09:47:37','verified'),
+(73,'BK 2780 WS',18,'ULTIMATE','2017','Solar','JFZ1E1020013','ABCDEFG0000000013','2500','8','18my_pajero_sport_spinner001.png','bpkb14.JPG','stnk14.jpg','Matic','525000',102,30,'2018-05-22 09:47:41','verified'),
+(74,'BK 7870 TP',14,'SRZ','2017','Premium','JFZ1E1020014','ABCDEFG0000000014','2700','8','fit1.png','bpkb15.JPG','stnk15.jpg','Matic','550000',102,30,'2018-05-22 09:47:46','verified'),
+(75,'BK 5803 TX',26,'SUV','2015','Premium','JFZ1E1020015','ABCDEFG0000000015','2700','8','exterior-31.jpg','bpkb16.JPG','stnk16.jpg','Matic','870000',104,31,'2018-05-22 09:48:20','verified'),
+(76,'BK 1300 WC',10,'G SERIES','2015','Premium','JFZ1E1020016','ABCDEFG0000000016','2000','8','Serena_white_sml_jpg_ximg_m_12_h_smart.jpg','bpkb17.JPG','stnk17.jpg','Manual','380000',104,31,'2018-05-22 09:48:24','verified');
 
 /*Table structure for table `tb_pemesanan` */
 
@@ -252,13 +243,16 @@ CREATE TABLE `tb_pemesanan` (
   `ket` text,
   PRIMARY KEY (`id_pemesanan`),
   KEY `id_mobil` (`id_mobil`),
-  CONSTRAINT `tb_pemesanan_ibfk_1` FOREIGN KEY (`id_mobil`) REFERENCES `tb_mobil` (`id_mobil`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
+  KEY `id_pengguna` (`id_pengguna`),
+  CONSTRAINT `tb_pemesanan_ibfk_1` FOREIGN KEY (`id_mobil`) REFERENCES `tb_mobil` (`id_mobil`),
+  CONSTRAINT `tb_pemesanan_ibfk_2` FOREIGN KEY (`id_pengguna`) REFERENCES `tb_pengguna` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pemesanan` */
 
 insert  into `tb_pemesanan`(`id_pemesanan`,`id_pengguna`,`tgl_rental`,`tgl_pengembalian`,`id_mobil`,`status`,`created_at`,`status_rental`,`ket`) values 
-(64,27,'2018-05-21','2018-05-24',36,'Berhasil','2018-05-18 11:29:22','tidak','ketemu di minimart');
+(2,27,'2018-05-23','2018-05-25',59,'Berhasil','2018-05-22 09:55:40','tidak','terimakasih sudah merental mobil ini, anda dapat menghubungi kami, terkait rental mobil ini.'),
+(3,27,'2018-05-25','2018-05-26',60,'Masih di proses','2018-05-22 10:20:18','tidak',NULL);
 
 /*Table structure for table `tb_pemilik_mobil` */
 
@@ -281,14 +275,16 @@ CREATE TABLE `tb_pemilik_mobil` (
   UNIQUE KEY `email` (`email`),
   KEY `id_kota` (`id_kota`),
   CONSTRAINT `tb_pemilik_mobil_ibfk_1` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pemilik_mobil` */
 
 insert  into `tb_pemilik_mobil`(`id`,`nama`,`nik`,`email`,`password`,`no_hp`,`alamat`,`id_kota`,`created_at`,`updated_at`) values 
 (8,'Raditya Dika','1272072410982223','radit@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',24,'2018-04-09 18:17:37','0000-00-00 00:00:00'),
-(28,'Raffi Ahmad',NULL,'raffi@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jl. Cempaka No.11',24,'2018-05-01 22:52:47','0000-00-00 00:00:00'),
-(29,'desi','1272072410980001','desi@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082237997747','jimbaran',15,'2018-05-07 15:49:07','0000-00-00 00:00:00');
+(28,'Raffi Ahmad','1272072410980003','raffi@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jl. Cempaka No.11',24,'2018-05-21 23:07:55','0000-00-00 00:00:00'),
+(29,'Desi Ratnasari','1272072410980001','desi@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082237997747','jimbaran',15,'2018-05-21 23:13:18','0000-00-00 00:00:00'),
+(30,'HOTMAN HUTAPEA','1272072410982245','hotman@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082237997747','Jalan Sei Karang No.118',102,'2018-05-22 09:28:39','0000-00-00 00:00:00'),
+(31,'RUHUT SITOMPUL','1272072410982246','ruhut@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082237997745','Jalan Patroli No.11',104,'2018-05-22 09:40:43','0000-00-00 00:00:00');
 
 /*Table structure for table `tb_pengguna` */
 
@@ -307,7 +303,8 @@ CREATE TABLE `tb_pengguna` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
-  KEY `id_kota` (`id_kota`)
+  KEY `id_kota` (`id_kota`),
+  CONSTRAINT `tb_pengguna_ibfk_1` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pengguna` */
@@ -316,7 +313,7 @@ insert  into `tb_pengguna`(`id`,`nama`,`email`,`password`,`no_hp`,`alamat`,`id_k
 (17,'EVAN HIMAWAN SARAGIH','evan@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','jalan merpati no.7',102,'admin','2018-04-20 22:39:02','0000-00-00 00:00:00'),
 (24,'RADITYA DIKA','radit@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',23,'user','2018-04-09 19:44:31','0000-00-00 00:00:00'),
 (26,'EVAN HIMAWAN SARAGIH','himawanevan24@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082237997747','Jalan Kompi No.8',104,'user','2018-04-11 05:06:10','0000-00-00 00:00:00'),
-(27,'ATIKA SARAGIH','atika@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',64,'user','2018-04-14 14:50:02','0000-00-00 00:00:00');
+(27,'ATIKA SARAGIH','atika@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',24,'user','2018-05-22 09:09:09','0000-00-00 00:00:00');
 
 /*Table structure for table `tb_provinsi` */
 

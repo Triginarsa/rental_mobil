@@ -22,7 +22,7 @@
             <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
-            <link href="<?php echo base_url('assets/css/front.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/fronter.css')?>" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <style type="text/css">
                 #warna_teks{
@@ -70,6 +70,24 @@
                 <div class="container-fluid edit_form">
                     <!-- Start Page Content -->
                     <div class="card_edit2 col-lg-9">
+                        <table border="0">
+                            <tr height="20"></tr>
+                            <tr>
+                                <td colspan="2">
+                                    <a style="font-size:17pt">Daftar Kendaraan</a>
+                                </td>
+                                <td width="630"></td>
+                                <td>
+                                    <a>
+                                        <?php if ($_GET){
+                                            echo "Tanggal: " .$_GET['val-tglMulai']. " - " .$_GET['val-tglKembali'];
+                                        }
+                                        ?>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                        <?php foreach ($mobil as $mobil) { ?>
                         <div class="card">
                             <div class="card-body">
                                 <table border="0" class="col-lg-12" id="hehe">
@@ -84,7 +102,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($mobil as $mobil) { ?>
                                         <tr>
                                             <td rowspan="4" height="100"><img src="<?=base_url()?>uploads/<?=$mobil['gbr_mobil']?>" alt="homepage" class="dark-logo" width="210" /></td>
                                             <td width="10"></td>
@@ -123,14 +140,11 @@
                                             <td id="warna_teks"><b><?php echo $mobil['nomor_polisi']; ?></b></td>
                                             <td></td>
                                         </tr>
-                                        <tr>
-                                            <td colspan="7"><hr></td>
-                                        </tr>
-                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                       <?php } ?>
                     </div>
                     <!-- page content -->
                     
@@ -189,5 +203,29 @@
             <script src="<?php echo base_url('assets/js/lib/form-validation/jquery.validate-init.js')?>"></script>
             <!--Custom JavaScript -->
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
+
+            <!--Date Picker-->
+            <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
+            <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
+            <script>
+                $(document).ready(function(){
+                    $('#val-tglMulai').Zebra_DatePicker({
+                        direction: [true,20],
+                        pair: $('#val-tglKembali'),
+                        format: 'Y-m-d',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                    $('#val-tglKembali').Zebra_DatePicker({
+                        direction: [1,10],
+                        format: 'Y-m-d',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                });
+            </script>
+            <!--End Date Picker-->
         </body>
 </html>

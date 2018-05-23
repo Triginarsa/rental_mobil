@@ -23,7 +23,7 @@
             <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
-            <link href="<?php echo base_url('assets/css/front.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/fronter.css')?>" rel="stylesheet">
              <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>">
             <!-- untuk css footer -->
         </head>
@@ -187,19 +187,19 @@
             <script src="<?php echo base_url('assets/js/custom.min.js')?>"></script>
             <script src="<?php echo base_url('assets/css/lib/datepicker/lib/zebra_datepicker.js')?>"></script>
             <link rel="stylesheet" href="<?php echo base_url('assets/css/lib/datepicker/lib/css/default.css')?>" />
-            <script>
+             <script>
                 $(document).ready(function(){
-                    $('#tanggal').Zebra_DatePicker({
-                        direction: true,
-                        pair: $('#tanggal1'),
-                        format: 'd-F-Y',
+                    $('#val-tglMulai').Zebra_DatePicker({
+                        direction: [true,20],
+                        pair: $('#val-tglKembali'),
+                        format: 'Y-m-d',
                         months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
                         days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
                         days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
                     });
-                    $('#tanggal1').Zebra_DatePicker({
+                    $('#val-tglKembali').Zebra_DatePicker({
                         direction: [1,10],
-                        format: 'd-F-Y',
+                        format: 'Y-m-d',
                         months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
                         days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
                         days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']

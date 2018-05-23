@@ -61,9 +61,8 @@
                                             <tr height="30"></tr>
                                             <tr>
                                                 <td>
-                                                   <label style="font-size: 17pt">Pertanyaan yang sering diajukan</label> 
+                                                   <label style="font-size: 17pt">Cara Pemesanan Mobil</label> 
                                                 </td>
-                                                <td></td>
                                                 <td rowspan="4" width="300" style="background-color: #093645"><center><img src="<?php echo base_url('assets/images/logo.png')?>"></center></td>
                                                 <td></td>
                                             </tr>
@@ -76,40 +75,38 @@
                                             </tr>
                                             <tr>
                                                 <td width="1000">
-                                                    <label>Proses pembatalan pesanan dapat dilakukan dengan cepat dan mudah melalui formulir Pembatalan Online.Untuk dapat menggunakan formulir pembatalan, anda harus memiliki akun di RentCar.co.id (silahkan daftar disini jika anda belum memiliki akun) atau jika anda memesan dengan akun "pelanggan baru", silahkan daftar akun anda menggunakan email yang sama saat pemesanan dilakukan.<br>Berikut adalah langkah-langkah pembatalan online:</label>
+                                                    <label>1. Cari Mobil<br>Mulai pencarian mobil Anda dengan memasukkan provinsi, kota, hotel, dan waktu penyewaan mobil.</label>
                                                 </td>
                                                 <td></td>
                                             </tr>
                                             <tr></tr>
                                             <tr>
                                                 <td>
-                                                    <label>1. Login dengan akun anda <br> 2. Pada tampilan header, klik "PESANAN" <br> 3. Pastikan status pesanan anda belum di konfirmasi, apabila telah dikonfirmasi anda tidak dapat melakukan pembatalan pesanan.<br> 4. Apabila status pesanan masih di proses maka anda dapat melakukan pembatalan</label>
-                                                </td>
-                                                <td></td>
+                                                    <label>2. Pilih Mobil<br>Di halaman hasil pencarian, pilih mobil yang Anda kehendaki. Klik tombol Book Now untuk mengetahui detail kamar yang Anda pilih. Jika anda belum login maka anda harus login terlebih dahulu.</label>
+                                                </td>   
                                                 <td rowspan="4" width="300" style="background-color: #093645"><center><img src="<?php echo base_url('assets/images/join_rentcar.png')?>" width=200></center></td>
                                                 <td></td>
                                             </tr>
+                                            <tr></tr>
                                             <tr>
                                                 <td>
-                                                    <hr>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>Bagaimana cara mengecek status pesanan?</label>
+                                                    <label>3. Pesan Mobil<br>Di halaman detail mobil, masukkan tanggal pakai dan tanggal kembali mobil. Kemudian klik tombol Pesan Sekarang.</label>
                                                 </td>
                                                 <td></td>
                                             </tr>
+                                            <tr></tr>
                                             <tr>
-                                                <td width="1000">
-                                                    <label>Anda cukup mengklik "PESANAN" pada header halaman setelah anda login dengan akun, lihat daftar pesanan yang anda lakukan, cek status apakah masih diproses atau telah di konfirmasi. Apabila status pesanan telah dikonfirmasi maka pesanan anda telah berhasil, namun apabila masih di proses maka anda masih dapat melakukan pembatalan pesanan Anda.</label>
+                                                <td>
+                                                    <label>4. Tunggu Validasi Pesanan<br>Untuk melihat status pesanan mobil Anda, dapat dilihat melalui menu bar pada tombol Pesanan.</label>
                                                 </td>
                                                 <td></td>
                                             </tr>
+                                            <tr></tr>
                                             <tr>
                                                 <td>
-                                                    <hr>
+                                                    <label>5. Pesanan Berhasil<br>Jika validasi pesanan Anda telah disetujui oleh pemilik mobil maka anda akan dikirimkan detail pesanan Anda beserta biaya yang harus Anda bayarkan. Anda langsung dapat menghubungi pemilik mobil untuk dapat berkomunikasi mengenai penyewaan mobilnya.</label>
                                                 </td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>

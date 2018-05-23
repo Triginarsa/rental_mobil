@@ -61,30 +61,20 @@
                                             <tr height="30"></tr>
                                             <tr>
                                                 <td>
-                                                   <label style="font-size: 17pt">Pertanyaan yang sering diajukan</label> 
+                                                   <label style="font-size: 17pt">Apa itu Rentcar?</label> 
                                                 </td>
-                                                <td></td>
                                                 <td rowspan="4" width="300" style="background-color: #093645"><center><img src="<?php echo base_url('assets/images/logo.png')?>"></center></td>
                                                 <td></td>
                                             </tr>
                                             <tr></tr>
                                             <tr>
-                                                <td>
-                                                    <label>Bagaimana cara membatalkan pesanan?</label>
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
                                                 <td width="1000">
-                                                    <label>Proses pembatalan pesanan dapat dilakukan dengan cepat dan mudah melalui formulir Pembatalan Online.Untuk dapat menggunakan formulir pembatalan, anda harus memiliki akun di RentCar.co.id (silahkan daftar disini jika anda belum memiliki akun) atau jika anda memesan dengan akun "pelanggan baru", silahkan daftar akun anda menggunakan email yang sama saat pemesanan dilakukan.<br>Berikut adalah langkah-langkah pembatalan online:</label>
+                                                    <label>Rentcar adalah perusahaan travel terkemuka di Indonesia yang berada di bawah bendera IT Udayana Group, didirikan sejak 2 April 2018 dan berkantor pusat di jalan raya kampus Unud, Bukit Jimbaran, Bali. Perusahaan rentcar bergerak dalam bidang jasa transportasi darat, khususnya dalam jasa penyewaan kendaraan. Rentcar melayani penyewaan kendaraan tanpa pengemudi (Self drive Service) maupun dengan pengemudi (Chauffeur Service).</label>
                                                 </td>
                                                 <td></td>
                                             </tr>
                                             <tr></tr>
                                             <tr>
-                                                <td>
-                                                    <label>1. Login dengan akun anda <br> 2. Pada tampilan header, klik "PESANAN" <br> 3. Pastikan status pesanan anda belum di konfirmasi, apabila telah dikonfirmasi anda tidak dapat melakukan pembatalan pesanan.<br> 4. Apabila status pesanan masih di proses maka anda dapat melakukan pembatalan</label>
-                                                </td>
                                                 <td></td>
                                                 <td rowspan="4" width="300" style="background-color: #093645"><center><img src="<?php echo base_url('assets/images/join_rentcar.png')?>" width=200></center></td>
                                                 <td></td>
@@ -96,13 +86,13 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label>Bagaimana cara mengecek status pesanan?</label>
+                                                    <label></label>
                                                 </td>
                                                 <td></td>
                                             </tr>
                                             <tr>
                                                 <td width="1000">
-                                                    <label>Anda cukup mengklik "PESANAN" pada header halaman setelah anda login dengan akun, lihat daftar pesanan yang anda lakukan, cek status apakah masih diproses atau telah di konfirmasi. Apabila status pesanan telah dikonfirmasi maka pesanan anda telah berhasil, namun apabila masih di proses maka anda masih dapat melakukan pembatalan pesanan Anda.</label>
+                                                    <label>Rentcar.co.id adalah sebuah website untuk menyewa dan menyewakan mobil secara online. Bekerja sama dengan lebih dari 100 pemilik mobil di Bali untuk memudahkan menemukan mobil sesuai dengan lokasinya. Semua transaksi yang dilakukan melalui website Rentcar.co.id dijamin aman.</label>
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -110,6 +100,12 @@
                                                 <td>
                                                     <hr>
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="1000">
+                                                    <label>Transaksi penyewaan mobil melalui website Rentcar.co.id telah berhasil hingga lebih dari 10 juta kali, menjadikannya website ini populer di Indonesia.</label>
+                                                </td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>

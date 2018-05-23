@@ -33,6 +33,9 @@
                     color: white; 
                 }
             </style>
+            <?php function format_ribuan ($nilai){
+                return number_format ($nilai, 0, ',', '.');
+            } ?>
         </head>
         <body class="fix-header">
         <!-- Preloader - style you can find in spinners.css -->
@@ -182,7 +185,7 @@
                                             <td></td>
                                             <td></td>
                                             <td style="color: #EC5E24" id="warna_teks" align="center"><i class="fa fa-money"></i></td>
-                                            <td id="warna_teks" colspan="2">Rp <?php echo $mobil->biaya ?></td>
+                                            <td id="warna_teks" colspan="2">Rp <?php echo format_ribuan($mobil->biaya) ?></td>
                                             <td></td>
                                         </tr>
                                         <tr><!--Baris5-->

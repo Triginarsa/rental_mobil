@@ -22,7 +22,7 @@
             <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
-            <link href="<?php echo base_url('assets/css/front.css')?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/css/fronter.css')?>" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <!-- untuk css footer -->
             <style type="text/css">
@@ -115,7 +115,7 @@
                                             <td id="warna_teks" rowspan="2" colspan="2" align="center" width="130" height="100">Tanggal Pakai
                                                 <div class="form-group">
                                                     <div>
-                                                        <input type="text" id="val-tglMulai" name="val-tglMulai" placeholder="Tanggal Mulai">
+                                                        <input type="text" id="val-tgl1" name="val-tglMulai" placeholder="Tanggal Mulai">
                                                     </div>
                                                 </div>
                                             </td>
@@ -135,7 +135,7 @@
                                             <td id="warna_teks" rowspan="2" colspan="2" align="center" width="130" height="100">Tanggal Kembali
                                                 <div class="form-group">
                                                     <div>
-                                                        <input type="text" id="val-tglKembali" name="val-tglKembali" placeholder="Tanggal Kembali">
+                                                        <input type="text" id="val-tgl2" name="val-tglKembali" placeholder="Tanggal Kembali">
                                                     </div>
                                                 </div>
                                             </td>
@@ -242,6 +242,25 @@
                         days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
                     });
                     $('#val-tglKembali').Zebra_DatePicker({
+                        direction: [1,10],
+                        format: 'Y-m-d',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                });
+            </script>
+            <script>
+                $(document).ready(function(){
+                    $('#val-tgl1').Zebra_DatePicker({
+                        direction: [true,20],
+                        pair: $('#val-tgl2'),
+                        format: 'Y-m-d',
+                        months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+                        days : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+                        days_abbr : ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']
+                    });
+                    $('#val-tgl2').Zebra_DatePicker({
                         direction: [1,10],
                         format: 'Y-m-d',
                         months : ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],

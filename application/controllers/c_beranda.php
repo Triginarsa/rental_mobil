@@ -49,8 +49,10 @@ class C_beranda extends CI_Controller {
 
 	public function getDataByKota(){
 		$kota = $_GET['val-kota'];
+		$tgl_mulai	= $_GET['val-tglMulai'];
+		$tgl_kembali = $_GET['val-tglKembali'];
 		$this->load->model('m_mobil');
-		$mobil = $this->m_mobil->get_MobilByKota($kota);
+		$mobil = $this->m_mobil->get_MobilByKota($kota, $tgl_mulai, $tgl_kembali);
 		$this->load->model('m_provinsi');
 		$provinsi= $this->m_provinsi->get_provinsi_query();
 		$this->load->view('/before_login/halaman_pencarian',array('mobil' => $mobil,'provinsi' => $provinsi));

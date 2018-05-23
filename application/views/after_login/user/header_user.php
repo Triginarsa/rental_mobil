@@ -55,6 +55,12 @@
                         </select>
                     </td>
                     <td>
+                        <input type="text" id="val-tglMulai" name="val-tglMulai" placeholder="Tanggal Mulai" required="">
+                    </td>
+                    <td>
+                        <input type="text" id="val-tglKembali" name="val-tglKembali" placeholder="Tanggal Kembali" required="">
+                    </td>
+                    <td>
                         <button type="submit" class="btn col-lg-12 btn-success tombolku"><i class="ti-search"></i>CARI</button>
                     </td>
                 </tr>
