@@ -210,7 +210,7 @@ CREATE TABLE `tb_mobil` (
 /*Data for the table `tb_mobil` */
 
 insert  into `tb_mobil`(`id_mobil`,`nomor_polisi`,`id_merk`,`tipe_mobil`,`tahun_rakit`,`bahan_bakar`,`nomor_mesin`,`nomor_rangka`,`jlh_cc`,`jlh_penumpang`,`gbr_mobil`,`gbr_bpkb`,`gbr_stnk`,`transmisi`,`biaya`,`id_kota`,`id_pemilik`,`created_at`,`status`) values 
-(59,'B 2672 XCX',1,'Veloz','2015','Premium','JFZ1E1020001','ABCDEFG0000000001','1500','8','toyota-avanza-front-angle-low-view-970685.jpg','bpkb.JPG','stnk.jpg','Manual','200000',24,8,'2018-05-21 23:04:48','verified'),
+(59,'B 2672 XCX',1,'Veloz','2015','Premium','JFZ1E1020001','ABCDEFG0000000001','1500','8','toyota-avanza-front-angle-low-view-970685.jpg','bpkb.JPG','stnk.jpg','Manual','200000',24,8,'2018-05-24 17:11:55','blokir'),
 (60,'B 2828 IT',2,'G','2013','Premium','JFZ1E1020002','ABCDEFG0000000002','1000','5','5.png','bpkb1.JPG','stnk1.jpg','Matic','200000',24,8,'2018-05-21 23:04:54','verified'),
 (61,'B 8808 WX',3,'G','2015','Premium','JFZ1E1020003','ABCDEFG0000000003','1300','7','Suzuki_Ertiga_L_1.jpg','bpkb2.JPG','stnk2.jpg','Matic','230000',24,8,'2018-05-21 23:05:01','verified'),
 (62,'B 778 ZJS',4,'G','2013','Premium','JFZ1E1020004','ABCDEFG0000000004','1300','5','datsun-go-plus-front-angle-low-view-900998.jpg','bpkb3.JPG','stnk3.jpg','Matic','230000',24,28,'2018-05-21 23:12:22','verified'),
@@ -222,10 +222,10 @@ insert  into `tb_mobil`(`id_mobil`,`nomor_polisi`,`id_merk`,`tipe_mobil`,`tahun_
 (68,'B 7745 WE',21,'VRZ','2017','Solar','JFZ1E1020010','ABCDEFG0000000010','2500','8','fit.png','bpkb9.JPG','stnk9.jpg','Matic','450000',24,8,'2018-05-22 09:45:44','verified'),
 (71,'BK 1910 TS',22,'New Vellfire','2017','Premium','JFZ1E1020011','ABCDEFG0000000011','2700','8','gallery_new-car-carlist-toyota-vellfire-mpv-malaysia_3675193_4gTN19AJf99GiNvCxxQEl82.jpg','bpkb12.JPG','stnk12.jpg','Matic','1000000',102,30,'2018-05-22 09:47:30','verified'),
 (72,'BK 1777 WE',11,'V LUXURY','2017','Premium','JFZ1E1020012','ABCDEFG0000000012','2000','8','All-New-Kijang-Innova1.jpg','bpkb13.JPG','stnk13.jpg','Matic','450000',102,30,'2018-05-22 09:47:37','verified'),
-(73,'BK 2780 WS',18,'ULTIMATE','2017','Solar','JFZ1E1020013','ABCDEFG0000000013','2500','8','18my_pajero_sport_spinner001.png','bpkb14.JPG','stnk14.jpg','Matic','525000',102,30,'2018-05-22 09:47:41','verified'),
-(74,'BK 7870 TP',14,'SRZ','2017','Premium','JFZ1E1020014','ABCDEFG0000000014','2700','8','fit1.png','bpkb15.JPG','stnk15.jpg','Matic','550000',102,30,'2018-05-22 09:47:46','verified'),
-(75,'BK 5803 TX',26,'SUV','2015','Premium','JFZ1E1020015','ABCDEFG0000000015','2700','8','exterior-31.jpg','bpkb16.JPG','stnk16.jpg','Matic','870000',104,31,'2018-05-22 09:48:20','verified'),
-(76,'BK 1300 WC',10,'G SERIES','2015','Premium','JFZ1E1020016','ABCDEFG0000000016','2000','8','Serena_white_sml_jpg_ximg_m_12_h_smart.jpg','bpkb17.JPG','stnk17.jpg','Manual','380000',104,31,'2018-05-22 09:48:24','verified');
+(73,'BK 2780 WS',18,'ULTIMATE','2017','Solar','JFZ1E1020013','ABCDEFG0000000013','2500','8','18my_pajero_sport_spinner001.png','bpkb14.JPG','stnk14.jpg','Matic','525000',102,30,'2018-05-24 17:27:47','unverified'),
+(74,'BK 7870 TP',14,'SRZ','2017','Premium','JFZ1E1020014','ABCDEFG0000000014','2700','8','fit1.png','bpkb15.JPG','stnk15.jpg','Matic','550000',102,30,'2018-05-24 17:27:45','unverified'),
+(75,'BK 5803 TX',26,'SUV','2015','Premium','JFZ1E1020015','ABCDEFG0000000015','2700','8','exterior-31.jpg','bpkb16.JPG','stnk16.jpg','Matic','870000',104,31,'2018-05-24 17:27:44','unverified'),
+(76,'BK 1300 WC',10,'G SERIES','2015','Premium','JFZ1E1020016','ABCDEFG0000000016','2000','8','Serena_white_sml_jpg_ximg_m_12_h_smart.jpg','bpkb17.JPG','stnk17.jpg','Manual','380000',104,31,'2018-05-24 17:27:43','unverified');
 
 /*Table structure for table `tb_pemesanan` */
 
@@ -246,13 +246,16 @@ CREATE TABLE `tb_pemesanan` (
   KEY `id_pengguna` (`id_pengguna`),
   CONSTRAINT `tb_pemesanan_ibfk_1` FOREIGN KEY (`id_mobil`) REFERENCES `tb_mobil` (`id_mobil`),
   CONSTRAINT `tb_pemesanan_ibfk_2` FOREIGN KEY (`id_pengguna`) REFERENCES `tb_pengguna` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pemesanan` */
 
 insert  into `tb_pemesanan`(`id_pemesanan`,`id_pengguna`,`tgl_rental`,`tgl_pengembalian`,`id_mobil`,`status`,`created_at`,`status_rental`,`ket`) values 
-(2,27,'2018-05-23','2018-05-25',59,'Berhasil','2018-05-22 09:55:40','tidak','terimakasih sudah merental mobil ini, anda dapat menghubungi kami, terkait rental mobil ini.'),
-(3,27,'2018-05-25','2018-05-26',60,'Masih di proses','2018-05-22 10:20:18','tidak',NULL);
+(2,27,'2018-05-23','2018-05-25',59,'Masih di proses','2018-05-24 13:06:25','tidak','terimakasih sudah merental mobil ini, anda dapat menghubungi kami, terkait rental mobil ini.'),
+(3,27,'2018-05-25','2018-05-26',60,'Masih di proses','2018-05-22 10:20:18','tidak',NULL),
+(4,27,'2018-05-30','2018-05-31',59,'Ditolak','2018-05-24 15:36:13','tidak',''),
+(5,28,'2018-05-30','2018-05-31',59,'Berhasil','2018-05-24 15:36:13','tidak',''),
+(6,28,'2018-05-29','2018-05-30',59,'Ditolak','2018-05-24 15:36:13','tidak','Hahahahah');
 
 /*Table structure for table `tb_pemilik_mobil` */
 
@@ -305,7 +308,7 @@ CREATE TABLE `tb_pengguna` (
   UNIQUE KEY `email` (`email`),
   KEY `id_kota` (`id_kota`),
   CONSTRAINT `tb_pengguna_ibfk_1` FOREIGN KEY (`id_kota`) REFERENCES `tb_kota` (`id_kota`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_pengguna` */
 
@@ -313,7 +316,8 @@ insert  into `tb_pengguna`(`id`,`nama`,`email`,`password`,`no_hp`,`alamat`,`id_k
 (17,'EVAN HIMAWAN SARAGIH','evan@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','jalan merpati no.7',102,'admin','2018-04-20 22:39:02','0000-00-00 00:00:00'),
 (24,'RADITYA DIKA','radit@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',23,'user','2018-04-09 19:44:31','0000-00-00 00:00:00'),
 (26,'EVAN HIMAWAN SARAGIH','himawanevan24@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082237997747','Jalan Kompi No.8',104,'user','2018-04-11 05:06:10','0000-00-00 00:00:00'),
-(27,'ATIKA SARAGIH','atika@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',24,'user','2018-05-22 09:09:09','0000-00-00 00:00:00');
+(27,'ATIKA SARAGIH','atika@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082235678448','Jalan Megah No.9',24,'user','2018-05-22 09:09:09','0000-00-00 00:00:00'),
+(28,'gajah','gajah@gmail.com','d8578edf8458ce06fbc5bb76a58c5ca4','082237997747','gajah no.1',24,'user','2018-05-23 23:04:47','0000-00-00 00:00:00');
 
 /*Table structure for table `tb_provinsi` */
 
@@ -372,6 +376,30 @@ DELIMITER $$
 
 /*!50106 CREATE DEFINER=`root`@`localhost` EVENT `cek_status` ON SCHEDULE EVERY 3 SECOND STARTS '2018-05-09 09:03:36' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
 	    
+	END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `sp_accept` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `sp_accept` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_accept`(in idpesan int)
+BEGIN
+		DECLARE tglrental DATE;
+		DECLARE tglkembali DATE;
+		DECLARE idmobil INT;
+		
+		SET tglrental =(SELECT tgl_rental FROM tb_pemesanan WHERE id_pemesanan=idpesan);
+		SET tglkembali =(SELECT tgl_pengembalian FROM tb_pemesanan WHERE id_pemesanan=idpesan);
+		SET idmobil =(SELECT id_mobil FROM tb_pemesanan WHERE id_pemesanan=idpesan);
+		
+		update tb_pemesanan
+		set tb_pemesanan.`status` = 'Ditolak'
+		WHERE id_mobil = idmobil AND tb_pemesanan.`status` = 'Masih di proses'
+		and ((tgl_rental BETWEEN tglrental AND tglkembali) 
+		OR (tgl_pengembalian BETWEEN tglrental AND tglkembali));
 	END */$$
 DELIMITER ;
 
