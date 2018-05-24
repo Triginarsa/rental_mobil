@@ -21,12 +21,27 @@ class M_mitra extends CI_Model {
 		$this->db->set('tb_pemesanan.`ket`', $pesan);
 		$this->db->set('tb_pemesanan.`status`', 'Berhasil');
 		$this->db->where('id_pemesanan' , $id);
+
 		$res = $this->db->update('tb_pemesanan');
+
+		// $tglrental = $this->db->query('SELECT tb_pemesanan.`tgl_rental` FROM tb_pemesanan where `id_pemesanan` = '.$id );
+		// $tglkembali = $this->db->query('SELECT tb_pemesanan.`tgl_pengembalian` FROM tb_pemesanan where `id_pemesanan` = '.$id);
+		// $idmobil = $this->db->query('SELECT tb_pemesanan.`id_mobil` FROM tb_pemesanan where `id_pemesanan` = '.$id );
+
+		$this->db->query('call sp_accept('.$id.')');
+
+		// $this->db->set('tb_pemesanan.`status`', 'Ditolak');
+		// $this->db->where('id_mobil' , $idmobil);
+		// $this->db->where('tb_pemesanan' , 'Masih di proses');
+		// $this->db->where("((tgl_rental BETWEEN '".$tglrental."' AND '".$tglkembali."') OR (tgl_pengembalian BETWEEN '".$tglrental."' AND '".$tglkembali."'))",NULL,false);
+		
+		
 		if($res){
 			$this->session->set_flashdata('success_msg', 'Data Order telah disetujui, data dipindahkan ke Data Order');
 		}else{
-			$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Data');
+			$this->session->set_flashdata('error_msg', 'Gagal Menyimpan Data1');
 		}
+
 	}
 
 	public function get_validasiDisagree($id, $pesan){ //update
@@ -57,7 +72,7 @@ class M_mitra extends CI_Model {
 	}
 
 	public function get_detDataOrder($id){
-		$this->db->SELECT('id_pemesanan, tb_pengguna.`nama`, tb_pengguna.`email`, tb_pengguna.`no_hp` AS no_hp_pengguna, tb_pengguna.`alamat`,tb_kota.`kota`,tb_provinsi.`provinsi`, DAYNAME(tgl_rental)AS hari_r,DAY(tgl_rental)AS tgl_r,MONTHNAME(tgl_rental)AS bulan_r,YEAR(tgl_rental)AS tahun_r, DAYNAME(tgl_pengembalian) AS hari_p, DAY(tgl_pengembalian)AS tgl_p, MONTHNAME(tgl_pengembalian) AS bulan_p, YEAR(tgl_pengembalian) AS tahun_p, tb_merk.`merk`, tb_mobil.`nomor_polisi`, tb_pemesanan.`status`,  DAYNAME(tb_pemesanan.`created_at`) AS hari_b, DAY(tb_pemesanan.`created_at`) AS tgl_b, MONTHNAME(tb_pemesanan.`created_at`) AS bulan_b, YEAR(tb_pemesanan.`created_at`) AS tahun_b,TIME(tb_pemesanan.`created_at`) AS waktu, tb_pengguna.`no_hp`,tb_mobil.`tipe_mobil`, tb_mobil.`biaya`,DATEDIFF(tgl_pengembalian,tgl_rental) AS selisih, DATEDIFF(tgl_pengembalian,tgl_rental)*biaya AS total, tb_mobil.`id_mobil`, tb_mobil.`gbr_mobil`, tb_pemesanan.`ket`, tb_mobil.`bahan_bakar`, tb_mobil.`jlh_cc`, tb_mobil.`jlh_penumpang`,tb_mobil.`transmisi`');
+		$this->db->SELECT('id_pemesanan, tb_pengguna.`nama`, tb_pengguna.`email`, tb_pengguna.`no_hp` AS no_hp_pengguna, tb_pengguna.`alamat`,tb_kota.`kota`,tb_provinsi.`provinsi`, DAYNAME(tgl_rental)AS hari_r,DAY(tgl_rental)AS tgl_r,MONTHNAME(tgl_rental)AS bulan_r,YEAR(tgl_rental)AS tahun_r, DAYNAME(tgl_pengembalian) AS hari_p, DAY(tgl_pengembalian)AS tgl_p, MONTHNAME(tgl_pengembalian) AS bulan_p, YEAR(tgl_pengembalian) AS tahun_p, tb_merk.`merk`, tb_mobil.`nomor_polisi`, tb_pemesanan.`status`,  DAYNAME(tb_pemesanan.`created_at`) AS hari_b, DAY(tb_pemesanan.`created_at`) AS tgl_b, MONTHNAME(tb_pemesanan.`created_at`) AS bulan_b, YEAR(tb_pemesanan.`created_at`) AS tahun_b,TIME(tb_pemesanan.`created_at`) AS waktu, tb_pengguna.`no_hp`,tb_mobil.`tipe_mobil`, tb_mobil.`biaya`,DATEDIFF(tgl_pengembalian,tgl_rental) AS selisih, DATEDIFF(tgl_pengembalian,tgl_rental)*biaya AS total, tb_mobil.`id_mobil`, tb_mobil.`gbr_mobil`, tb_pemesanan.`ket`, tb_mobil.`bahan_bakar`, tb_mobil.`jlh_cc`, tb_mobil.`jlh_penumpang`,tb_mobil.`transmisi`, tgl_rental, tgl_pengembalian');
 		$this->db->FROM('tb_pemesanan');
 		$this->db->join('tb_mobil','tb_mobil.`id_mobil` = tb_pemesanan.`id_mobil`');
 		$this->db->join('tb_merk','tb_merk.`id_merk` = tb_mobil.`id_merk`');

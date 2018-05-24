@@ -17,7 +17,7 @@
             </a>
         </div>
         <form method="get" action="<?php echo base_url('c_beranda/getDataByKota/'); ?>">
-            <table>
+            <table class>
                 <tr>
                     <td>
                         <select class="form-control provinsiku" id="val-provinsi" name="val-provinsi" required="">

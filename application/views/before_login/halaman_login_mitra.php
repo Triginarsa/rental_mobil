@@ -23,6 +23,7 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/log_mitra.css')?>" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/respon.css')?>">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <!-- untuk css footer -->
              <style type="text/css">
@@ -42,7 +43,7 @@
             <div id="main-wrapper">
                 <!-- header header  -->
                 <?php include 'header_mitra.php'; ?>
-                <div class="container-fluid edit_form">
+                <div class="container-fluid edit_form res3">
                     <table border="0" class="card_edit">
                         <tbody>
                             <tr>

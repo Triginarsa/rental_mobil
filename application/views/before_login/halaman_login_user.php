@@ -24,6 +24,7 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/fronter.css')?>" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/respon.css')?>">
              <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>">
             <!-- untuk css footer -->
         </head>
@@ -79,7 +80,7 @@
                         ?>
                     </div>
                     <!-- page content -->
-                    <div class="card_edit"><!--mengganti ukuran form-->
+                    <div class="card_edit res1"><!--mengganti ukuran form-->
                         <div class="card card-outline-primary">
                             <div class="card-body">
                                 <form class="form-valide" method="post" action="<?php echo base_url()."auth_user/cek_login";?>">

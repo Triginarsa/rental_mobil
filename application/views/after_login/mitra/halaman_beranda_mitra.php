@@ -23,6 +23,7 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/front.css')?>" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/respon.css')?>">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <!-- untuk css footer -->
         </head>
@@ -50,7 +51,7 @@
                     <!-- Start Page Content -->
                     <div class="card_edit3 col-lg-10">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body res2">
                                 <center> 
                                 <h2><b>Selamat datang <?php echo $this->session->userdata('nama'); ?> ke fitur Mitra RentCar</b></h2>
                                     <span>Kelola mobil Anda bersama kami. Dirancang khusus untuk memudahkan Anda mengatur pelanggan, mobil dalam satu langkah!</span>

@@ -23,6 +23,7 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/fronter.css')?>" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/respon.css')?>">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <style type="text/css">
                 #warna_teks{

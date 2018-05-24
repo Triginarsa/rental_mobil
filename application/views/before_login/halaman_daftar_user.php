@@ -23,6 +23,7 @@
             <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
             <link href="<?php echo base_url('assets/css/fronter.css')?>" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/respon.css')?>">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/footer.css')?>"> 
             <!-- untuk css footer -->
         </head>
@@ -46,7 +47,7 @@
                     
                     <!-- End Bread crumb -->
                     <!-- Container fluid  -->
-                <div class="container-fluid edit_form">
+                <div class="container-fluid edit_form res2">
                     <!-- Start Page Content -->
                     <div class="col-lg-7">
                         <div class="card">
